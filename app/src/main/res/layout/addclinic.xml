@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="30dp"
+    android:layout_height="match_parent">
+
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_profile"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="14dp"
+        android:id="@+id/profilevect"
+        android:layout_above="@+id/lastname" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_person_pin_circle_black_24dp"
+        android:id="@+id/imageView4"
+        android:layout_alignLeft="@+id/profilevect"
+        android:layout_alignStart="@+id/profilevect"
+        android:layout_alignTop="@+id/qualification"
+        android:layout_alignBottom="@+id/qualification" />
+
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_city"
+        android:id="@+id/imageView6"
+        android:layout_toLeftOf="@+id/qualification"
+        android:layout_toStartOf="@+id/qualification"
+        android:layout_alignBottom="@+id/editText8"
+        android:layout_alignTop="@+id/editText8" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:layout_below="@+id/qualification"
+        android:layout_toRightOf="@+id/imageView6"
+        android:id="@+id/editText8"
+        android:fontFamily="sans-serif"
+        android:typeface="normal"
+        android:textSize="25sp"
+        android:textColor="?attr/colorPrimary"
+
+        android:layout_marginTop="16dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:singleLine="true"
+        android:hint="City" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="phone"
+
+        android:ems="10"
+        android:layout_below="@+id/imageView6"
+        android:layout_toRightOf="@+id/imageView6"
+        android:layout_marginTop="15dp"
+        android:id="@+id/phnumber"
+        android:hint="Phone Number"
+        android:typeface="normal"
+        android:textSize="25sp"
+        android:fontFamily="sans-serif"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:singleLine="true" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_call_black_24dp"
+        android:layout_alignTop="@+id/phnumber"
+        android:layout_alignLeft="@+id/imageView6"
+        android:layout_alignStart="@+id/imageView6"
+        android:id="@+id/imageView8"
+        android:layout_alignBottom="@+id/phnumber" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textEmailAddress"
+        android:ems="10"
+        android:layout_below="@+id/phnumber"
+        android:layout_toRightOf="@+id/imageView8"
+        android:layout_marginTop="17dp"
+        android:id="@+id/emailid"
+        android:hint="Email-id"
+        android:singleLine="true"
+        android:typeface="normal"
+        android:fontFamily="sans-serif"
+        android:textSize="25sp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_mail_black_24dp"
+        android:layout_alignBottom="@+id/emailid"
+        android:layout_alignLeft="@+id/imageView8"
+        android:layout_alignStart="@+id/imageView8"
+        android:id="@+id/imageView10"
+        android:layout_alignTop="@+id/emailid" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:layout_below="@+id/emailid"
+        android:layout_toRightOf="@+id/imageView10"
+        android:layout_marginTop="16dp"
+        android:id="@+id/pincode"
+        android:singleLine="true"
+        android:hint="@string/pincode"
+        android:textSize="25sp"
+        android:fontFamily="sans-serif"
+        android:typeface="normal"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_pin_drop_black_24dp"
+        android:layout_alignBottom="@+id/pincode"
+        android:layout_alignLeft="@+id/imageView10"
+        android:layout_alignStart="@+id/imageView10"
+        android:id="@+id/imageView11"
+        android:layout_alignTop="@+id/pincode" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:id="@+id/qualification"
+        android:fontFamily="sans-serif"
+        android:typeface="normal"
+        android:textSize="25sp"
+        android:textColor="?attr/colorPrimary"
+        android:hint="Address"
+        android:singleLine="true"
+        android:layout_below="@+id/firstname"
+        android:layout_toRightOf="@+id/imageView4"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:id="@+id/firstname"
+        android:typeface="normal"
+        android:textSize="25sp"
+        android:hint="Firstname"
+        android:textColor="?attr/colorPrimary"
+        android:singleLine="true"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/profilevect"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+
+</RelativeLayout>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_dashboard"
+            android:icon="@drawable/ic_dashboard"
+            android:title="Dashboard" />
+        <item
+            android:id="@+id/nav_tstest"
+            android:icon="@drawable/ic_test_tube"
+            android:title="TST Test" />
+        <item
+            android:id="@+id/nav_bitest"
+            android:icon="@drawable/ic_bitest"
+
+            android:title="BI Test" />
+
+    </group>
+    <group
+        android:id="@+id/menu_second"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/profile"
+            android:icon="@drawable/ic_profile"
+            android:title="Profile" />
+        <item
+            android:id="@+id/scanhistory"
+            android:icon="@drawable/ic_qrcode_scan"
+            android:title="Scan History" />
+        <item
+            android:id="@+id/bitestremainder"
+            android:icon="@drawable/ic_bitestremainder"
+            android:title="BI Test Remainders" />
+    </group>
+
+
+
+    <item android:title="Others">
+        <menu>
+            <item
+                android:id="@+id/nav_settings"
+                android:icon="@drawable/ic_settings"
+                android:title="Settings" />
+            <item
+                android:id="@+id/nav_feedback"
+                android:icon="@drawable/ic_help"
+                android:title="Help &amp; feedback" />
+            <item
+                android:id="@+id/logout"
+                android:icon="@drawable/ic_power_settings_new_black_24dp"
+                android:title="Log Me Out" />
+        </menu>
+    </item>
+
+</menu>

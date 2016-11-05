@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_otp"
+    android:background="#2196f3"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+     tools:context="com.v7ench.kiyo.OtpActivity">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@color/half_black"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <TextView
+            android:text="Otp has been sent to you on your mobile phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/Otp_message"
+            android:textSize="20sp"
+            android:fontFamily="sans-serif"
+            android:typeface="normal"
+            android:textAlignment="center"
+            android:layout_marginTop="19dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:text="Enter OTP Code"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="93dp"
+            android:id="@+id/enterotp"
+            android:fontFamily="sans-serif"
+            android:typeface="normal"
+            android:textSize="28sp"
+            android:textColor="@android:color/black" />
+
+        <TextView
+            android:text="Didn`t receive the OTP?"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="15dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="195dp"
+            android:id="@+id/otprequest"
+            android:textSize="14sp"
+            android:fontFamily="sans-serif"
+            android:typeface="normal" />
+
+        <android.support.design.widget.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            app:fabSize="normal"
+            android:layout_marginTop="10dp"
+            app:srcCompat="@drawable/ic_send_white_24px"
+            android:id="@+id/otpsend"
+            android:layout_below="@+id/textView7"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="10dp"/>
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:hint="12345"
+            android:id="@+id/otpnumber"
+            android:fontFamily="sans-serif"
+            android:typeface="normal"
+            android:maxLength="5"
+            android:textSize="20sp"
+            android:layout_above="@+id/textView7"
+            android:layout_alignLeft="@+id/otpsend"
+            android:layout_alignStart="@+id/otpsend"
+            android:layout_marginBottom="11dp" />
+
+        <TextView
+            android:text="RESEND CODE"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView7"
+            android:fontFamily="sans-serif"
+            android:typeface="normal"
+            android:textSize="16sp"
+            android:textColor="@color/colorPrimaryDark"
+            android:layout_alignBottom="@+id/otprequest"
+            android:layout_alignRight="@+id/enterotp"
+            android:layout_alignEnd="@+id/enterotp" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

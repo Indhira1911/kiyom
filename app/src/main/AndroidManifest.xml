@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.v7ench.kiyo">
+
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:name=".global.AppController"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".AddDoctor"
+            android:label="@string/title_activity_add_doctor"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.v7ench.kiyo.MainActivity" />
+        </activity>
+        <activity
+            android:name=".AddClinic"
+            android:label="@string/title_activity_add_clinic"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.v7ench.kiyo.MainActivity" />
+        </activity>
+        <activity android:name=".SignActivity" />
+        <activity android:name=".OtpActivity" />
+        <activity
+            android:name=".SplashActivity"
+            android:theme="@style/SplashTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".PagerActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".scanneracti.TstScan"
+            android:label="@string/title_activity_tst_scan"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.v7ench.kiyo.MainActivity" />
+        </activity>
+        <activity android:name=".Forgotpass1" />
+        <activity android:name=".ResetActivity" />
+        <activity
+            android:name=".ScanAttach"
+            android:label="@string/title_activity_scan_attach"
+            android:parentActivityName=".scanneracti.TstScan"
+            android:theme="@style/AppTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.v7ench.kiyo.scanneracti.TstScan" />
+        </activity>
+    </application>
+
+</manifest>

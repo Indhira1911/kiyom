@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -32,6 +33,7 @@ public class ScanAttach extends AppCompatActivity implements
         View.OnClickListener {
     private int mYear, mMonth, mDay;
     EditText Edat,Econtent,Epack,Esterli,Eload;
+    TextView Tdqr;
     ImageButton dateselect,savescn;
     private ProgressDialog dialog;
     String Scontent,Spack,Ssterli,Sload,Sdat,Stype;
@@ -47,6 +49,7 @@ public class ScanAttach extends AppCompatActivity implements
         dialog.setIndeterminate(true);
         dialog.setCancelable(false);
         dialog.setMessage("Loading. Please wait...");
+
         db = new SQLiteHandler(getApplicationContext());
         HashMap<String, String> user = db.getUserDetails();
         final String uid = user.get("uid");
@@ -63,13 +66,14 @@ public class ScanAttach extends AppCompatActivity implements
          dateselect=(ImageButton) findViewById(R.id.dateselectn);
         dateselect.setOnClickListener(this);
         savescn=(ImageButton) findViewById(R.id.savescan);
+        Tdqr=(TextView) findViewById(R.id.qrscani);
         Intent details=getIntent();
          final String Sdqr=details.getStringExtra("sr");
+        Tdqr.setText(Sdqr);
         Ssterli=Sdqr.substring(2,4);
         if (Ssterli.equals("ST"))
         {
             Esterli.setText("STEAM");
-
         }
         else if(Ssterli.equals("GA"))
         {
@@ -82,21 +86,23 @@ public class ScanAttach extends AppCompatActivity implements
         }
 
            savescn.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
+
                 Scontent=Econtent.getText().toString();
                 Spack=Epack.getText().toString();
                 Ssterli=Esterli.getText().toString();
                 Sload=Eload.getText().toString();
                 Sdat=Edat.getText().toString();
                 Stype="pretest";
-if (Scontent.isEmpty()||Ssterli.isEmpty()||Sdat.isEmpty())
+if (Scontent.isEmpty()&&Ssterli.isEmpty()&&Sdat.isEmpty())
 {
+
     Toast.makeText(getApplicationContext(),"Please fill all fields",Toast.LENGTH_SHORT).show();
 }
 else
 {
-    dialog.show();
     prescan(uid,Scontent,Spack,Ssterli,Sload,Sdat,Stype,Sdqr);
 }
             }
@@ -105,6 +111,7 @@ else
 
 public void prescan(final String uid, final String scontent, final String spack, final String ssterli, final String sload, final String sdat, final String stype, final String sdqr)
 {
+
     StringRequest stringRequest = new StringRequest(Request.Method.POST, UrlReq.PRETEST, new Response.Listener<String>() {
         @Override
         public void onResponse(String response) {
@@ -112,8 +119,8 @@ public void prescan(final String uid, final String scontent, final String spack,
                 JSONObject jsonObject =new JSONObject(response);
                 boolean error = jsonObject.getBoolean("error");
                 if (!error)
-                       {
-                           dialog.dismiss();
+                {
+                    dialog.dismiss();
                     Toast.makeText(getApplicationContext(),"Pre test scan has been successfull",Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(ScanAttach.this, MainActivity.class);
                     startActivity(intent);

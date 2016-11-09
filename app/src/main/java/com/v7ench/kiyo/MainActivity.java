@@ -87,7 +87,6 @@ setFloatingButtonControls();
         HashMap<String, String> user = db.getUserDetails();
         final String name = user.get("name");
         final String email = user.get("email");
-
         TextView Docname =(TextView) header.findViewById(R.id.docname);
         TextView Docmail=(TextView) header.findViewById(R.id.docemail);
         Docname.setText(name);
@@ -212,7 +211,7 @@ setFloatingButtonControls();
                     boolean cameraAccepted = grantResults[1] == PackageManager.PERMISSION_GRANTED;
 
                     if (locationAccepted && cameraAccepted)
-                        Toast.makeText(getApplication(),"Permission Granted, Now you can access location data and camera.",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplication(),"Permission Granted, Now you can access location data and camera.",Toast.LENGTH_SHORT).cancel();
                     else {
 
                         Toast.makeText(getApplication(),"Permission Denied, You cannot access location data and camera.",Toast.LENGTH_SHORT).show();

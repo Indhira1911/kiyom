@@ -13,6 +13,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.google.zxing.Result;
+import com.v7ench.kiyo.ColorPickerActivity;
 import com.v7ench.kiyo.MainActivity;
 import com.v7ench.kiyo.R;
 import com.v7ench.kiyo.ScanAttach;
@@ -89,15 +90,11 @@ public class TstScan extends AppCompatActivity implements ZXingScannerView.Resul
                     boolean error = jObj.getBoolean("error");
                     if (error)
                     {
-                                             JSONObject user = jObj.getJSONObject("user");
-                        String content = user.getString("content");
-                        String pack = user.getString("pack");
-                        String sterlizer = user .getString("sterlizer");
-                        String sload = user .getString("sload");
-                        String sdate = user.getString("sdate");
+                        JSONObject user = jObj.getJSONObject("user");
                         String dqr = user .getString("dqr");
-                        String type = user .getString("type");
-                        Toast.makeText(getApplicationContext(),content+pack+sterlizer+sload+sdate+dqr+type, Toast.LENGTH_SHORT).show();
+                        Intent myIntent = new Intent(TstScan.this,ColorPickerActivity.class);
+                        myIntent.putExtra("dqr",dqr);
+                        startActivity(myIntent);
                     }
                     else
                     {

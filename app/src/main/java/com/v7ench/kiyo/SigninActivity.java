@@ -128,12 +128,13 @@ private EditText Emobno,Epass;
                         String email = user.getString("email");
                         String pnum = user .getString("pnum");
                         String passme = user .getString("passme");
-
+                        String totstrip = user .getString("totstrip");
                         // Inserting row in users table
                         db.addUser(name, email, uid, pnum);
 if (passme.matches("1")) {
     // Launch main activity
     Intent intent = new Intent(getActivity(), MainActivity.class);
+    intent.putExtra("totstrip",totstrip);
     startActivity(intent);
 }
 else {

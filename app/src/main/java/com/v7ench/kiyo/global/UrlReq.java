@@ -12,6 +12,7 @@ public class UrlReq {
     public static String RESETPASSC ="http://vigneshintech.tk/kiyo/regpass.php";
     public static String PRETEST ="http://vigneshintech.tk/kiyo/prescan.php";
     public static String POSTTEST ="http://vigneshintech.tk/kiyo/postscan.php";
+    public static String POSTCOLUP="http://vigneshintech.tk/kiyo/postcolup.php";
 
 
 }

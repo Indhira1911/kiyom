@@ -31,12 +31,12 @@ import java.util.Map;
 
 public class ScanAttach extends AppCompatActivity implements
         View.OnClickListener {
-    private int mYear, mMonth, mDay;
+    private int mYear, mMonth, mDay,thour,tminu,tseco;
     EditText Edat,Econtent,Epack,Esterli,Eload;
     TextView Tdqr;
     ImageButton dateselect,savescn;
     private ProgressDialog dialog;
-    String Scontent,Spack,Ssterli,Sload,Sdat,Stype;
+    String Scontent,Spack,Ssterli,Sload,Sdat,Stype,Stme;
     private SQLiteHandler db;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,7 +49,6 @@ public class ScanAttach extends AppCompatActivity implements
         dialog.setIndeterminate(true);
         dialog.setCancelable(false);
         dialog.setMessage("Loading. Please wait...");
-
         db = new SQLiteHandler(getApplicationContext());
         HashMap<String, String> user = db.getUserDetails();
         final String uid = user.get("uid");
@@ -57,6 +56,9 @@ public class ScanAttach extends AppCompatActivity implements
         mYear = c.get(Calendar.YEAR);
         mMonth = c.get(Calendar.MONTH);
         mDay = c.get(Calendar.DAY_OF_MONTH);
+        thour=c.get(Calendar.HOUR);
+        tminu=c.get(Calendar.MINUTE);
+        tseco=c.get(Calendar.SECOND);
         Edat=(EditText) findViewById(R.id.Edate);
         Edat.setText(mDay+"/"+mMonth+"/"+mYear);
         Econtent=(EditText) findViewById(R.id.content);
@@ -68,7 +70,7 @@ public class ScanAttach extends AppCompatActivity implements
         savescn=(ImageButton) findViewById(R.id.savescan);
         Tdqr=(TextView) findViewById(R.id.qrscani);
         Intent details=getIntent();
-         final String Sdqr=details.getStringExtra("sr");
+            final String Sdqr=details.getStringExtra("sr");
         Tdqr.setText(Sdqr);
         Ssterli=Sdqr.substring(2,4);
         if (Ssterli.equals("ST"))
@@ -96,6 +98,7 @@ public class ScanAttach extends AppCompatActivity implements
                 Sload=Eload.getText().toString();
                 Sdat=Edat.getText().toString();
                 Stype="pretest";
+                Stme=Integer.toString(thour)+":"+Integer.toString(tminu)+":"+Integer.toString(tseco);
 if (Scontent.isEmpty()&&Ssterli.isEmpty()&&Sdat.isEmpty())
 {
 
@@ -103,13 +106,13 @@ if (Scontent.isEmpty()&&Ssterli.isEmpty()&&Sdat.isEmpty())
 }
 else
 {
-    prescan(uid,Scontent,Spack,Ssterli,Sload,Sdat,Stype,Sdqr);
+    prescan(uid,Scontent,Spack,Ssterli,Sload,Sdat,Stype,Sdqr,Stme);
 }
             }
         });
     }
 
-public void prescan(final String uid, final String scontent, final String spack, final String ssterli, final String sload, final String sdat, final String stype, final String sdqr)
+public void prescan(final String uid, final String scontent, final String spack, final String ssterli, final String sload, final String sdat, final String stype, final String sdqr, final String stme)
 {
 
     StringRequest stringRequest = new StringRequest(Request.Method.POST, UrlReq.PRETEST, new Response.Listener<String>() {
@@ -154,6 +157,7 @@ public void prescan(final String uid, final String scontent, final String spack,
             params.put("sdate",sdat);
             params.put("dqr",sdqr);
             params.put("type",stype);
+            params.put("stme",stme);
             return params;
         }
     };

@@ -20,5 +20,8 @@
     <string name="dummy_content">DUMMY\nCONTENT</string>
     <string name="title_activity_tst_scan">TstScan</string>
     <string name="title_activity_scan_attach">ScanAttach</string>
+    <string name="activity_color_picker_confirm_save_message">Color saved</string>
+    <string name="menu_color_picker_action_flash">Flash</string>
+    <string name="title_activity_tst_scan_result">TST SCAN RESULT</string>
 
 </resources>

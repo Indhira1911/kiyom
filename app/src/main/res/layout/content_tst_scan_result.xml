@@ -8,88 +8,170 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.v7ench.kiyo.TstScanResult"
     tools:showIn="@layout/activity_tst_scan_result">
-
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="150dp"
+    android:id="@+id/tst_cont"
+    android:background="@color/colorAccent">
 
     <TextView
-        android:text="Dr.kumar vel "
-
         android:layout_width="wrap_content"
-        android:textColor="#2d2d2d"
-        android:textSize="20sp"
         android:layout_height="wrap_content"
-        android:id="@+id/tstdocname"
-        android:layout_marginTop="23dp"
+        android:text="TST Test Report"
+        android:textSize="20sp"
+        android:textColor="#fff"
+
+        android:id="@+id/textView"
+        android:layout_below="@+id/imageView7"
+        android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+
+        android:src="@drawable/ttev"
+        android:id="@+id/imageView7"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
 
-    <TextView
-            android:text="Contents"
+</RelativeLayout>
+
+    <RelativeLayout
+        android:padding="10dp"
+        android:layout_width="match_parent"
+        android:id="@+id/conte_tst"
+        android:layout_below="@+id/tst_cont"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@drawable/letsdraw2"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true">
+        <TextView
+            android:text="Dr.kumar vel "
+
+            android:layout_width="wrap_content"
+            android:textColor="#2d2d2d"
+            android:textSize="20sp"
+            android:layout_height="wrap_content"
+            android:id="@+id/tstdocname"
+            android:layout_marginTop="23dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true" />
+
+        <TextView
+                android:text="CONTENTS"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView9"
+            android:layout_marginTop="55dp"
+            android:layout_marginLeft="23dp"
+            android:layout_marginStart="23dp"
+            android:layout_below="@+id/tstdocname"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:textSize="18sp" />
+
+        <TextView
+            android:text="PRE TEST COLOR"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/textView9"
-        android:layout_marginTop="55dp"
-        android:layout_marginLeft="23dp"
-        android:layout_marginStart="23dp"
-        android:layout_below="@+id/tstdocname"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:textSize="18sp" />
+            android:layout_below="@+id/textView9"
+            android:layout_alignLeft="@+id/textView9"
+            android:layout_alignStart="@+id/textView9"
+            android:layout_marginTop="23dp"
+            android:id="@+id/textView10"
+            android:textSize="18sp" />
 
-    <TextView
-        android:text="Pre Test Color"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textView9"
-        android:layout_alignLeft="@+id/textView9"
-        android:layout_alignStart="@+id/textView9"
-        android:layout_marginTop="26dp"
-        android:id="@+id/textView10"
-        android:textSize="18sp" />
+        <TextView
+            android:text="POST TEST COLOR"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView10"
+            android:layout_alignLeft="@+id/textView10"
+            android:layout_alignStart="@+id/textView10"
+            android:layout_marginTop="23dp"
+            android:id="@+id/textView11"
+            android:textSize="18sp" />
 
-    <TextView
-        android:text="Post Test Color"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textView10"
-        android:layout_alignLeft="@+id/textView10"
-        android:layout_alignStart="@+id/textView10"
-        android:layout_marginTop="23dp"
-        android:id="@+id/textView11"
-        android:textSize="18sp" />
+        <TextView
+            android:text="TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/textView10"
+            android:layout_toRightOf="@+id/textView11"
+            android:layout_toEndOf="@+id/textView11"
+            android:layout_marginLeft="69dp"
+            android:layout_marginStart="69dp"
+            android:id="@+id/content_text"
+            android:textSize="18sp"
+            android:textColor="#2d2d2d" />
 
-    <TextView
-        android:text="TextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/textView10"
-        android:layout_toRightOf="@+id/textView11"
-        android:layout_toEndOf="@+id/textView11"
-        android:layout_marginLeft="69dp"
-        android:layout_marginStart="69dp"
-        android:id="@+id/content_text"
-        android:textSize="18sp"
-        android:textColor="#2d2d2d" />
+        <TextView
+            android:text="TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/textView11"
+            android:layout_alignLeft="@+id/content_text"
+            android:layout_alignStart="@+id/content_text"
+            android:id="@+id/pretest_color"
+            android:textColor="#2d2d2d"
+            android:textSize="18sp" />
 
-    <TextView
-        android:text="TextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/textView11"
-        android:layout_alignLeft="@+id/content_text"
-        android:layout_alignStart="@+id/content_text"
-        android:id="@+id/pretest_color"
-        android:textColor="#2d2d2d"
-        android:textSize="18sp" />
+        <TextView
+            android:text="postcolor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/textView11"
+            android:layout_alignLeft="@+id/pretest_color"
+            android:layout_alignStart="@+id/pretest_color"
+            android:id="@+id/post_test_color"
+            android:textSize="18sp"
+            android:textColor="#2d2d2d" />
 
-    <TextView
-        android:text="postcolor"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/textView11"
-        android:layout_alignLeft="@+id/pretest_color"
-        android:layout_alignStart="@+id/pretest_color"
-        android:id="@+id/post_test_color"
-        android:textSize="18sp"
-        android:textColor="#2d2d2d" />
+        <TextView
+            android:text="TEST RESULT"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView12"
+            android:textSize="18sp"
+            android:layout_marginTop="23dp"
+            android:layout_below="@+id/textView11"
+            android:layout_alignLeft="@+id/textView11"
+            android:layout_alignStart="@+id/textView11" />
 
+        <TextView
+            android:text="TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/textView12"
+            android:layout_alignLeft="@+id/post_test_color"
+            android:textSize="18sp"
+            android:textColor="#2d2d2d"
+            android:layout_alignStart="@+id/post_test_color"
+            android:id="@+id/test_result" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/normal_qr"
+            android:id="@+id/imageView16"
+          android:layout_below="@id/textView12"
+            android:layout_marginTop="23dp"
+            android:layout_alignLeft="@+id/textView12"
+            android:layout_alignStart="@+id/textView12" />
+
+        <TextView
+            android:text="KISTAAAADD13112016"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/qr_scanned"
+            android:textSize="16sp"
+            android:textColor="#2d2d2d"
+            android:layout_marginTop="12dp"
+            android:layout_marginLeft="10dp"
+            android:layout_alignTop="@+id/imageView16"
+            android:layout_toRightOf="@+id/imageView16"
+            android:layout_toEndOf="@+id/imageView16" />
+
+    </RelativeLayout>
 </RelativeLayout>

@@ -23,5 +23,9 @@
     <string name="activity_color_picker_confirm_save_message">Color saved</string>
     <string name="menu_color_picker_action_flash">Flash</string>
     <string name="title_activity_tst_scan_result">TST SCAN RESULT</string>
+    <string name="title_activity_bio_test_scan">BioTestScan</string>
+    <string name="title_activity_biotest_result">BioTestResult</string>
+    <string name="title_activity_tst_result">TST TEST</string>
+    <string name="title_activity_biotestres">Bio Test Result</string>
 
 </resources>

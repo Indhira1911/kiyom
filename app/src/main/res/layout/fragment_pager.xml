@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="@dimen/activity_horizontal_margin"
+
     tools:context=".PagerActivity$PlaceholderFragment">
 
 
@@ -12,12 +12,12 @@
 
         <ImageView
             android:id="@+id/section_img"
-            android:layout_width="192dp"
-            android:layout_height="192dp"
+            android:layout_width="317dp"
+            android:layout_height="424dp"
             android:layout_gravity="center"
             android:adjustViewBounds="true"
-            android:alpha="0.30"
-            android:background="@drawable/ic_flight_24dp"
+
+            android:background="@drawable/slider1"
             android:scaleType="fitCenter" />
 
 
@@ -29,6 +29,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
         android:gravity="center"
+        android:background="@color/colorPrimary"
         android:orientation="vertical"
         android:padding="@dimen/activity_horizontal_margin">
 
@@ -46,6 +47,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/activity_horizontal_margin"
             android:alpha="0.7"
+            android:id="@+id/section_label2"
             android:gravity="center"
             android:text="Add a long description here about your app's important feature."
             android:textColor="@android:color/white" />

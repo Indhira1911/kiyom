@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+   android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="10dp"
+    android:id="@+id/norm_list">
+
+    <ImageView
+        android:layout_width="46dp"
+        android:background="@drawable/b_test"
+        android:layout_height="55dp"
+         android:id="@+id/imageView17"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/bior"
+
+        android:layout_marginLeft="10dp"
+        android:layout_gravity="center_vertical"
+        android:textColor="#2d2d2d"
+        android:textSize="15dp"
+        android:text="Content"
+        android:layout_weight="1"
+        />
+
+    <Button
+        android:text="Request Pickup"
+        android:background="@color/white_pressed"
+        android:padding="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/req_pic"
+        />
+
+</LinearLayout>

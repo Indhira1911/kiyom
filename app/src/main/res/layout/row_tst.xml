@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="10dp"
+    android:id="@+id/norm_list">
+
+    <ImageView
+        android:layout_width="46dp"
+        android:background="@drawable/ttev"
+        android:layout_height="55dp"
+        app:srcCompat="@drawable/ttev"
+        android:id="@+id/imageView17"
+        />
+   <TextView
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:id="@+id/conte"
+
+       android:layout_marginLeft="10dp"
+       android:layout_gravity="center_vertical"
+       android:textColor="#2d2d2d"
+       android:textSize="20dp"
+       android:text="Content"
+       android:layout_weight="1"
+       />
+
+    <RatingBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:stepSize="1"
+        android:theme="@style/RatingBar"
+        android:id="@+id/ratingBar"
+        android:numStars="1"
+        android:isIndicator="false"
+        />
+</LinearLayout>

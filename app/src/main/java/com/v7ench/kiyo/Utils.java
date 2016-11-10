@@ -10,8 +10,6 @@ public class Utils {
 
     private static final String PREFERENCES_FILE = "materialsample_settings";
 
-
-
     public static Drawable tintMyDrawable(Drawable drawable, int color) {
         drawable = DrawableCompat.wrap(drawable);
         DrawableCompat.setTint(drawable, color);
@@ -31,5 +29,6 @@ public class Utils {
         editor.putString(settingName, settingValue);
         editor.apply();
     }
+
 
 }

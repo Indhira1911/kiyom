@@ -1,6 +1,7 @@
 package com.v7ench.kiyo;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -11,7 +12,7 @@ import com.v7ench.kiyo.dbhandler.SQLiteHandler;
 import java.util.HashMap;
 
 public class TstScanResult extends AppCompatActivity {
-TextView docname,conte,prcol,pocol;
+TextView docname,conte,prcol,pocol,resulttst,scandqr;
     private SQLiteHandler db;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +25,8 @@ TextView docname,conte,prcol,pocol;
         conte=(TextView) findViewById(R.id.content_text);
         prcol=(TextView) findViewById(R.id.pretest_color);
         pocol=(TextView) findViewById(R.id.post_test_color);
+resulttst=(TextView) findViewById(R.id.test_result);
+        scandqr=(TextView) findViewById(R.id.qr_scanned);
         db = new SQLiteHandler(getApplicationContext());
 
         HashMap<String, String> user = db.getUserDetails();
@@ -34,11 +37,22 @@ TextView docname,conte,prcol,pocol;
         String sterlizer = details.getStringExtra("sterlizer");
         String sload = details.getStringExtra("sload");
         String sdate = details.getStringExtra("sdate");
-        String dqrres = details.getStringExtra("dqr");
+        String dqrres = details.getStringExtra("dqres");
         String type = details.getStringExtra("type");
         String precolor = details.getStringExtra("precolor");
         String postcol=details.getStringExtra("postcol");
-        docname.setText("DR."+name);
+        if (postcol.equals("#ffffff"))
+        {
+            resulttst.setText("SAFE");
+            resulttst.setTextColor(Color.parseColor("#689F38"));
+        }
+        else
+        {
+            resulttst.setText("UNSAFE");
+            resulttst.setTextColor(Color.parseColor("#C62828"));
+        }
+        scandqr.setText(dqrres);
+       docname.setText("DR."+name);
         conte.setText(content);
         prcol.setText(precolor);
         pocol.setText(postcol);

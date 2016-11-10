@@ -59,7 +59,7 @@ public class PagerActivity extends AppCompatActivity {
             getWindow().getDecorView().setSystemUiVisibility(
                     View.SYSTEM_UI_FLAG_LAYOUT_STABLE
                             | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
-            getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.black_trans80));
+
         }
 
         setContentView(R.layout.activity_pager);
@@ -85,9 +85,7 @@ public class PagerActivity extends AppCompatActivity {
 
         mCoordinator = (CoordinatorLayout) findViewById(R.id.main_content);
 
-
         indicators = new ImageView[]{zero, one, two, three};
-
         // Set up the ViewPager with the sections adapter.
         mViewPager = (ViewPager) findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
@@ -98,7 +96,7 @@ public class PagerActivity extends AppCompatActivity {
         final int color1 = ContextCompat.getColor(this, R.color.cyan);
         final int color2 = ContextCompat.getColor(this, R.color.orange);
         final int color3 = ContextCompat.getColor(this, R.color.green);
-        final int color4 = ContextCompat.getColor(this, R.color.cyan);
+        final int color4 = ContextCompat.getColor(this, R.color.slider4c);
         final int[] colorList = new int[]{color1, color2, color3, color4};
 
         final ArgbEvaluator evaluator = new ArgbEvaluator();
@@ -198,8 +196,13 @@ public class PagerActivity extends AppCompatActivity {
 
         ImageView img;
 
-        int[] bgs = new int[]{R.drawable.ic_flight_24dp, R.drawable.ic_mail_24dp, R.drawable.ic_explore_24dp, R.drawable.ic_flight_24dp};
-
+        int[] bgs = new int[]{R.drawable.slider1, R.drawable.slider2, R.drawable.slider3, R.drawable.slider4};
+String[] headi=new String[]{"Welcome to KIYO","Result Accuracy Guaranteed","Specialized Lab Test","Join us to bring a CHANGE"};
+        String[] subheadi= new String[]{"Ensure your instruments are clean and get certified \n" +
+                "by the industry experts. Introducing KIYO Clinic. ","Scan Test Strips and get 99% result accuracy.\n" +
+                "Complete sterilization guaranteed.","Scan, test and send BI strips to get them \n" +
+                "tested at the lab by the specialists.","Be a part of KIYO Family and guarantee\n" +
+                "complete peace of mind to your patients."};
         public PlaceholderFragment() {
         }
 
@@ -220,8 +223,9 @@ public class PagerActivity extends AppCompatActivity {
                                  Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_pager, container, false);
             TextView textView = (TextView) rootView.findViewById(R.id.section_label);
-            textView.setText(getString(R.string.section_format, getArguments().getInt(ARG_SECTION_NUMBER)));
-
+            TextView textView1=(TextView) rootView.findViewById(R.id.section_label2);
+            textView.setText(headi[getArguments().getInt(ARG_SECTION_NUMBER)-1]);
+textView1.setText(subheadi[getArguments().getInt(ARG_SECTION_NUMBER)-1]);
             img = (ImageView) rootView.findViewById(R.id.section_img);
             img.setBackgroundResource(bgs[getArguments().getInt(ARG_SECTION_NUMBER) - 1]);
 

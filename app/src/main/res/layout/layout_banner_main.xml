@@ -6,7 +6,7 @@
 
 
     <TextView
-        android:text="01"
+        android:text="00"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/safe_num"
@@ -47,7 +47,7 @@
         android:layout_alignParentEnd="true" />
 
     <TextView
-        android:text="14"
+        android:text="00"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/remaining_num"
@@ -77,7 +77,7 @@
         android:layout_alignStart="@+id/safe_num" />
 
     <TextView
-        android:text="15"
+        android:text="00"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="49dp"

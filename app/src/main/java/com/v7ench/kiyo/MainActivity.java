@@ -1,18 +1,21 @@
 package com.v7ench.kiyo;
 
-import android.content.DialogInterface;
+import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -27,17 +30,13 @@ import com.v7ench.kiyo.scanneracti.TstScan;
 
 import java.util.HashMap;
 
-import static android.Manifest.permission.ACCESS_FINE_LOCATION;
-import static android.Manifest.permission.CAMERA;
-
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     private static final int PERMISSION_REQUEST_CODE = 200;
-
     private SQLiteHandler db;
     private SessionManager session;
-
+    int PERMISSION_ALL = 1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,12 +49,11 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View view) {
 //                Toast.makeText(getApplicationContext(),"BIO Test",Toast.LENGTH_SHORT).show();
-                Intent myIntent = new Intent(MainActivity.this, AddDoctor.class);
+                Intent myIntent = new Intent(MainActivity.this, BioTestScan.class);
                 MainActivity.this.startActivity(myIntent);
             }
         });
-        ActivityCompat.requestPermissions(this, new String[]{ACCESS_FINE_LOCATION, CAMERA}, PERMISSION_REQUEST_CODE);
-        final FloatingActionButton actionB = (FloatingActionButton) findViewById(R.id.action_b);
+              final FloatingActionButton actionB = (FloatingActionButton) findViewById(R.id.action_b);
         actionB.setTitle("TST Test");
 
         actionB.setOnClickListener(new View.OnClickListener() {
@@ -91,6 +89,11 @@ setFloatingButtonControls();
         TextView Docmail=(TextView) header.findViewById(R.id.docemail);
         Docname.setText(name);
         Docmail.setText(email);
+        String[] PERMISSIONS = {Manifest.permission.READ_SMS, Manifest.permission.CAMERA};
+
+        if(!hasPermissions(this, PERMISSIONS)){
+            ActivityCompat.requestPermissions(this, PERMISSIONS, PERMISSION_ALL);
+        }
 
     }
     private void setFloatingButtonControls(){
@@ -115,18 +118,7 @@ setFloatingButtonControls();
         });
 
     }
-    @Override
-    public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
-        } else {
-            Intent startMain = new Intent(Intent.ACTION_MAIN);
-            startMain.addCategory(Intent.CATEGORY_HOME);
-            startMain.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            startActivity(startMain);
-        }
-    }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -159,9 +151,11 @@ setFloatingButtonControls();
         if (id == R.id.nav_dashboard) {
             // Handle the camera action
         } else if (id == R.id.nav_tstest) {
-
+            Intent intent = new Intent(MainActivity.this, TstResult.class);
+            startActivity(intent);
         } else if (id == R.id.nav_bitest) {
-
+            Intent intent = new Intent(MainActivity.this, Biotestres.class);
+            startActivity(intent);
         }  else if (id == R.id.profile) {
 
         } else if (id == R.id.scanhistory) {
@@ -196,55 +190,55 @@ setFloatingButtonControls();
     }
 
 
-
-
-
-
-
-    @Override
-    public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
-        switch (requestCode) {
-            case PERMISSION_REQUEST_CODE:
-                if (grantResults.length > 0) {
-
-                    boolean locationAccepted = grantResults[0] == PackageManager.PERMISSION_GRANTED;
-                    boolean cameraAccepted = grantResults[1] == PackageManager.PERMISSION_GRANTED;
-
-                    if (locationAccepted && cameraAccepted)
-                        Toast.makeText(getApplication(),"Permission Granted, Now you can access location data and camera.",Toast.LENGTH_SHORT).cancel();
-                    else {
-
-                        Toast.makeText(getApplication(),"Permission Denied, You cannot access location data and camera.",Toast.LENGTH_SHORT).show();
-                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                            if (shouldShowRequestPermissionRationale(ACCESS_FINE_LOCATION)) {
-                                showMessageOKCancel("You need to allow access to both the permissions",
-                                        new DialogInterface.OnClickListener() {
-                                            @Override
-                                            public void onClick(DialogInterface dialog, int which) {
-                                                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                                                    requestPermissions(new String[]{ACCESS_FINE_LOCATION, CAMERA},
-                                                            PERMISSION_REQUEST_CODE);
-                                                }
-                                            }
-                                        });
-                                return;
-                            }
-                        }
-
-                    }
+    public static boolean hasPermissions(Context context, String... permissions) {
+        if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && context != null && permissions != null) {
+            for (String permission : permissions) {
+                if (ActivityCompat.checkSelfPermission(context, permission) != PackageManager.PERMISSION_GRANTED) {
+                    return false;
                 }
+            }
+        }
+        return true;
+    }
+    Boolean doubleBackToExitPressedOnce = false;
+    @Override
+    public void onBackPressed() {
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        if (drawer.isDrawerOpen(GravityCompat.START)) {
+            drawer.closeDrawer(GravityCompat.START);
+        } else {
+            if (doubleBackToExitPressedOnce) {
+                Intent startMain = new Intent(Intent.ACTION_MAIN);
+                startMain.addCategory(Intent.CATEGORY_HOME);
+                startMain.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(startMain);
 
+            }
 
-                break;
+            this.doubleBackToExitPressedOnce = true;
+            Toast.makeText(this, "Please click BACK again to exit", Toast.LENGTH_SHORT).show();
+
+            new Handler().postDelayed(new Runnable() {
+
+                @Override
+                public void run() {
+                    doubleBackToExitPressedOnce=false;
+                }
+            }, 2000);
+
         }
     }
 
-    private void showMessageOKCancel(String message, DialogInterface.OnClickListener okListener) {
-        new AlertDialog.Builder(MainActivity.this)
-                .setMessage(message)
-                .setPositiveButton("OK", okListener)
-                .create()
-                .show();
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event)  {
+        if (Integer.parseInt(android.os.Build.VERSION.SDK) > 5
+                && keyCode == KeyEvent.KEYCODE_BACK
+                && event.getRepeatCount() == 0) {
+            Log.d("CDA", "onKeyDown Called");
+            onBackPressed();
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
     }
 
 }

@@ -8,10 +8,11 @@
     <color name="white_pressed">#42A5F5</color>
     <color name="black_semi_transparent">#B2BBDEFB</color>
     <color name="black_trans80">#14000000</color>
-    <color name="cyan">#00BCD4</color>
+    <color name="cyan">#673bb7</color>
     <color name="indicator_unselected">#4D000000</color>
-    <color name="green">#4CAF50</color>
-    <color name="orange">#FF9800</color>
+    <color name="green">#9c28b1</color>
+    <color name="orange">#FEC107</color>
+    <color name="slider4c">#EA1E63</color>
     <color name="activity_color_picker_pointer_ring">#FFFFFFFF</color>
 
     <color name="pointer_color">#80FFFFFF</color>

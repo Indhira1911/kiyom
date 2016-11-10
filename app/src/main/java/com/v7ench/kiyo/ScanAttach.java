@@ -59,6 +59,7 @@ public class ScanAttach extends AppCompatActivity implements
         thour=c.get(Calendar.HOUR);
         tminu=c.get(Calendar.MINUTE);
         tseco=c.get(Calendar.SECOND);
+        mMonth=mMonth+1;
         Edat=(EditText) findViewById(R.id.Edate);
         Edat.setText(mDay+"/"+mMonth+"/"+mYear);
         Econtent=(EditText) findViewById(R.id.content);

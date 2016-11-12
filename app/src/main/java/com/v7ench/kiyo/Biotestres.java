@@ -27,6 +27,7 @@ public class Biotestres extends AppCompatActivity {
     ListAdapter adapter;
     ArrayList<HashMap<String, String>> Item_List;
     public static final String CONTENTT = "biodqr";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,6 +36,7 @@ public class Biotestres extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         biore=(ListView) findViewById(R.id.biores);
+
         db = new SQLiteHandler(getApplicationContext());
         HashMap<String, String> user = db.getUserDetails();
         final String uid = user.get("uid");

@@ -1,6 +1,7 @@
 package com.v7ench.kiyo.global;
 
 import android.app.Application;
+import android.support.multidex.MultiDex;
 import android.text.TextUtils;
 
 import com.android.volley.Request;
@@ -21,8 +22,8 @@ public class AppController extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        // initialize the singleton
-        mInstance = this;
+         mInstance = this;
+        MultiDex.install(this);
     }
 
     public static synchronized AppController getInstance() {

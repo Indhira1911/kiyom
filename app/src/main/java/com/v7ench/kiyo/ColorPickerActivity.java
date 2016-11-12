@@ -41,16 +41,6 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
-
-/**
- * An {@link android.support.v7.app.AppCompatActivity} for picking colors by using the camera of the device.
- * <p/>
- * The user aims at a color with the camera of the device, when they click on the preview the color is selected.
- * An animation notifies the user of the selection.
- * <p/>
- * The last selected color can be saved by clicking the save button.
- * An animation notifies the user of the save.
- */
 public class ColorPickerActivity extends AppCompatActivity implements CameraColorPickerPreview.OnColorSelectedListener, View.OnClickListener {
 
     /**
@@ -411,9 +401,7 @@ public  void pcolor(final String dqr, final String postcol)
         }
     }
 
-    /**
-     * Initialize the deltas used for the translation of the preview of the picked color.
-     */
+
     @SuppressLint("NewApi")
     protected void initTranslationDeltas() {
         ViewTreeObserver vto = mPointerRing.getViewTreeObserver();
@@ -473,19 +461,10 @@ public  void pcolor(final String dqr, final String postcol)
         });
     }
 
-    /**
-     * Check if the device's camera supports flash.
-     *
-     * @return Returns true if the device's camera supports flash, false otherwise.
-     */
     protected boolean isFlashSupported() {
         return getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA_FLASH);
     }
 
-    /**
-     * Toggle the device's camera flash.
-     * {@link ColorPickerActivity#isFlashSupported()} should be called before using this methods.
-     */
     protected void toggleFlash() {
         if (mCamera != null) {
             final Camera.Parameters parameters = mCamera.getParameters();
@@ -499,31 +478,19 @@ public  void pcolor(final String dqr, final String postcol)
         }
     }
 
-    /**
-     * Initialize the animator used for the progress of the "save completed" state.
-     */
+
     protected void initSaveCompletedProgressAnimator() {
         mSaveCompletedProgressAnimator = ObjectAnimator.ofFloat(this, SAVE_COMPLETED_PROGRESS_PROPERTY_NAME, 1f, 0f);
     }
 
-    /**
-     * Apply the preview color.
-     * <p/>
-     * Display the preview color and its human representation.
-     *
-     * @param previewColor the preview color to apply.
-     */
+
     protected void applyPreviewColor(int previewColor) {
         setSaveCompleted(false);
         mPickedColorPreview.getBackground().setColorFilter(previewColor, PorterDuff.Mode.SRC_ATOP);
         mColorPreviewText.setText(ColorItem.makeHexString(previewColor));
     }
 
-    /**
-     * Animate the color being picked.
-     *
-     * @param pickedColor the color being picked.
-     */
+
     protected void animatePickedColor(int pickedColor) {
         mLastPickedColor = pickedColor;
         if (mPickedColorProgressAnimator.isRunning()) {
@@ -532,13 +499,7 @@ public  void pcolor(final String dqr, final String postcol)
         mPickedColorProgressAnimator.start();
     }
 
-    /**
-     * Set the "save completed" state.
-     * <p/>
-     * True means that the save is completed. The preview color should not be saved again.
-     *
-     * @param isSaveCompleted the "save completed" state.
-     */
+
     protected void setSaveCompleted(boolean isSaveCompleted) {
         mSaveButton.setEnabled(!isSaveCompleted);
         mSaveCompletedProgressAnimator.cancel();
@@ -573,17 +534,12 @@ public  void pcolor(final String dqr, final String postcol)
         mSaveCompletedProgress = progress;
     }
 
-    /**
-     * Async task used to configure and start the camera preview.
-     */
+
     private class CameraAsyncTask extends AsyncTask<Void, Void, Camera> {
 
-        /**
-         * The {@link android.view.ViewGroup.LayoutParams} used for adding the preview to its container.
-         */
         protected FrameLayout.LayoutParams mPreviewParams;
 
-        @SuppressWarnings("WrongThread")
+
         @Override
         protected Camera doInBackground(Void... params) {
             Camera camera = getCameraInstance();

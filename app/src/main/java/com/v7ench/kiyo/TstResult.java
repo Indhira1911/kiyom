@@ -91,9 +91,7 @@ ListView tst=null;
 
             }
         });
-
-        // Adding request to request queue
-        AppController.getInstance().addToRequestQueue(jreq);
+         AppController.getInstance().addToRequestQueue(jreq);
 
     }
 

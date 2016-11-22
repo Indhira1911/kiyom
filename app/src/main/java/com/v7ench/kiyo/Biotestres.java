@@ -182,7 +182,7 @@ public class Biotestres extends AppCompatActivity {
                 holder = new ViewHolder();
                 holder.conten=(TextView) convertView.findViewById(R.id.bconte);
                 holder.tda=(TextView) convertView.findViewById(R.id.btdate);
-                holder.tti=(TextView) convertView.findViewById(R.id.ttime);
+                holder.tti=(TextView) convertView.findViewById(R.id.bttime);
 
                 convertView.setTag(holder);
 

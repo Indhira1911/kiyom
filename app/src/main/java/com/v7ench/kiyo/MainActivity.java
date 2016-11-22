@@ -158,15 +158,10 @@ setFloatingButtonControls();
             startActivity(intent);
         }  else if (id == R.id.profile) {
 
-        } else if (id == R.id.scanhistory) {
-
-        }
-        else if (id == R.id.bitestremainder)
-        {
-
         }
         else if (id == R.id.nav_settings){
-
+            Intent intent = new Intent(MainActivity.this, Settingsall.class);
+            startActivity(intent);
         }
         else if (id == R.id.nav_feedback)
         {

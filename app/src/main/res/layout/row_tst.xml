@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:padding="10dp"
     android:id="@+id/norm_list">
@@ -13,18 +13,42 @@
         app:srcCompat="@drawable/ttev"
         android:id="@+id/imageView17"
         />
-   <TextView
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:id="@+id/conte"
 
-       android:layout_marginLeft="10dp"
-       android:layout_gravity="center_vertical"
-       android:textColor="#2d2d2d"
-       android:textSize="20dp"
-       android:text="Content"
-       android:layout_weight="1"
-       />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/bconte"
+        android:layout_margin="2dp"
+        android:layout_gravity="center_vertical"
+        android:textColor="#2d2d2d"
+        android:textSize="20dp"
+        android:text="Content"
+      android:padding="5dp"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/imageView17"
+        android:layout_toEndOf="@+id/imageView17" />
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ttime"
+        android:padding="2dp"
+        android:layout_below="@+id/bconte"
+        android:layout_alignBaseline="@+id/btdate"
+        android:layout_alignBottom="@+id/btdate"
+        android:layout_toRightOf="@+id/btdate"
+     />
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btdate"
+        android:padding="2dp"
+        android:layout_below="@+id/bconte"
+        android:layout_toRightOf="@+id/imageView17"
+        android:layout_toEndOf="@+id/imageView17" />
 
     <RatingBar
         android:layout_width="wrap_content"
@@ -34,5 +58,7 @@
         android:id="@+id/ratingBar"
         android:numStars="1"
         android:isIndicator="false"
-        />
-</LinearLayout>
+        android:layout_alignTop="@+id/bconte"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+</RelativeLayout>

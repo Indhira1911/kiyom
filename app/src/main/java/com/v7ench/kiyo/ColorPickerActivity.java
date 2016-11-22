@@ -539,9 +539,7 @@ public  void pcolor(final String dqr, final String postcol)
                 //get proportional dimension for the layout used to display preview according to the preview size used
                 int[] adaptedDimension = Cameras.getProportionalDimension(
                         bestSize
-                        , mPreviewContainer.getWidth()
-                        , mPreviewContainer.getHeight()
-                        , mIsPortrait);
+                        , mPreviewContainer.getWidth(),mPreviewContainer.getHeight(), mIsPortrait);
 
                 //set up params for the layout used to display the preview
                 mPreviewParams = new FrameLayout.LayoutParams(adaptedDimension[0], adaptedDimension[1]);

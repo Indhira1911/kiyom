@@ -14,7 +14,8 @@ public class UrlReq {
     public static String POSTTEST ="http://vigneshintech.tk/kiyo/postscan.php";
     public static String POSTCOLUP="http://vigneshintech.tk/kiyo/postcolup.php";
     public static String BIOSCAN="http://vigneshintech.tk/kiyo/biotst.php";
-public  static  String TSTRES="http://vigneshintech.tk/kiyo/tstrescheck.php";
-
+    public  static  String TSTRES="http://vigneshintech.tk/kiyo/tstrescheck.php";
+public static String PREPOTST="http://vigneshintech.tk/kiyo/prepotst.php";
+    public static String PRERESF="http://vigneshintech.tk/kiyo/ppres.php";
 
 }

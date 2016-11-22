@@ -46,30 +46,6 @@
         android:background="@drawable/letsdraw2"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true">
-        <TextView
-            android:text="Dr.kumar vel "
-
-            android:layout_width="wrap_content"
-            android:textColor="#2d2d2d"
-            android:textSize="20sp"
-            android:layout_height="wrap_content"
-            android:id="@+id/tstdocname"
-            android:layout_marginTop="23dp"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true" />
-
-        <TextView
-                android:text="CONTENTS"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/textView9"
-            android:layout_marginTop="55dp"
-            android:layout_marginLeft="23dp"
-            android:layout_marginStart="23dp"
-            android:layout_below="@+id/tstdocname"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:textSize="18sp" />
 
         <TextView
             android:text="PRE TEST COLOR"
@@ -80,7 +56,7 @@
             android:layout_alignStart="@+id/textView9"
             android:layout_marginTop="23dp"
             android:id="@+id/textView10"
-            android:textSize="18sp" />
+            android:textSize="14sp" />
 
         <TextView
             android:text="POST TEST COLOR"
@@ -91,7 +67,7 @@
             android:layout_alignStart="@+id/textView10"
             android:layout_marginTop="23dp"
             android:id="@+id/textView11"
-            android:textSize="18sp" />
+            android:textSize="14sp" />
 
         <TextView
             android:text="TextView"
@@ -103,7 +79,7 @@
             android:layout_marginLeft="69dp"
             android:layout_marginStart="69dp"
             android:id="@+id/content_text"
-            android:textSize="18sp"
+            android:textSize="12sp"
             android:textColor="#2d2d2d" />
 
         <TextView
@@ -115,7 +91,7 @@
             android:layout_alignStart="@+id/content_text"
             android:id="@+id/pretest_color"
             android:textColor="#2d2d2d"
-            android:textSize="18sp" />
+            android:textSize="12sp" />
 
         <TextView
             android:text="postcolor"
@@ -125,7 +101,7 @@
             android:layout_alignLeft="@+id/pretest_color"
             android:layout_alignStart="@+id/pretest_color"
             android:id="@+id/post_test_color"
-            android:textSize="18sp"
+            android:textSize="12sp"
             android:textColor="#2d2d2d" />
 
         <TextView
@@ -133,7 +109,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/textView12"
-            android:textSize="18sp"
+            android:textSize="14sp"
             android:layout_marginTop="23dp"
             android:layout_below="@+id/textView11"
             android:layout_alignLeft="@+id/textView11"
@@ -145,10 +121,11 @@
             android:layout_height="wrap_content"
             android:layout_alignTop="@+id/textView12"
             android:layout_alignLeft="@+id/post_test_color"
-            android:textSize="18sp"
+            android:textSize="12sp"
             android:textColor="#2d2d2d"
             android:layout_alignStart="@+id/post_test_color"
-            android:id="@+id/test_result" />
+            android:id="@+id/test_result"
+            android:textStyle="normal|bold" />
 
         <ImageView
             android:layout_width="wrap_content"
@@ -165,13 +142,38 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/qr_scanned"
-            android:textSize="16sp"
+            android:textSize="14sp"
             android:textColor="#2d2d2d"
             android:layout_marginTop="12dp"
             android:layout_marginLeft="10dp"
             android:layout_alignTop="@+id/imageView16"
             android:layout_toRightOf="@+id/imageView16"
             android:layout_toEndOf="@+id/imageView16" />
+
+        <TextView
+                android:text="CONTENTS"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView9"
+            android:layout_marginTop="19dp"
+            android:layout_marginLeft="23dp"
+            android:layout_marginStart="23dp"
+            android:textSize="14sp"
+            android:layout_below="@+id/tstdocname"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:text="Dr.kumar vel "
+
+            android:layout_width="wrap_content"
+            android:textColor="#2d2d2d"
+            android:textSize="20sp"
+            android:layout_height="wrap_content"
+            android:id="@+id/tstdocname"
+            android:layout_marginTop="14dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true" />
 
     </RelativeLayout>
 </RelativeLayout>

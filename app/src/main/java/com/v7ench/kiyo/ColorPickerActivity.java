@@ -337,7 +337,6 @@ public  void pcolor(final String dqr, final String postcol)
                 JSONObject jObj =new JSONObject(response);
                 boolean error = jObj.getBoolean("error");
                 if (!error) {
-
                     JSONObject user = jObj.getJSONObject("user");
                     String content = user.getString("content");
                     String pack = user.getString("pack");
@@ -346,16 +345,15 @@ public  void pcolor(final String dqr, final String postcol)
                     String sdate = user .getString("sdate");
                     String dqrres = user .getString("dqr");
                     String type = user .getString("type");
-                    String precolor = user .getString("precolor");
-                    Intent intent = new Intent(ColorPickerActivity.this, TstScanResult.class);
+                     Intent intent = new Intent(ColorPickerActivity.this, TstScanResult.class);
                     intent.putExtra("content",content);
                     intent.putExtra("pack",pack);
+                    intent.putExtra("dqr",dqrres);
                     intent.putExtra("sterlizer",sterlizer);
                     intent.putExtra("sload",sload);
                     intent.putExtra("sdate",sdate);
                     intent.putExtra("dqres",dqrres);
                     intent.putExtra("type",type);
-                    intent.putExtra("precolor",precolor);
                     intent.putExtra("postcol", postcol);
                     startActivity(intent);
                 }
@@ -427,11 +425,6 @@ public  void pcolor(final String dqr, final String postcol)
             });
         }
     }
-
-
-    /**
-     * Initialize the animator used for the progress of the picked color.
-     */
     protected void initPickedColorProgressAnimator() {
         mPickedColorProgressAnimator = ObjectAnimator.ofFloat(this, PICKED_COLOR_PROGRESS_PROPERTY_NAME, 1f, 0f);
         mPickedColorProgressAnimator.setDuration(400);
@@ -514,25 +507,6 @@ public  void pcolor(final String dqr, final String postcol)
         }
     }
 
-
-    protected void setPickedColorProgress(float progress) {
-        final float fastOppositeProgress = (float) Math.pow(1 - progress, 0.3f);
-        final float translationX = (float) (mTranslationDeltaX * Math.pow(progress, 2f));
-        final float translationY = mTranslationDeltaY * progress;
-
-        mPickedColorPreviewAnimated.setTranslationX(translationX);
-        mPickedColorPreviewAnimated.setTranslationY(translationY);
-        mPickedColorPreviewAnimated.setScaleX(fastOppositeProgress);
-        mPickedColorPreviewAnimated.setScaleY(fastOppositeProgress);
-    }
-
-
-    protected void setSaveCompletedProgress(float progress) {
-        mSaveButton.setScaleX(progress);
-        mSaveButton.setRotation(45 * (1 - progress));
-        mSaveCompletedIcon.setScaleX(1 - progress);
-        mSaveCompletedProgress = progress;
-    }
 
 
     private class CameraAsyncTask extends AsyncTask<Void, Void, Camera> {

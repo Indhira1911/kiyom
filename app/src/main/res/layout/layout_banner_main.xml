@@ -6,17 +6,37 @@
 
 
     <TextView
-        android:text="00"
+        android:text="0"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/safe_num"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/unsafe_num"
+        android:layout_marginLeft="69dp"
+        android:layout_marginStart="69dp"
+        android:id="@+id/safe_num"
+        android:fontFamily="sans-serif"
         android:textSize="20sp"
-        android:textColor="@color/half_black"
+        android:padding="5dp"
         android:typeface="normal"
-            android:fontFamily="sans-serif"
-        android:layout_above="@+id/textView3" />
+        android:textColor="@color/half_black"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:text="Safe"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="13dp"
+        android:id="@+id/textView3"
+        android:typeface="normal"
+        android:textSize="20sp"
+        android:padding="5dp"
+        android:textColor="@color/half_black"
+        android:fontFamily="sans-serif"
+        android:layout_below="@+id/safe_num"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="52dp"
+        android:layout_marginStart="52dp" />
 
     <TextView
         android:text="Unsafe"
@@ -25,70 +45,55 @@
         android:id="@+id/textView5"
         android:textColor="@color/half_black"
         android:textSize="20sp"
-
-                android:fontFamily="sans-serif"
+        android:fontFamily="sans-serif"
         android:typeface="normal"
+        android:padding="5dp"
+        android:layout_marginRight="31dp"
+        android:layout_marginEnd="31dp"
         android:layout_alignBaseline="@+id/textView3"
         android:layout_alignBottom="@+id/textView3"
-        android:layout_centerHorizontal="true" />
-
-    <TextView
-        android:text="Remaining"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginRight="27dp"
-        android:layout_marginEnd="27dp"
-        android:id="@+id/remaining"
-        android:textSize="20sp"
-        android:textColor="@color/half_black"
-        android:layout_alignBaseline="@+id/textView5"
-        android:layout_alignBottom="@+id/textView5"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
     <TextView
-        android:text="00"
+        android:text="0"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/remaining_num"
-        android:fontFamily="sans-serif"
-        android:typeface="normal"
+        android:id="@+id/unsafe_num"
         android:textSize="20sp"
         android:textColor="@color/half_black"
-        android:layout_alignBaseline="@+id/unsafe_num"
-        android:layout_alignBottom="@+id/unsafe_num"
-        android:layout_alignLeft="@+id/remaining"
-        android:layout_alignStart="@+id/remaining"
-        android:layout_marginLeft="34dp"
-        android:layout_marginStart="34dp" />
+        android:typeface="normal"
+        android:padding="5dp"
+            android:fontFamily="sans-serif"
+        android:layout_above="@+id/textView3"
+        android:layout_alignLeft="@+id/textView5"
+        android:layout_alignStart="@+id/textView5"
+        android:layout_marginLeft="26dp"
+        android:layout_marginStart="26dp" />
 
     <TextView
-        android:text="Safe"
+        android:text="0.0"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="11dp"
-        android:id="@+id/textView3"
-        android:typeface="normal"
         android:textSize="20sp"
         android:textColor="@color/half_black"
-        android:fontFamily="sans-serif"
-        android:layout_below="@+id/safe_num"
-        android:layout_alignLeft="@+id/safe_num"
-        android:layout_alignStart="@+id/safe_num" />
-
-    <TextView
-        android:text="00"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="49dp"
-        android:layout_marginStart="49dp"
-        android:id="@+id/safe_num"
-        android:fontFamily="sans-serif"
-        android:textSize="20sp"
         android:typeface="normal"
-        android:textColor="@color/half_black"
+        android:padding="5dp"
         android:layout_centerVertical="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_centerHorizontal="true"
+        android:id="@+id/rate_txt" />
+
+    <TextView
+        android:text="Rating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView16"
+        android:textSize="20sp"
+        android:textColor="@color/half_black"
+        android:typeface="normal"
+        android:padding="5dp"
+        android:layout_centerHorizontal="true"
+        android:layout_alignTop="@+id/textView5"
+        android:layout_alignBottom="@+id/textView5" />
 
 </RelativeLayout>

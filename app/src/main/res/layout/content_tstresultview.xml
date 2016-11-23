@@ -2,39 +2,40 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/content_tst_scan_result"
+    android:id="@+id/content_tstresultview"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.v7ench.kiyo.TstScanResult"
-    tools:showIn="@layout/activity_tst_scan_result">
-<RelativeLayout
-    android:layout_width="match_parent"
-    android:layout_height="150dp"
-    android:id="@+id/tst_cont"
-    android:background="@color/colorAccent">
+    tools:context="com.v7ench.kiyo.tstresultview"
+    tools:showIn="@layout/activity_tstresultview">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:id="@+id/tst_cont"
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TST Test Report"
-        android:textSize="20sp"
-        android:textColor="#fff"
+        android:background="@color/colorAccent">
 
-        android:id="@+id/textView"
-        android:layout_below="@+id/imageView7"
-        android:layout_centerHorizontal="true" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TST Test Report"
+            android:textSize="20sp"
+            android:textColor="#fff"
 
-    <ImageView
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+            android:id="@+id/textView"
+            android:layout_below="@+id/imageView7"
+            android:layout_centerHorizontal="true" />
 
-        android:src="@drawable/ttev"
-        android:id="@+id/imageView7"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
 
-</RelativeLayout>
+            android:src="@drawable/ttev"
+            android:id="@+id/imageView7"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true" />
+
+    </RelativeLayout>
 
     <RelativeLayout
         android:padding="10dp"
@@ -70,7 +71,7 @@
             android:textSize="14sp" />
 
         <TextView
-            android:text="TextView"
+
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_above="@+id/textView10"
@@ -83,7 +84,7 @@
             android:textColor="#2d2d2d" />
 
         <TextView
-            android:text="TextView"
+
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_above="@+id/textView11"
@@ -94,7 +95,7 @@
             android:textSize="12sp" />
 
         <TextView
-            android:text="postcolor"
+
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignTop="@+id/textView11"
@@ -116,7 +117,7 @@
             android:layout_alignStart="@+id/textView11" />
 
         <TextView
-            android:text="TextView"
+
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignTop="@+id/textView12"
@@ -124,7 +125,7 @@
             android:textSize="12sp"
             android:textColor="#2d2d2d"
             android:layout_alignStart="@+id/post_test_colorv"
-            android:id="@+id/test_result"
+            android:id="@+id/test_resultv"
             android:textStyle="normal|bold" />
 
         <ImageView
@@ -132,13 +133,13 @@
             android:layout_height="wrap_content"
             app:srcCompat="@drawable/normal_qr"
             android:id="@+id/imageView16"
-          android:layout_below="@id/textView12"
+            android:layout_below="@id/textView12"
             android:layout_marginTop="23dp"
             android:layout_alignLeft="@+id/textView12"
             android:layout_alignStart="@+id/textView12" />
 
         <TextView
-            android:text="KISTAAAADD13112016"
+
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/qr_scanned"
@@ -151,10 +152,10 @@
             android:layout_toEndOf="@+id/imageView16" />
 
         <TextView
-                android:text="CONTENTS"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/textView9"
+            android:text="CONTENTS"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView9"
             android:layout_marginTop="19dp"
             android:layout_marginLeft="23dp"
             android:layout_marginStart="23dp"
@@ -165,6 +166,7 @@
 
         <TextView
             android:text="Dr.kumar vel "
+
             android:layout_width="wrap_content"
             android:textColor="#2d2d2d"
             android:textSize="20sp"

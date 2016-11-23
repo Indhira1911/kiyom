@@ -2,6 +2,7 @@ package com.v7ench.kiyo;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -9,6 +10,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -128,15 +130,15 @@ public class Biotestres extends AppCompatActivity {
                MovieAdapter adapter = new MovieAdapter(getApplicationContext(), R.layout.row_biores, movieModelList);
                 biore.setAdapter(adapter);
                 adapter.notifyDataSetChanged();
-             /*   cate_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                biore.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                        Categorieslist categorieslist = movieModelList.get(position);
-                        Intent intent = new Intent(HomeScreen.this, SubCateg.class);
-                        intent.putExtra("id",Integer.toString( categorieslist.getId()));
+//                        Categorieslist categorieslist = movieModelList.get(position);
+                        Intent intent = new Intent(Biotestres.this, BiotestResult.class);
+//                        intent.putExtra("id",Integer.toString( categorieslist.getId()));
                         startActivity(intent);
                     }
-                });*/
+                });
             } else {
                 Toast.makeText(getApplicationContext(), "Internet connection is too slow for process.Please wait", Toast.LENGTH_SHORT).show();
             }

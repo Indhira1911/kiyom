@@ -28,8 +28,8 @@
         android:id="@+id/imageView4"
         android:layout_alignLeft="@+id/profilevect"
         android:layout_alignStart="@+id/profilevect"
-        android:layout_alignTop="@+id/qualification"
-        android:layout_alignBottom="@+id/qualification" />
+        android:layout_alignTop="@+id/address"
+        android:layout_alignBottom="@+id/address" />
 
 
     <ImageView
@@ -37,18 +37,18 @@
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/ic_city"
         android:id="@+id/imageView6"
-        android:layout_toLeftOf="@+id/qualification"
-        android:layout_toStartOf="@+id/qualification"
-        android:layout_alignBottom="@+id/editText8"
-        android:layout_alignTop="@+id/editText8" />
+        android:layout_toLeftOf="@+id/address"
+        android:layout_toStartOf="@+id/address"
+        android:layout_alignBottom="@+id/ccity"
+        android:layout_alignTop="@+id/ccity" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:layout_below="@+id/qualification"
+        android:layout_below="@+id/address"
         android:layout_toRightOf="@+id/imageView6"
-        android:id="@+id/editText8"
+        android:id="@+id/ccity"
         android:fontFamily="sans-serif"
         android:typeface="normal"
         android:textSize="25sp"
@@ -64,7 +64,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="phone"
-
+android:maxLength="10"
         android:ems="10"
         android:layout_below="@+id/imageView6"
         android:layout_toRightOf="@+id/imageView6"
@@ -146,14 +146,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:id="@+id/qualification"
+        android:id="@+id/address"
         android:fontFamily="sans-serif"
         android:typeface="normal"
         android:textSize="25sp"
         android:textColor="?attr/colorPrimary"
         android:hint="Address"
         android:singleLine="true"
-        android:layout_below="@+id/firstname"
+        android:layout_below="@+id/clinicname"
         android:layout_toRightOf="@+id/imageView4"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
@@ -162,10 +162,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:id="@+id/firstname"
+        android:id="@+id/clinicname"
         android:typeface="normal"
         android:textSize="25sp"
-        android:hint="Firstname"
+        android:hint="Clinic Name"
         android:textColor="?attr/colorPrimary"
         android:singleLine="true"
         android:layout_alignParentTop="true"

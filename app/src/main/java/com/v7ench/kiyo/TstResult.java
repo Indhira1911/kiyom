@@ -2,6 +2,7 @@ package com.v7ench.kiyo;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -9,6 +10,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -91,8 +93,6 @@ ListView tst;
                     JSONObject finalObject = parentArray.getJSONObject(i);
                     Categorieslist categorieslist = gson.fromJson(finalObject.toString(), Categorieslist.class);
                         movieModelList.add(categorieslist);
-
-
                 }
                 return movieModelList;
 
@@ -126,15 +126,16 @@ ListView tst;
                 MovieAdapter adapter = new MovieAdapter(getApplicationContext(), R.layout.row_tst, movieModelList);
                 tst.setAdapter(adapter);
                 adapter.notifyDataSetChanged();
-             /*   cate_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                tst.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                         Categorieslist categorieslist = movieModelList.get(position);
-                        Intent intent = new Intent(HomeScreen.this, SubCateg.class);
-                        intent.putExtra("id",Integer.toString( categorieslist.getId()));
+                        Intent intent = new Intent(TstResult.this, tstresultview.class);
+                        intent.putExtra("subcat", new Gson().toJson(categorieslist));
                         startActivity(intent);
+
                     }
-                });*/
+                });
             } else {
                 Toast.makeText(getApplicationContext(), "Internet connection is too slow for process.Please wait", Toast.LENGTH_SHORT).show();
             }
@@ -193,7 +194,7 @@ ListView tst;
             Categorieslist categorieslist= movieModelList.get(position);
             holder.conten.setText(categorieslist.getContent());
             holder.tda.setText(categorieslist.getSdate());
-            holder.tti.setText("@"+categorieslist.getStme()+"hrs");
+            holder.tti.setText("@"+categorieslist.getStme()+" hrs");
             return convertView;
 
         }

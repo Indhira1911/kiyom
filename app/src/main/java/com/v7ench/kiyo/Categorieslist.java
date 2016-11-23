@@ -18,6 +18,7 @@ public class Categorieslist implements Parcelable {
    private String type;
     private String postcolor;
     private String tresult;
+    private String pre_colr;
 
     public String getContent() {
         return content;
@@ -99,6 +100,14 @@ public class Categorieslist implements Parcelable {
         this.tresult = tresult;
     }
 
+    public String getPre_colr() {
+        return pre_colr;
+    }
+
+    public void setPre_colr(String pre_colr) {
+        this.pre_colr = pre_colr;
+    }
+
     public static Creator<Categorieslist> getCREATOR() {
         return CREATOR;
     }
@@ -114,6 +123,7 @@ public class Categorieslist implements Parcelable {
         type = in.readString();
         postcolor = in.readString();
         tresult = in.readString();
+        pre_colr = in.readString();
     }
 
     @Override
@@ -128,6 +138,7 @@ public class Categorieslist implements Parcelable {
         dest.writeString(type);
         dest.writeString(postcolor);
         dest.writeString(tresult);
+        dest.writeString(pre_colr);
     }
 
     @Override

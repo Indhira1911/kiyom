@@ -11,6 +11,8 @@ public class Biolistnew implements Parcelable{
     private String biodqr;
     private String sdate;
     private String stime;
+private String status;
+    private String trestult;
 
     public String getBiodqr() {
         return biodqr;
@@ -36,6 +38,22 @@ public class Biolistnew implements Parcelable{
         this.stime = stime;
     }
 
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getTrestult() {
+        return trestult;
+    }
+
+    public void setTrestult(String trestult) {
+        this.trestult = trestult;
+    }
+
     public static Creator<Biolistnew> getCREATOR() {
         return CREATOR;
     }
@@ -44,6 +62,8 @@ public class Biolistnew implements Parcelable{
         biodqr = in.readString();
         sdate = in.readString();
         stime = in.readString();
+        status = in.readString();
+        trestult = in.readString();
     }
 
     @Override
@@ -51,6 +71,8 @@ public class Biolistnew implements Parcelable{
         dest.writeString(biodqr);
         dest.writeString(sdate);
         dest.writeString(stime);
+        dest.writeString(status);
+        dest.writeString(trestult);
     }
 
     @Override

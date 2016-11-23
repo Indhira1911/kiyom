@@ -141,6 +141,24 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.v7ench.kiyo.MainActivity" />
         </activity>
+        <activity
+            android:name=".tstresultview"
+            android:label="@string/title_activity_tstresultview"
+            android:parentActivityName=".TstResult"
+            android:theme="@style/AppTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.v7ench.kiyo.TstResult" />
+        </activity>
+        <activity
+            android:name=".ProfileActivity"
+            android:label="@string/title_activity_profile"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.v7ench.kiyo.MainActivity" />
+        </activity>
     </application>
 
 </manifest>

@@ -1,9 +1,11 @@
 package com.v7ench.kiyo;
 
 import android.Manifest;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -16,50 +18,97 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.KeyEvent;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
 import com.getbase.floatingactionbutton.FloatingActionButton;
 import com.getbase.floatingactionbutton.FloatingActionsMenu;
+import com.google.gson.Gson;
 import com.v7ench.kiyo.dbhandler.SQLiteHandler;
 import com.v7ench.kiyo.dbhandler.SessionManager;
+import com.v7ench.kiyo.global.AppController;
 import com.v7ench.kiyo.scanneracti.TstScan;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-    private static final int PERMISSION_REQUEST_CODE = 200;
     private SQLiteHandler db;
     private SessionManager session;
     int PERMISSION_ALL = 1;
+    TextView sa,ua,ra;
+    ListView mst;
+    private ProgressDialog dialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        mst=(ListView) findViewById(R.id.mmn);
+        sa=(TextView) findViewById(R.id.safe_num);
+        ua=(TextView) findViewById(R.id.unsafe_num);
+ra=(TextView) findViewById(R.id.rate_txt);
+        db = new SQLiteHandler(getApplicationContext());
+
+        // session manager
+        session = new SessionManager(getApplicationContext());
+        if (!session.isLoggedIn()) {
+            logoutUser();
+        }
+        // Fetching user details from sqlite
+        HashMap<String, String> user = db.getUserDetails();
+        final String name = user.get("name");
+        final String email = user.get("email");
+        final String uid = user.get("uid");
+        String[] PERMISSIONS = {Manifest.permission.READ_SMS, Manifest.permission.CAMERA};
+
+        if(!hasPermissions(this, PERMISSIONS)){
+            ActivityCompat.requestPermissions(this, PERMISSIONS, PERMISSION_ALL);
+        }
+        String url="http://vigneshintech.tk/kiyo/fcmc.php?uid="+uid;
+    backme(url);
         final FloatingActionButton actionA = (FloatingActionButton) findViewById(R.id.action_a);
         actionA.setTitle("BIO Test");
         actionA.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                Toast.makeText(getApplicationContext(),"BIO Test",Toast.LENGTH_SHORT).show();
                 Intent myIntent = new Intent(MainActivity.this, BioTestScan.class);
                 MainActivity.this.startActivity(myIntent);
             }
         });
-              final FloatingActionButton actionB = (FloatingActionButton) findViewById(R.id.action_b);
+        final FloatingActionButton actionB = (FloatingActionButton) findViewById(R.id.action_b);
         actionB.setTitle("TST Test");
 
         actionB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                Toast.makeText(getApplicationContext(),"TST Test ",Toast.LENGTH_SHORT).show();
                 Intent myIntent = new Intent(MainActivity.this, TstScan.class);
                 MainActivity.this.startActivity(myIntent);
             }
@@ -73,29 +122,49 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         View header=navigationView.getHeaderView(0);
-setFloatingButtonControls();
-        db = new SQLiteHandler(getApplicationContext());
+        setFloatingButtonControls();
 
-        // session manager
-        session = new SessionManager(getApplicationContext());
-        if (!session.isLoggedIn()) {
-            logoutUser();
-        }
-        // Fetching user details from sqlite
-        HashMap<String, String> user = db.getUserDetails();
-        final String name = user.get("name");
-        final String email = user.get("email");
         TextView Docname =(TextView) header.findViewById(R.id.docname);
         TextView Docmail=(TextView) header.findViewById(R.id.docemail);
         Docname.setText(name);
         Docmail.setText(email);
-        String[] PERMISSIONS = {Manifest.permission.READ_SMS, Manifest.permission.CAMERA};
+        String ur = "http://vigneshintech.tk/kiyo/tstrescheck.php?uid="+uid;
+        new JSONTask().execute(ur);
+    }
+    public void backme(String url)
+    {
+        StringRequest stringRequest=new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                try {
+                    JSONObject jObj = new JSONObject(response);
+                             JSONObject user = jObj.getJSONObject("user");
+                    String safe = user.getString("safe");
+                    String unsafe = user.getString("unsafe");
+                      sa.setText(safe);
+                    ua.setText(unsafe);
+           int isafe=Integer.parseInt(sa.getText().toString());
+                    int iunsafe=Integer.parseInt(ua.getText().toString());
+                    int toti=isafe+iunsafe;
+ int prefinali=(isafe)/toti;
+    double finali=prefinali*5;
+ra.setText(Double.toString(finali));
 
-        if(!hasPermissions(this, PERMISSIONS)){
-            ActivityCompat.requestPermissions(this, PERMISSIONS, PERMISSION_ALL);
-        }
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        });
+        AppController.getInstance().addToRequestQueue(stringRequest);
 
     }
+
     private void setFloatingButtonControls(){
        final View bckgroundDimmer = findViewById(R.id.background_dimmer);
         final FloatingActionsMenu menuMultipleActions = (FloatingActionsMenu) findViewById(R.id.multiple_actions);
@@ -157,7 +226,8 @@ setFloatingButtonControls();
             Intent intent = new Intent(MainActivity.this, Biotestres.class);
             startActivity(intent);
         }  else if (id == R.id.profile) {
-
+            Intent intent = new Intent(MainActivity.this, ProfileActivity.class);
+            startActivity(intent);
         }
         else if (id == R.id.nav_settings){
             Intent intent = new Intent(MainActivity.this, Settingsall.class);
@@ -234,6 +304,157 @@ setFloatingButtonControls();
             return true;
         }
         return super.onKeyDown(keyCode, event);
+    }
+    public class JSONTask extends AsyncTask<String,String, List<Categorieslist> > {
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+
+        }
+
+        @Override
+        protected List<Categorieslist> doInBackground(String... params) {
+            HttpURLConnection connection = null;
+            BufferedReader reader = null;
+
+            try {
+                URL url = new URL(params[0]);
+                connection = (HttpURLConnection) url.openConnection();
+                connection.connect();
+                InputStream stream = connection.getInputStream();
+                reader = new BufferedReader(new InputStreamReader(stream));
+                StringBuffer buffer = new StringBuffer();
+                String line ="";
+                while ((line = reader.readLine()) != null){
+                    buffer.append(line);
+                }
+
+                String finalJson = buffer.toString();
+
+                JSONObject parentObject = new JSONObject(finalJson);
+                JSONArray parentArray = parentObject.getJSONArray("users");
+                List<Categorieslist> movieModelList = new ArrayList<>();
+                Gson gson = new Gson();
+                for(int i=0; i<parentArray.length(); i++) {
+                    JSONObject finalObject = parentArray.getJSONObject(i);
+                    if (finalObject.getString("type").contains("pretest")) {
+                        Categorieslist categorieslist = gson.fromJson(finalObject.toString(), Categorieslist.class);
+                        movieModelList.add(categorieslist);
+                    }
+                }
+                return movieModelList;
+
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
+            } finally {
+                if(connection != null) {
+                    connection.disconnect();
+                }
+                try {
+                    if(reader != null) {
+                        reader.close();
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+            return  null;
+
+        }
+
+        @Override
+        protected void onPostExecute(final List<Categorieslist> movieModelList) {
+            super.onPostExecute(movieModelList);
+
+            if(movieModelList != null) {
+                MovieAdapter adapter = new MovieAdapter(getApplicationContext(), R.layout.row_tst, movieModelList);
+                mst.setAdapter(adapter);
+                adapter.notifyDataSetChanged();
+                mst.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                        Categorieslist categorieslist = movieModelList.get(position);
+                        Intent intent = new Intent(MainActivity.this, tstresultview.class);
+                        intent.putExtra("subcat", new Gson().toJson(categorieslist));
+                        startActivity(intent);
+
+                    }
+                });
+            } else {
+                Toast.makeText(getApplicationContext(), "Internet connection is too slow for process.Please wait", Toast.LENGTH_SHORT).show();
+            }
+        }
+
+    }
+
+
+    public class MovieAdapter extends ArrayAdapter {
+
+        private List<Categorieslist> movieModelList;
+        private int resource;
+        Context context;
+        private LayoutInflater inflater;
+        public MovieAdapter(Context context, int resource, List<Categorieslist> objects) {
+            super(context, resource, objects);
+            movieModelList = objects;
+            this.context =context;
+            this.resource = resource;
+            inflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
+
+        }
+        @Override
+        public int getViewTypeCount() {
+
+            return 1;
+        }
+
+        @Override
+        public int getItemViewType(int position) {
+
+            return position;
+        }
+
+        @Override
+        public View getView(final int position, View convertView, ViewGroup parent) {
+
+            final ViewHolder holder  ;
+
+            if(convertView == null){
+
+                convertView = inflater.inflate(resource,null);
+                holder = new ViewHolder();
+                holder.conten=(TextView) convertView.findViewById(R.id.bconte);
+                holder.tda=(TextView) convertView.findViewById(R.id.btdate);
+                holder.tti=(TextView) convertView.findViewById(R.id.ttime);
+
+                convertView.setTag(holder);
+
+            }
+            else {
+
+                holder = (ViewHolder) convertView.getTag();
+
+            }
+            Categorieslist categorieslist= movieModelList.get(position);
+            holder.conten.setText(categorieslist.getContent());
+            holder.tda.setText(categorieslist.getSdate());
+            holder.tti.setText("@"+categorieslist.getStme()+" hrs");
+            return convertView;
+
+        }
+
+        class ViewHolder{
+            private TextView conten,tda,tti;
+
+
+        }
+
+
     }
 
 }

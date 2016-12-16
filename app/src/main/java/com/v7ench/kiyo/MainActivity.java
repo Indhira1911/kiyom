@@ -146,9 +146,16 @@ ra=(TextView) findViewById(R.id.rate_txt);
            int isafe=Integer.parseInt(sa.getText().toString());
                     int iunsafe=Integer.parseInt(ua.getText().toString());
                     int toti=isafe+iunsafe;
- int prefinali=(isafe)/toti;
-    double finali=prefinali*5;
-ra.setText(Double.toString(finali));
+                    if (isafe==toti)
+                    {
+                        ra.setText("5.0");
+                    }
+                    else {
+                        int prefinali=(isafe)/toti;
+                        double finali=prefinali*5;
+                        ra.setText(Double.toString(finali));
+                    }
+
 
 
                 } catch (JSONException e) {

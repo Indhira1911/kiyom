@@ -76,11 +76,7 @@ uu.setText(uid);
 
         Log.e("handler", rawResult.getText()); // Prints scan results
         Log.e("handler", rawResult.getBarcodeFormat().toString()); // Prints the scan format (qrcode)
-        // show the scanner result into dialog box.
 
-//        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-//        builder.setTitle("Scan Result");
-//        builder.setMessage(rawResult.getText());
         String scanresult=rawResult.getText();
         String uud= uu.getText().toString();
         String eday=eda.getText().toString();

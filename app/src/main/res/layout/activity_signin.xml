@@ -9,50 +9,13 @@
     tools:context="com.v7ench.kiyo.SigninActivity">
 
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="phone"
-android:maxLength="10"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="26dp"
-        android:id="@+id/mobileno"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:hint="Mobile Number"
-        android:fontFamily="sans-serif"
-        android:typeface="normal"
-        android:textSize="20sp"
-        android:singleLine="true" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPassword"
-        android:ems="10"
-        android:layout_below="@+id/mobileno"
-        android:layout_marginTop="18dp"
-        android:id="@+id/password"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:hint="Password"
-        android:textSize="20sp"
-        android:typeface="normal"
-        android:fontFamily="sans-serif" />
-
-
     <Button
         android:text="Forgot Password?"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="31dp"
         android:background="?attr/selectableItemBackground"
         android:id="@+id/button"
-        android:layout_below="@+id/siginsend"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />
 
     <android.support.design.widget.FloatingActionButton
@@ -64,8 +27,42 @@ android:maxLength="10"
 
         android:id="@+id/siginsend"
         app:elevation="12dp"
-        android:layout_below="@+id/password"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="19dp" />
+        android:layout_above="@+id/button"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:ems="10"
+        android:layout_marginTop="54dp"
+        android:id="@+id/password"
+        android:hint="Password"
+        android:textSize="20sp"
+        android:typeface="normal"
+        android:fontFamily="sans-serif"
+        android:layout_below="@+id/mobileno"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="phone"
+android:maxLength="10"
+        android:layout_marginTop="51dp"
+        android:id="@+id/mobileno"
+        android:hint="Mobile Number"
+        android:fontFamily="sans-serif"
+        android:typeface="normal"
+        android:textSize="20sp"
+        android:singleLine="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
 </RelativeLayout>

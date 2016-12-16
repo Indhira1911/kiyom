@@ -18,5 +18,6 @@ public class UrlReq {
 public static String PREPOTST="http://vigneshintech.tk/kiyo/prepotst.php";
     public static String PRERESF="http://vigneshintech.tk/kiyo/ppres.php";
 public static String CLINICC="http://vigneshintech.tk/kiyo/clinicki.php";
+    public static String CLICPRO="http://vigneshintech.tk/kiyo/ccbc.php";
 
 }

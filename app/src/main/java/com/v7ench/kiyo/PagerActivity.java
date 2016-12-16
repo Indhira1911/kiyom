@@ -20,20 +20,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 public class PagerActivity extends AppCompatActivity {
-
-    /**
-     * The {@link android.support.v4.view.PagerAdapter} that will provide
-     * fragments for each of the sections. We use a
-     * {@link FragmentPagerAdapter} derivative, which will keep every
-     * loaded fragment in memory. If this becomes too memory intensive, it
-     * may be best to switch to a
-     * {@link android.support.v4.app.FragmentStatePagerAdapter}.
-     */
     SectionsPagerAdapter mSectionsPagerAdapter;
-
-    /**
-     * The {@link ViewPager} that will host the section contents.
-     */
     private ViewPager mViewPager;
     ImageButton mNextBtn;
     Button mSkipBtn, mFinishBtn;
@@ -48,7 +35,7 @@ public class PagerActivity extends AppCompatActivity {
 
     static final String TAG = "PagerActivity";
 
-    int page = 0;   //  to track page position
+    int page = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,15 +51,12 @@ public class PagerActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_pager);
 
-
-        // Create the adapter that will return a fragment for each of the three
-        // primary sections of the activity.
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
 
         mNextBtn = (ImageButton) findViewById(R.id.intro_btn_next);
         if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.LOLLIPOP)
             mNextBtn.setImageDrawable(
-                    Utils.tintMyDrawable(ContextCompat.getDrawable(this, R.drawable.ic_chevron_right_24dp), Color.WHITE)
+                    Utils.tintMyDrawable(ContextCompat.getDrawable(this, R.drawable.chevronright), Color.WHITE)
             );
 
         mSkipBtn = (Button) findViewById(R.id.intro_btn_skip);
@@ -206,10 +190,7 @@ String[] headi=new String[]{"Welcome to KIYO","Result Accuracy Guaranteed","Spec
         public PlaceholderFragment() {
         }
 
-        /**
-         * Returns a new instance of this fragment for the given section
-         * number.
-         */
+
         public static PlaceholderFragment newInstance(int sectionNumber) {
             PlaceholderFragment fragment = new PlaceholderFragment();
             Bundle args = new Bundle();

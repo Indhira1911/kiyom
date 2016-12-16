@@ -8,11 +8,11 @@
             android:title="Dashboard" />
         <item
             android:id="@+id/nav_tstest"
-            android:icon="@drawable/ic_test_tube"
+            android:icon="@drawable/testtube"
             android:title="TST Test" />
         <item
             android:id="@+id/nav_bitest"
-            android:icon="@drawable/ic_bitest"
+            android:icon="@drawable/bio"
             android:title="BI Test" />
         <item
             android:id="@+id/profile"

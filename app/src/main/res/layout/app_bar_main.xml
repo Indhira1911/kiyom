@@ -51,7 +51,7 @@
             android:layout_height="wrap_content"
             fab:fab_colorNormal="@color/white"
             fab:fab_title="Bio Test"
-            fab:fab_icon="@drawable/ic_bitest"
+            fab:fab_icon="@drawable/bio"
             fab:fab_colorPressed="@color/white_pressed"/>
 
         <com.getbase.floatingactionbutton.FloatingActionButton
@@ -60,7 +60,7 @@
             android:layout_height="wrap_content"
             fab:fab_colorNormal="@color/white"
             fab:fab_title="Tst Test"
-            fab:fab_icon="@drawable/ic_test_tube"
+            fab:fab_icon="@drawable/testtube"
             fab:fab_colorPressed="@color/white_pressed"/>
 
     </com.getbase.floatingactionbutton.FloatingActionsMenu>

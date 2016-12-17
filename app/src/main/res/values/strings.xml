@@ -30,5 +30,7 @@
     <string name="title_activity_settingsall">Settings</string>
     <string name="title_activity_tstresultview">Tst Test Result</string>
     <string name="title_activity_profile">Profile</string>
+    <string name="mainimage">mainimage</string>
+    <string name="mobile_number">Mobile Number</string>
 
 </resources>

@@ -50,9 +50,9 @@ android:maxLength="10"
         android:layout_height="wrap_content"
         android:background="?attr/selectableItemBackground"
         android:id="@+id/button"
+        android:layout_marginBottom="16dp"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="70dp" />
+        android:layout_centerHorizontal="true" />
 
     <android.support.design.widget.FloatingActionButton
         android:layout_width="wrap_content"
@@ -62,7 +62,6 @@ android:maxLength="10"
        app:srcCompat="@drawable/ic_send_white_24px"
         android:id="@+id/siginsend"
         app:elevation="12dp"
-        android:layout_marginBottom="41dp"
         android:layout_above="@+id/button"
         android:layout_centerHorizontal="true" />
 

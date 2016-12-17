@@ -27,11 +27,7 @@ public class Categorieslist implements Parcelable {
     public void setContent(String content) {
         this.content = content;
     }
-
-    public String getSdate() {
-        return sdate;
-    }
-
+    public String getSdate() { return sdate; }
     public void setSdate(String sdate) {
         this.sdate = sdate;
     }

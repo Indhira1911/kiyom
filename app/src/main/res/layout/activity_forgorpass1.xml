@@ -6,8 +6,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.v7ench.kiyo.Forgotpass1">
-
-
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="200dp"
@@ -86,7 +84,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="27dp"
-            android:id="@+id/textView8"
+            android:id="@+id/backi"
             android:background="?attr/selectableItemBackground"
             android:textColor="@color/colorPrimaryDark"
             android:layout_below="@+id/fpsend"

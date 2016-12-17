@@ -6,6 +6,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -23,14 +24,15 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Forgotpass1 extends AppCompatActivity {
-EditText rnum;
+    EditText rnum;
     String Srnm;
+    TextView backtext;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forgorpass1);
         rnum=(EditText) findViewById(R.id.editText);
-
+backtext=(TextView) findViewById(R.id.backi);
         FloatingActionButton flot=(FloatingActionButton) findViewById(R.id.fpsend);
         flot.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -48,6 +50,14 @@ Srnm =rnum.getText().toString();
 
                     resetnumber(Srnm);
                 }
+            }
+        });
+        backtext.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(Forgotpass1.this,SignActivity.class);
+                startActivity(intent);
+                finish();
             }
         });
     }
@@ -82,7 +92,7 @@ Srnm =rnum.getText().toString();
         }){
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
-                Map <String,String> params= new HashMap<String,String>();
+                Map <String,String> params= new HashMap<>();
                 params.put("pnum",srnm);
                 return params;
             }

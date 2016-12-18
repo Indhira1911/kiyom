@@ -6,54 +6,50 @@
 
 
     <TextView
-        android:text="0"
+        android:text="Safe"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="69dp"
-        android:layout_marginStart="69dp"
-        android:id="@+id/safe_num"
-        android:fontFamily="sans-serif"
-        android:textSize="20sp"
-        android:padding="5dp"
+        android:layout_marginTop="11dp"
+        android:id="@+id/textView3"
         android:typeface="normal"
+        android:textSize="18sp"
+        android:padding="5dp"
         android:textColor="@color/half_black"
-        android:layout_centerVertical="true"
+        android:fontFamily="sans-serif"
+        android:layout_marginLeft="40dp"
+        android:layout_marginStart="40dp"
+        android:layout_below="@+id/safe_num"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
     <TextView
-        android:text="Safe"
+        android:text="0.0"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="13dp"
-        android:id="@+id/textView3"
-        android:typeface="normal"
         android:textSize="20sp"
-        android:padding="5dp"
         android:textColor="@color/half_black"
-        android:fontFamily="sans-serif"
-        android:layout_below="@+id/safe_num"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginLeft="52dp"
-        android:layout_marginStart="52dp" />
+        android:typeface="normal"
+        android:background="@drawable/circle2_text_view"
+        android:gravity="center"
+        android:id="@+id/rate_txt"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
 
     <TextView
-        android:text="Unsafe"
+        android:text="0"
+        android:gravity="center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/textView5"
-        android:textColor="@color/half_black"
-        android:textSize="20sp"
+        android:id="@+id/safe_num"
         android:fontFamily="sans-serif"
+        android:textSize="20sp"
+        android:background="@drawable/circle_text_view"
         android:typeface="normal"
-        android:padding="5dp"
-        android:layout_marginRight="31dp"
-        android:layout_marginEnd="31dp"
-        android:layout_alignBaseline="@+id/textView3"
-        android:layout_alignBottom="@+id/textView3"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:textColor="@color/half_black"
+        android:layout_alignBaseline="@+id/rate_txt"
+        android:layout_alignBottom="@+id/rate_txt"
+        android:layout_alignLeft="@+id/textView3"
+        android:layout_alignStart="@+id/textView3" />
 
     <TextView
         android:text="0"
@@ -63,37 +59,40 @@
         android:textSize="20sp"
         android:textColor="@color/half_black"
         android:typeface="normal"
-        android:padding="5dp"
-            android:fontFamily="sans-serif"
-        android:layout_above="@+id/textView3"
+        android:background="@drawable/circle_text_view"
+        android:gravity="center"
+         android:fontFamily="sans-serif"
+        android:layout_alignBaseline="@+id/rate_txt"
+        android:layout_alignBottom="@+id/rate_txt"
         android:layout_alignLeft="@+id/textView5"
-        android:layout_alignStart="@+id/textView5"
-        android:layout_marginLeft="26dp"
-        android:layout_marginStart="26dp" />
+        android:layout_alignStart="@+id/textView5" />
 
-    <TextView
-        android:text="0.0"
+    <RatingBar
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="20sp"
-        android:textColor="@color/half_black"
-        android:typeface="normal"
-        android:padding="5dp"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/rate_txt" />
+        style="?android:attr/ratingBarStyleSmall"
+        android:id="@+id/rating_main"
+        android:numStars="5"
+        android:stepSize="0.25"
+             android:isIndicator="true"
+        android:layout_alignBottom="@+id/textView5"
+        android:layout_centerHorizontal="true" />
 
     <TextView
-        android:text="Rating"
+        android:text="Unsafe"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/textView16"
-        android:textSize="20sp"
+        android:id="@+id/textView5"
         android:textColor="@color/half_black"
+        android:textSize="18sp"
+        android:fontFamily="sans-serif"
         android:typeface="normal"
         android:padding="5dp"
-        android:layout_centerHorizontal="true"
-        android:layout_alignTop="@+id/textView5"
-        android:layout_alignBottom="@+id/textView5" />
+        android:layout_marginRight="31dp"
+        android:layout_marginEnd="31dp"
+        android:layout_alignBaseline="@+id/textView3"
+        android:layout_alignBottom="@+id/textView3"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
 </RelativeLayout>

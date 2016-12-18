@@ -26,6 +26,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -64,7 +65,8 @@ public class MainActivity extends AppCompatActivity
     int PERMISSION_ALL = 1;
     TextView sa,ua,ra;
     ListView mst;
-    private ProgressDialog dialog;
+    RatingBar rateme;
+        private ProgressDialog dialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -76,13 +78,14 @@ public class MainActivity extends AppCompatActivity
         ua=(TextView) findViewById(R.id.unsafe_num);
 ra=(TextView) findViewById(R.id.rate_txt);
         db = new SQLiteHandler(getApplicationContext());
-
+rateme=(RatingBar) findViewById(R.id.rating_main);
         // session manager
         session = new SessionManager(getApplicationContext());
         if (!session.isLoggedIn()) {
             logoutUser();
         }
-        // Fetching user details from sqlite
+
+
         HashMap<String, String> user = db.getUserDetails();
         final String name = user.get("name");
         final String email = user.get("email");
@@ -92,7 +95,7 @@ ra=(TextView) findViewById(R.id.rate_txt);
         if(!hasPermissions(this, PERMISSIONS)){
             ActivityCompat.requestPermissions(this, PERMISSIONS, PERMISSION_ALL);
         }
-        String url="http://vigneshintech.tk/kiyo/fcmc.php?uid="+uid;
+        String url="http://gettalentsapp.com/vignesh2514/kiyo/androadmin/fcmc.php?uid="+uid;
     backme(url);
         final FloatingActionButton actionA = (FloatingActionButton) findViewById(R.id.action_a);
         actionA.setTitle("BIO Test");
@@ -128,7 +131,7 @@ ra=(TextView) findViewById(R.id.rate_txt);
         TextView Docmail=(TextView) header.findViewById(R.id.docemail);
         Docname.setText(name);
         Docmail.setText(email);
-        String ur = "http://vigneshintech.tk/kiyo/tstrescheck.php?uid="+uid;
+        String ur = "http://gettalentsapp.com/vignesh2514/kiyo/androadmin/tstrescheck.php?uid="+uid;
         new JSONTask().execute(ur);
     }
     public void backme(String url)
@@ -151,9 +154,11 @@ ra=(TextView) findViewById(R.id.rate_txt);
                         ra.setText("5.0");
                     }
                     else {
-                        int prefinali=(isafe)/toti;
+                        double prefinali=((double)isafe)/toti;
                         double finali=prefinali*5;
-                        ra.setText(Double.toString(finali));
+                     String fin=  String.format("%.2f",finali);
+                        ra.setText(fin);
+                        rateme.setRating(Float.parseFloat(fin));
                     }
 
 
@@ -212,6 +217,8 @@ ra=(TextView) findViewById(R.id.rate_txt);
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            Intent intent = new Intent(MainActivity.this, Settingsall.class);
+            startActivity(intent);
             return true;
         }
 
@@ -223,7 +230,6 @@ ra=(TextView) findViewById(R.id.rate_txt);
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
-
         if (id == R.id.nav_dashboard) {
             // Handle the camera action
         } else if (id == R.id.nav_tstest) {
@@ -289,7 +295,6 @@ ra=(TextView) findViewById(R.id.rate_txt);
 
             this.doubleBackToExitPressedOnce = true;
             Toast.makeText(this, "Please click BACK again to exit", Toast.LENGTH_SHORT).show();
-
             new Handler().postDelayed(new Runnable() {
 
                 @Override

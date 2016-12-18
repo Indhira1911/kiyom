@@ -52,7 +52,7 @@ Button addclin;
         String name = user.get("name");
         String uid=user.get("uid");
         proname.setText("DR." + name);
-        String url="http://vigneshintech.tk/kiyo/fcmc.php?uid="+uid;
+        String url="http://gettalentsapp.com/vignesh2514/kiyo/androadmin/fcmc.php?uid="+uid;
         backme(url);
         addclin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -78,9 +78,10 @@ Button addclin;
                     int isafe = Integer.parseInt(safe);
                     int iunsafe = Integer.parseInt(unsafe);
                     int toti = isafe + iunsafe;
-                    int prefinali = (isafe) / toti;
-                    double finali = prefinali * 5;
-                    rati.setText("Ratings:"+Double.toString(finali));
+                    double prefinali=((double)isafe)/toti;
+                    double finali=prefinali*5;
+                    String fin=  String.format("%.2f",finali);
+                     rati.setText(fin);
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }

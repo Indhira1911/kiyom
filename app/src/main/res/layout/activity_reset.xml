@@ -31,13 +31,15 @@
         android:layout_height="match_parent"
         android:layout_below="@+id/rpback"
         android:layout_centerHorizontal="true"
+        android:padding="10dp"
         android:id="@+id/rpbottom">
 
         <TextView
             android:text="Reset Password"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-                     android:layout_centerHorizontal="true"
+            android:textColor="#2d2d2d"
+            android:layout_centerHorizontal="true"
             android:layout_marginTop="27dp"
             android:id="@+id/textView2"
             android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
@@ -50,7 +52,7 @@
             android:layout_below="@+id/textView2"
             android:layout_marginTop="15dp"
             android:id="@+id/otp"
-            android:hint="Otp Number"
+            android:hint="Confirmation Code"
             android:fontFamily="sans-serif"
             android:typeface="normal"
             android:textSize="20sp"
@@ -97,11 +99,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:clickable="true"
-                 app:fabSize="normal"
+            app:fabSize="normal"
             app:srcCompat="@drawable/ic_send_white_24px"
             android:id="@+id/passsend"
             app:elevation="13dp"
-            android:layout_marginBottom="18dp"
+            android:layout_marginBottom="11dp"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true" />
     </RelativeLayout>

@@ -3,16 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="10dp"
+    android:padding="6dp"
     android:id="@+id/norm_list">
-
-    <ImageView
-        android:layout_width="46dp"
-        android:background="@drawable/ttev"
-        android:layout_height="55dp"
-        app:srcCompat="@drawable/ttev"
-        android:id="@+id/imageView17"
-        />
 
     <TextView
         android:layout_width="wrap_content"
@@ -21,9 +13,10 @@
         android:layout_margin="2dp"
         android:layout_gravity="center_vertical"
         android:textColor="#2d2d2d"
-        android:textSize="20dp"
+        android:textSize="14sp"
         android:text="Content"
-      android:padding="5dp"
+
+      android:paddingBottom="2dp"
         android:layout_alignParentTop="true"
         android:layout_toRightOf="@+id/imageView17"
         android:layout_toEndOf="@+id/imageView17" />
@@ -34,6 +27,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/ttime"
         android:padding="2dp"
+        android:visibility="gone"
         android:layout_below="@+id/bconte"
         android:layout_alignBaseline="@+id/btdate"
         android:layout_alignBottom="@+id/btdate"
@@ -45,10 +39,29 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/btdate"
-        android:padding="2dp"
-        android:layout_below="@+id/bconte"
-        android:layout_toRightOf="@+id/imageView17"
-        android:layout_toEndOf="@+id/imageView17" />
+        android:textSize="12sp"
+        android:layout_alignBottom="@+id/imageView17"
+        android:layout_alignLeft="@+id/bconte"
+        android:layout_alignStart="@+id/bconte" />
+
+    <ImageView
+        android:layout_width="30dp"
+   android:foregroundGravity="center_vertical"
+        android:layout_height="30dp"
+        app:srcCompat="@drawable/circle_main"
+        android:id="@+id/imageView17"
+        android:layout_alignTop="@+id/bconte"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_alert_circle_outline"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:id="@+id/imageView18" />
 
 
 </RelativeLayout>

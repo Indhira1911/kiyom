@@ -5,7 +5,7 @@
     android:id="@+id/content_tst_result"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
+android:padding="10dp"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.v7ench.kiyo.TstResult"
     tools:showIn="@layout/activity_tst_result">

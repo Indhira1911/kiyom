@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/content_tstresultsum"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.v7ench.kiyo.Tstresultsum"
+    tools:showIn="@layout/activity_tstresultsum">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="5dp"
+        android:id="@+id/aavd1"
+        android:orientation="vertical"
+        android:background="#1d89e4"
+        android:weightSum="1">
+
+
+        <ImageView
+            android:layout_width="240dp"
+            android:layout_height="250dp"
+            android:background="@drawable/img_on"
+            android:id="@+id/image_bio_view"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#fff"
+            android:textSize="20sp"
+            android:text="Start TST Test" />
+    </LinearLayout>
+
+    <Button
+    android:text="BI Test Summary"
+    android:textColor="#fff"
+    android:paddingLeft="25dp"
+    android:paddingRight="25dp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="50dp"
+    android:id="@+id/tsttestb"
+    android:background="@drawable/rounded_corner_button"
+        android:layout_below="@+id/aavd1"
+        android:layout_centerHorizontal="true" />
+</RelativeLayout>

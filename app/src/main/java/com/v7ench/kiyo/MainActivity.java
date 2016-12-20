@@ -153,6 +153,10 @@ rateme=(RatingBar) findViewById(R.id.rating_main);
                     {
                         ra.setText("5.0");
                     }
+                    else if (toti==0)
+                    {
+                        ra.setText("0.0");
+                    }
                     else {
                         double prefinali=((double)isafe)/toti;
                         double finali=prefinali*5;
@@ -233,10 +237,10 @@ rateme=(RatingBar) findViewById(R.id.rating_main);
         if (id == R.id.nav_dashboard) {
             // Handle the camera action
         } else if (id == R.id.nav_tstest) {
-            Intent intent = new Intent(MainActivity.this, TstResult.class);
+            Intent intent = new Intent(MainActivity.this, Tstresultsum.class);
             startActivity(intent);
         } else if (id == R.id.nav_bitest) {
-            Intent intent = new Intent(MainActivity.this, Biotestres.class);
+            Intent intent = new Intent(MainActivity.this, BiotestNew.class);
             startActivity(intent);
         }  else if (id == R.id.profile) {
             Intent intent = new Intent(MainActivity.this, ProfileActivity.class);
@@ -397,7 +401,8 @@ rateme=(RatingBar) findViewById(R.id.rating_main);
 
                     }
                 });
-            } else {
+            }
+            else {
                 Toast.makeText(getApplicationContext(), "Internet connection is too slow for process.Please wait", Toast.LENGTH_SHORT).show();
             }
         }

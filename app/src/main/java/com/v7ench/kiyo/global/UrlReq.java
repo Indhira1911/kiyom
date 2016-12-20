@@ -5,7 +5,6 @@ package com.v7ench.kiyo.global;
  */
 
 public class UrlReq {
-    
     public static String SIGNUP ="http://gettalentsapp.com/vignesh2514/kiyo/androadmin/Registeration.php";
     public static String SIGNIN ="http://gettalentsapp.com/vignesh2514/kiyo/androadmin/Login.php";
     public static String OTPCHECK ="http://gettalentsapp.com/vignesh2514/kiyo/androadmin/otpreq.php";
@@ -16,9 +15,9 @@ public class UrlReq {
     public static String POSTCOLUP="http://gettalentsapp.com/vignesh2514/kiyo/androadmin/postcolup.php";
     public static String BIOSCAN="http://gettalentsapp.com/vignesh2514/kiyo/androadmin/biotst.php";
     public  static  String TSTRES="http://gettalentsapp.com/vignesh2514/kiyo/androadmin/tstrescheck.php";
-public static String PREPOTST="http://gettalentsapp.com/vignesh2514/kiyo/androadmin/prepotst.php";
+    public static String PREPOTST="http://gettalentsapp.com/vignesh2514/kiyo/androadmin/prepotst.php";
     public static String PRERESF="http://gettalentsapp.com/vignesh2514/kiyo/androadmin/ppres.php";
-public static String CLINICC="http://gettalentsapp.com/vignesh2514/kiyo/androadmin/clinicki.php";
+    public static String CLINICC="http://gettalentsapp.com/vignesh2514/kiyo/androadmin/clinicki.php";
     public static String CLICPRO="http://gettalentsapp.com/vignesh2514/kiyo/androadmin/ccbc.php";
 
 }

@@ -36,7 +36,7 @@
         android:layout_width="match_parent"
         layout="@layout/profileres"
         android:id="@+id/aalid"
-        android:layout_margin="10dp"
+        android:layout_marginBottom="4dp"
         android:layout_below="@+id/tst_cont"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
@@ -45,8 +45,7 @@
         android:layout_width="match_parent"
         layout="@layout/clincprof"
         android:id="@+id/ccfr"
-        android:layout_margin="10dp"
-        android:layout_below="@+id/aalid"
+                android:layout_below="@+id/aalid"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
     <Button

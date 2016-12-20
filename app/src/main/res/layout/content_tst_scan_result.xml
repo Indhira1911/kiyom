@@ -89,7 +89,7 @@
             android:layout_above="@+id/textView11"
             android:layout_alignLeft="@+id/content_textv"
             android:layout_alignStart="@+id/content_textv"
-            android:id="@+id/pretest_colorv"
+            android:id="@+id/pretest_date"
             android:textColor="#2d2d2d"
             android:textSize="12sp" />
 
@@ -98,8 +98,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignTop="@+id/textView11"
-            android:layout_alignLeft="@+id/pretest_colorv"
-            android:layout_alignStart="@+id/pretest_colorv"
+            android:layout_alignLeft="@+id/pretest_date"
+            android:layout_alignStart="@+id/pretest_date"
             android:id="@+id/post_test_colorv"
             android:textSize="12sp"
             android:textColor="#2d2d2d" />
@@ -159,7 +159,7 @@
             android:layout_marginLeft="23dp"
             android:layout_marginStart="23dp"
             android:textSize="14sp"
-            android:layout_below="@+id/tstdocnamev"
+            android:layout_below="@+id/biodocnamev"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true" />
 
@@ -169,7 +169,7 @@
             android:textColor="#2d2d2d"
             android:textSize="20sp"
             android:layout_height="wrap_content"
-            android:id="@+id/tstdocnamev"
+            android:id="@+id/biodocnamev"
             android:layout_marginTop="14dp"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true" />

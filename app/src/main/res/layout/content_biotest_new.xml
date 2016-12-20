@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/content_biotest_new"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.v7ench.kiyo.BiotestNew"
+    tools:showIn="@layout/activity_biotest_new">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:padding="5dp"
+    android:id="@+id/aan1"
+    android:orientation="vertical"
+    android:background="#1d89e4">
+
+
+    <ImageView
+        android:layout_width="240dp"
+        android:layout_height="250dp"
+        android:background="@drawable/img_on"
+        android:id="@+id/bio_img_view22"
+         />
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:textColor="#fff"
+    android:textSize="20sp"
+    android:text="Start BIO Test"
+    />
+</LinearLayout>
+
+    <Button
+        android:text="Add Strips / Reminders"
+        android:textColor="#fff"
+         android:paddingLeft="25dp"
+        android:paddingRight="25dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="43dp"
+        android:id="@+id/addreminder"
+        android:background="@drawable/rounded_corner_button"
+        android:layout_below="@+id/aan1"
+        android:layout_centerHorizontal="true" />
+    <Button
+        android:text="BI Test Summary"
+        android:textColor="#fff"
+        android:paddingLeft="25dp"
+        android:paddingRight="25dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="43dp"
+        android:id="@+id/bitest"
+        android:background="@drawable/rounded_corner_button"
+        android:layout_below="@+id/addreminder"
+        android:layout_alignLeft="@+id/addreminder"
+        android:layout_alignStart="@+id/addreminder"
+        android:layout_alignRight="@+id/addreminder"
+        android:layout_alignEnd="@+id/addreminder" />
+
+</RelativeLayout>

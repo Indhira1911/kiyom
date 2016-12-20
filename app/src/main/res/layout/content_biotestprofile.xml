@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/content_biotestprofile"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+     app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.v7ench.kiyo.Biotestprofile"
+    tools:showIn="@layout/activity_biotestprofile">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:id="@+id/bio_cont"
+        android:background="@color/colorAccent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="BIO Test"
+            android:textSize="20sp"
+            android:textColor="#fff"
+
+            android:id="@+id/textView"
+            android:layout_below="@+id/imageView7"
+            android:layout_centerHorizontal="true" />
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/b_test"
+            android:id="@+id/imageView7"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true" />
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:padding="10dp"
+        android:layout_width="match_parent"
+        android:id="@+id/conte_tst"
+        android:layout_below="@+id/bio_cont"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@drawable/letsdraw2"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true">
+
+        <TextView
+            android:text="PRE TEST DATE"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView9"
+            android:layout_alignLeft="@+id/textView9"
+            android:layout_alignStart="@+id/textView9"
+            android:layout_marginTop="23dp"
+            android:id="@+id/textView10"
+            android:textSize="8sp" />
+
+        <TextView
+            android:text="Primary Label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView10"
+            android:layout_alignLeft="@+id/textView10"
+            android:layout_alignStart="@+id/textView10"
+            android:layout_marginTop="23dp"
+            android:id="@+id/textView11"
+            android:textSize="14sp" />
+
+        <TextView
+android:text="11:06 hrs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/textView10"
+            android:layout_toRightOf="@+id/textView11"
+            android:layout_toEndOf="@+id/textView11"
+            android:layout_marginLeft="69dp"
+            android:layout_marginStart="69dp"
+            android:id="@+id/prebitesttime"
+            android:textSize="12sp"
+            android:textColor="#2d2d2d" />
+
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/textView11"
+            android:text="11/12/2016"
+            android:layout_alignLeft="@+id/prebitesttime"
+            android:layout_alignStart="@+id/prebitesttime"
+            android:id="@+id/pretest_date"
+            android:textColor="#2d2d2d"
+            android:textSize="12sp" />
+
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Description"
+            android:layout_alignTop="@+id/textView11"
+            android:layout_alignLeft="@+id/pretest_date"
+            android:layout_alignStart="@+id/pretest_date"
+            android:id="@+id/post_test_colorv"
+            android:textSize="12sp"
+            android:textColor="#2d2d2d" />
+
+
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/qr_scanned_bio"
+            android:text="KIYOCCA!23456"
+            android:textSize="14sp"
+            android:textColor="#2d2d2d"
+            android:layout_marginTop="12dp"
+            android:layout_marginLeft="10dp"
+            android:layout_alignTop="@+id/imageView16"
+            android:layout_toRightOf="@+id/imageView16"
+            android:layout_toEndOf="@+id/imageView16" />
+
+        <TextView
+            android:text="PRE TEST TIME :"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView9"
+            android:layout_marginTop="19dp"
+            android:layout_marginLeft="23dp"
+            android:layout_marginStart="23dp"
+            android:textSize="8sp"
+            android:layout_below="@+id/biodocnamev"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:text="Dr.kumar vel "
+            android:layout_width="wrap_content"
+            android:textColor="#2d2d2d"
+            android:textSize="20sp"
+            android:layout_height="wrap_content"
+            android:id="@+id/biodocnamev"
+            android:layout_marginTop="14dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/normal_qr"
+            android:id="@+id/imageView16"
+
+            android:layout_below="@+id/textView11"
+            android:layout_alignRight="@+id/textView11"
+            android:layout_alignEnd="@+id/textView11"
+            android:layout_marginTop="38dp" />
+
+    </RelativeLayout>
+</RelativeLayout>

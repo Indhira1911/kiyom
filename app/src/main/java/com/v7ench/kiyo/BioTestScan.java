@@ -106,14 +106,14 @@ String etim=eti.getText().toString();
                     boolean error = jObj.getBoolean("error");
                     if (!error)
                     {
-                        Calendar cal = Calendar.getInstance();
-                        Intent intent = new Intent(Intent.ACTION_EDIT);
-                        intent.setType("vnd.android.cursor.item/event");
-                        intent.putExtra("beginTime", cal.getTimeInMillis());
-                        intent.putExtra("allDay", false);
-                        intent.putExtra("rrule", "FREQ=DAILY");
-                        intent.putExtra("endTime", cal.getTimeInMillis()+60*60*1000);
-                        intent.putExtra("Kiyo Bio Test", "A Reminder for BIO test ");
+                        JSONObject user = jObj.getJSONObject("user");
+                        String biodqr = user.getString("biodqr");
+                        String sdate = user.getString("sdate");
+                        String stime = user .getString("stime");
+                        Intent intent =new Intent(BioTestScan.this,Biotestprofile.class);
+                        intent.putExtra("biodqr",biodqr);
+                        intent.putExtra("sdate",sdate);
+                        intent.putExtra("stime",stime);
                         startActivity(intent);
                     }
                     else

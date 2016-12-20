@@ -35,6 +35,7 @@ public class OtpActivity extends AppCompatActivity {
         setContentView(R.layout.activity_otp);
         db = new SQLiteHandler(getApplicationContext());
         // session manager
+
         session = new SessionManager(getApplicationContext());
         // Fetching user details from sqlite
         HashMap<String, String> user = db.getUserDetails();
@@ -43,6 +44,7 @@ public class OtpActivity extends AppCompatActivity {
         dialog.setIndeterminate(true);
         dialog.setCancelable(false);
         dialog.setMessage("Loading. Please wait...");
+
        Eotpn=(EditText) findViewById(R.id.otpnumber);
           otpreq =(FloatingActionButton) findViewById(R.id.otpsend);
                 otpreq.setOnClickListener(new View.OnClickListener() {
@@ -71,7 +73,6 @@ public class OtpActivity extends AppCompatActivity {
                new Response.Listener<String>() {
                    @Override
                    public void onResponse(String response) {
-
                            if (response.equals("success")) {
                                dialog.dismiss();
                                Intent intent = new Intent(OtpActivity.this,MainActivity.class);
@@ -79,6 +80,7 @@ public class OtpActivity extends AppCompatActivity {
                            }
                            else
                            {
+                               dialog.dismiss();
                                Toast.makeText(getApplicationContext(), "Enter a valid OTP", Toast.LENGTH_SHORT).show();
 
                            }

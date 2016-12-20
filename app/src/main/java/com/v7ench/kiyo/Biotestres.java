@@ -56,7 +56,7 @@ public class Biotestres extends AppCompatActivity {
         db = new SQLiteHandler(getApplicationContext());
         HashMap<String, String> user = db.getUserDetails();
         final String uid = user.get("uid");
-        String ur = "http://vigneshintech.tk/kiyo/biores.php?uid="+uid;
+        String ur = "http://gettalentsapp.com/vignesh2514/kiyo/androadmin/biores.php?uid="+uid;
         new JSONTask().execute(ur);
     }
 

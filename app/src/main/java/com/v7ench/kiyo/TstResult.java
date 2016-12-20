@@ -54,7 +54,7 @@ ListView tst;
         db = new SQLiteHandler(getApplicationContext());
        HashMap<String, String> user = db.getUserDetails();
         final String uid = user.get("uid");
-           String ur = "http://vigneshintech.tk/kiyo/tstrescheck.php?uid="+uid;
+           String ur = "http://gettalentsapp.com/vignesh2514/kiyo/androadmin/tstrescheck.php?uid="+uid;
         new JSONTask().execute(ur);
     }
 

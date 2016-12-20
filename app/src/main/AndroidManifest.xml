@@ -30,8 +30,8 @@
         <activity
             android:name=".AddDoctor"
             android:label="@string/title_activity_add_doctor"
-            android:screenOrientation="portrait"
             android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -40,8 +40,8 @@
         <activity
             android:name=".AddClinic"
             android:label="@string/title_activity_add_clinic"
-            android:screenOrientation="portrait"
             android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -50,17 +50,19 @@
         <activity
             android:name=".ColorPickerActivity"
             android:label="Colour Picker"
-            android:screenOrientation="portrait"
             android:parentActivityName=".scanneracti.TstScan"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".scanneracti.TstScan" />
         </activity>
-        <activity android:name=".SignActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".OtpActivity"
-            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".SignActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".OtpActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".SplashActivity"
             android:screenOrientation="portrait"
@@ -78,22 +80,24 @@
         <activity
             android:name=".scanneracti.TstScan"
             android:label="@string/title_activity_tst_scan"
-            android:screenOrientation="portrait"
             android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.v7ench.kiyo.MainActivity" />
         </activity>
-        <activity android:name=".Forgotpass1"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".ResetActivity"
-            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".Forgotpass1"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ResetActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ScanAttach"
             android:label="@string/title_activity_scan_attach"
-            android:screenOrientation="portrait"
             android:parentActivityName=".scanneracti.TstScan"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -102,8 +106,8 @@
         <activity
             android:name=".TstScanResult"
             android:label="@string/title_activity_tst_scan_result"
-            android:screenOrientation="portrait"
             android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -112,8 +116,8 @@
         <activity
             android:name=".BioTestScan"
             android:label="@string/title_activity_bio_test_scan"
-            android:screenOrientation="portrait"
             android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -122,8 +126,8 @@
         <activity
             android:name=".BiotestResult"
             android:label="@string/title_activity_biotest_result"
-            android:screenOrientation="portrait"
             android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -132,8 +136,8 @@
         <activity
             android:name=".TstResult"
             android:label="@string/title_activity_tst_result"
-            android:screenOrientation="portrait"
             android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -142,8 +146,8 @@
         <activity
             android:name=".Biotestres"
             android:label="@string/title_activity_biotestres"
-            android:screenOrientation="portrait"
             android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -152,8 +156,8 @@
         <activity
             android:name=".Settingsall"
             android:label="@string/title_activity_settingsall"
-            android:screenOrientation="portrait"
             android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -162,8 +166,8 @@
         <activity
             android:name=".tstresultview"
             android:label="@string/title_activity_tstresultview"
-            android:screenOrientation="portrait"
             android:parentActivityName=".TstResult"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -172,7 +176,34 @@
         <activity
             android:name=".ProfileActivity"
             android:label="@string/title_activity_profile"
+            android:parentActivityName=".MainActivity"
             android:screenOrientation="portrait"
+            android:theme="@style/AppTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.v7ench.kiyo.MainActivity" />
+        </activity>
+        <activity
+            android:name=".BiotestNew"
+            android:label="@string/title_activity_biotest_new"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.v7ench.kiyo.MainActivity" />
+        </activity>
+        <activity
+            android:name=".Tstresultsum"
+            android:label="@string/title_activity_tstresultsum"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.v7ench.kiyo.MainActivity" />
+        </activity>
+        <activity
+            android:name=".Biotestprofile"
+            android:label="@string/title_activity_biotestprofile"
             android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme">
             <meta-data

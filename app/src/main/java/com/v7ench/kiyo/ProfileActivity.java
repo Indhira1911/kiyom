@@ -1,5 +1,6 @@
 package com.v7ench.kiyo;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -26,10 +27,10 @@ import java.util.Map;
 
 public class ProfileActivity extends AppCompatActivity {
     ListView tsti;
-    private SQLiteHandler db;
     TextView proname,sal,unsal,rati;
     TextView cname,cadd,cnum,cemail;
 Button addclin;
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,7 +39,7 @@ Button addclin;
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         tsti = (ListView) findViewById(R.id.tst_list);
-        db = new SQLiteHandler(getApplicationContext());
+        SQLiteHandler db = new SQLiteHandler(getApplicationContext());
         proname = (TextView) findViewById(R.id.mname);
         sal=(TextView) findViewById(R.id.safep);
         rati=(TextView) findViewById(R.id.ratings);
@@ -73,13 +74,14 @@ Button addclin;
                     JSONObject user = jObj.getJSONObject("user");
                     String safe = user.getString("safe");
                     String unsafe = user.getString("unsafe");
-                    sal.setText("Safe:"+safe);
-                    unsal.setText("Unsafe:"+unsafe);
+                    sal.setText(safe);
+                    unsal.setText(unsafe);
                     int isafe = Integer.parseInt(safe);
                     int iunsafe = Integer.parseInt(unsafe);
                     int toti = isafe + iunsafe;
                     double prefinali=((double)isafe)/toti;
                     double finali=prefinali*5;
+                    @SuppressLint("DefaultLocale")
                     String fin=  String.format("%.2f",finali);
                      rati.setText(fin);
                 } catch (JSONException e) {

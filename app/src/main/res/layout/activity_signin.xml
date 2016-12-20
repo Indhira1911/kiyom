@@ -29,7 +29,22 @@
         android:layout_above="@+id/button"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="13dp" />
-
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="phone"
+        android:maxLength="10"
+        android:layout_marginTop="33dp"
+        android:id="@+id/mobileno"
+        android:hint="Mobile Number"
+        android:fontFamily="sans-serif"
+        android:typeface="normal"
+        android:textSize="20sp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -46,21 +61,6 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="phone"
-android:maxLength="10"
-        android:layout_marginTop="33dp"
-        android:id="@+id/mobileno"
-        android:hint="Mobile Number"
-        android:fontFamily="sans-serif"
-        android:typeface="normal"
-        android:textSize="20sp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+
 
 </RelativeLayout>

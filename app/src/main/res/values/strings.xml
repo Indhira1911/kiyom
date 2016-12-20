@@ -32,5 +32,9 @@
     <string name="title_activity_profile">Profile</string>
     <string name="mainimage">mainimage</string>
     <string name="mobile_number">Mobile Number</string>
+    <string name="navbar_header">navbar header</string>
+    <string name="title_activity_biotest_new">BIO Test</string>
+    <string name="title_activity_tstresultsum">TST Test</string>
+    <string name="title_activity_biotestprofile">Bio Test Result</string>
 
 </resources>

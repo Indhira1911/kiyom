@@ -10,31 +10,24 @@
 
 
     <Button
-        android:text="Forgot Password?"
+        android:text="Forgot password?"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="?attr/selectableItemBackground"
+        android:textColor="@color/colorPrimaryDark"
         android:id="@+id/button"
+        android:textAllCaps="false"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />
 
-    <android.support.design.widget.FloatingActionButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:clickable="true"
-        app:fabSize="normal"
-       app:srcCompat="@drawable/ic_send_white_24px"
-        android:id="@+id/siginsend"
-        app:elevation="8dp"
-        android:layout_above="@+id/button"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="13dp" />
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="phone"
         android:maxLength="10"
-        android:layout_marginTop="33dp"
+        android:paddingRight="5dp"
+        android:paddingLeft="5dp"
+        android:layout_marginTop="15dp"
         android:id="@+id/mobileno"
         android:hint="Mobile Number"
         android:fontFamily="sans-serif"
@@ -50,17 +43,30 @@
         android:layout_height="wrap_content"
         android:inputType="textPassword"
         android:ems="10"
+        android:paddingRight="5dp"
+        android:paddingLeft="5dp"
         android:id="@+id/password"
         android:hint="Password"
         android:textSize="20sp"
         android:typeface="normal"
         android:fontFamily="sans-serif"
         android:layout_below="@+id/mobileno"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="24dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
+    <android.support.design.widget.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        app:fabSize="normal"
+       app:srcCompat="@drawable/ic_send_white_24px"
+        android:id="@+id/siginsend"
+        app:elevation="8dp"
+        android:layout_above="@+id/button"
+        android:layout_centerHorizontal="true" />
 
 
 </RelativeLayout>

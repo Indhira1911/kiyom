@@ -41,8 +41,7 @@ EditText Ename,Emono,Eemail,Epass;
     private RadioButton radioSexButton;
     private ProgressDialog dialog;
     @Override
-    public View onCreateView(LayoutInflater inflater,
-                             @Nullable final ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater,                        @Nullable final ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.activity_signup, container, false);
         Ename=(EditText) v.findViewById(R.id.name);
         Eemail=(EditText) v.findViewById(email);

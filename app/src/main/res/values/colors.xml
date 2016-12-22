@@ -17,4 +17,8 @@
 
     <color name="pointer_color">#80FFFFFF</color>
     <color name="black_overlay">#66000000</color>
+    <color name="aa1">#02569c</color>
+    <color name="aa2">#e65100</color>
+    <color name="aa3">#4a148c</color>
+    <color name="aa4">#890e4f</color>
 </resources>

@@ -17,6 +17,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class PagerActivity extends AppCompatActivity {
@@ -24,29 +25,20 @@ public class PagerActivity extends AppCompatActivity {
     private ViewPager mViewPager;
     ImageButton mNextBtn;
     Button mSkipBtn, mFinishBtn;
-
     ImageView zero, one, two,three;
     ImageView[] indicators;
-
     int lastLeftValue = 0;
-
     CoordinatorLayout mCoordinator;
-
-
-    static final String TAG = "PagerActivity";
-
+   static final String TAG = "PagerActivity";
     int page = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             getWindow().getDecorView().setSystemUiVisibility(
                     View.SYSTEM_UI_FLAG_LAYOUT_STABLE
                             | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
-
         }
 
         setContentView(R.layout.activity_pager);
@@ -187,6 +179,9 @@ String[] headi=new String[]{"Welcome to KIYO","Result Accuracy Guaranteed","Spec
                 "Complete sterilization guaranteed.","Scan, test and send BI strips to get them \n" +
                 "tested at the lab by the specialists.","Be a part of KIYO Family and guarantee\n" +
                 "complete peace of mind to your patients."};
+
+
+        final String[] colrList = new String[]{"#02569c", "#e65100", "#4a148c", "#890e4f"};
         public PlaceholderFragment() {
         }
 
@@ -198,15 +193,17 @@ String[] headi=new String[]{"Welcome to KIYO","Result Accuracy Guaranteed","Spec
             fragment.setArguments(args);
             return fragment;
         }
-
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
+
             View rootView = inflater.inflate(R.layout.fragment_pager, container, false);
+            LinearLayout llt=(LinearLayout)rootView.findViewById(R.id.plio);
             TextView textView = (TextView) rootView.findViewById(R.id.section_label);
             TextView textView1=(TextView) rootView.findViewById(R.id.section_label2);
             textView.setText(headi[getArguments().getInt(ARG_SECTION_NUMBER)-1]);
 textView1.setText(subheadi[getArguments().getInt(ARG_SECTION_NUMBER)-1]);
+llt.setBackgroundColor(Color.parseColor(colrList[getArguments().getInt(ARG_SECTION_NUMBER)-1]));
             img = (ImageView) rootView.findViewById(R.id.section_img);
             img.setBackgroundResource(bgs[getArguments().getInt(ARG_SECTION_NUMBER) - 1]);
 

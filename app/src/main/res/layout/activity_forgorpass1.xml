@@ -31,10 +31,12 @@
         android:layout_below="@+id/fpback">
 
         <TextView
-            android:text="Forgot Password"
+            android:text="Forgot password ?"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/textView4"
+            android:textSize="30sp"
+            android:textColor="#2d2d2d"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="50dp"
@@ -55,18 +57,6 @@
             android:typeface="normal"
             android:fontFamily="sans-serif" />
 
-        <TextView
-            android:text="We need your registered Mobile Number to send you password reset OTP "
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:id="@+id/textView6"
-            android:textAlignment="center"
-            android:textSize="16sp"
-            android:layout_below="@+id/textView4"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
-
         <android.support.design.widget.FloatingActionButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -80,7 +70,7 @@
             app:elevation="13dp" />
 
         <Button
-            android:text="Back to Signin Page"
+            android:text="Back to Sign In  Page"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="27dp"
@@ -89,6 +79,19 @@
             android:background="?attr/selectableItemBackground"
             android:textColor="@color/colorPrimaryDark"
             android:layout_below="@+id/fpsend"
+            android:layout_centerHorizontal="true" />
+
+        <TextView
+            android:text="We just  need your registered Mobile Number \n to send you password reset OTP "
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="23dp"
+            android:textColor="#2d2d2d"
+
+            android:id="@+id/textView6"
+            android:textAlignment="center"
+            android:textSize="16sp"
+            android:layout_below="@+id/textView4"
             android:layout_centerHorizontal="true" />
     </RelativeLayout>
 

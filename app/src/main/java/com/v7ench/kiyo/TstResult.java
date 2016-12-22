@@ -12,9 +12,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.v7ench.kiyo.dbhandler.SQLiteHandler;
@@ -38,7 +38,7 @@ public class TstResult extends AppCompatActivity {
 ListView tst;
     private SQLiteHandler db;
     private ProgressDialog dialog;
-
+ImageView gghnj;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,6 +51,7 @@ ListView tst;
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         tst=(ListView) findViewById(R.id.tst_list);
+        gghnj=(ImageView) findViewById(R.id.dsa);
         db = new SQLiteHandler(getApplicationContext());
        HashMap<String, String> user = db.getUserDetails();
         final String uid = user.get("uid");
@@ -136,8 +137,10 @@ ListView tst;
 
                     }
                 });
-            } else {
-                Toast.makeText(getApplicationContext(), "Internet connection is too slow for process.Please wait", Toast.LENGTH_SHORT).show();
+            }
+            if (tst.getCount()==0)
+            {
+            gghnj.setVisibility(View.VISIBLE);
             }
         }
 

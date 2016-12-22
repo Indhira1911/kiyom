@@ -15,6 +15,16 @@ android:padding="10dp"
         android:layout_height="match_parent"
         android:layout_alignParentTop="true"
         android:id="@+id/tst_list"
+
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/dsa"
+        android:visibility="gone"
+        android:background="@drawable/tst_history"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>

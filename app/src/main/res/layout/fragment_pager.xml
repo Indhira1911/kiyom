@@ -29,7 +29,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
         android:gravity="center"
-        android:background="@color/colorPrimary"
+        android:id="@+id/plio"
+        android:background="#02569c"
         android:orientation="vertical"
         android:padding="@dimen/activity_horizontal_margin">
 

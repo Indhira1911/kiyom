@@ -4,7 +4,6 @@ android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:padding="10dp"
     android:id="@+id/norm_list">
-
     <TextView
         android:text="TextView"
         android:layout_width="wrap_content"
@@ -14,9 +13,7 @@ android:layout_width="match_parent"
         android:visibility="gone"
         android:layout_below="@+id/bconte"
         android:layout_alignBaseline="@+id/btdate"
-        android:layout_alignBottom="@+id/btdate"
-        android:layout_toRightOf="@+id/btdate"
-        />
+        android:layout_alignBottom="@+id/btdate" />
 
     <TextView
         android:text="TextView"
@@ -24,15 +21,15 @@ android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/btdate"
         android:padding="2dp"
-        android:textSize="12sp"
+        android:textSize="13sp"
         android:layout_below="@+id/bconte"
         android:layout_toRightOf="@+id/imageView17"
         android:layout_toEndOf="@+id/imageView17" />
 
     <ImageView
-        android:layout_width="30dp"
+        android:layout_width="45dp"
         android:background="@drawable/b_test"
-        android:layout_height="30dp"
+        android:layout_height="45dp"
          android:id="@+id/imageView17"
         android:layout_centerVertical="true"
         android:layout_alignParentLeft="true"
@@ -44,7 +41,7 @@ android:layout_width="match_parent"
         android:id="@+id/bconte"
         android:layout_gravity="center_vertical"
         android:textColor="#2d2d2d"
-        android:textSize="14sp"
+        android:textSize="15sp"
         android:text="DDa"
         android:paddingBottom="2dp"
         android:layout_alignParentTop="true"

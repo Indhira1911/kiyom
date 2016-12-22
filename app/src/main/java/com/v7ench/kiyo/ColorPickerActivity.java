@@ -42,35 +42,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ColorPickerActivity extends AppCompatActivity implements CameraColorPickerPreview.OnColorSelectedListener, View.OnClickListener {
-
-    /**
-     * A tag used in the logs.
-     */
     protected static final String TAG = ColorPickerActivity.class.getSimpleName();
-
-
-
     protected static final String PICKED_COLOR_PROGRESS_PROPERTY_NAME = "pickedColorProgress";
-
-
     protected static final String SAVE_COMPLETED_PROGRESS_PROPERTY_NAME = "saveCompletedProgress";
-
-    /**
-     * The duration of the animation of the confirm save message. (in millis).
-     */
     protected static final long DURATION_CONFIRM_SAVE_MESSAGE = 400;
-
-    /**
-     * The delay before the confirm save message is hidden. (in millis).
-     * <p/>
-     * 1000 + DURATION_CONFIRM_SAVE_MESSAGE = 1400
-     * The confirm save message should stay on screen for 1 second.
-     */
     protected static final long DELAY_HIDE_CONFIRM_SAVE_MESSAGE = 1400;
-
-    /**
-     * A safe way to get an instance of the back {@link android.hardware.Camera}.
-     */
     private static Camera getCameraInstance() {
         Camera c = null;
         try {
@@ -80,115 +56,46 @@ public class ColorPickerActivity extends AppCompatActivity implements CameraColo
         }
         return c;
     }
-
-    /**
-     * An instance of the {@link android.hardware.Camera} used for displaying the preview.
-     */
     protected Camera mCamera;
 
-    /**
-     * A boolean for knowing the orientation of the activity.
-     */
     protected boolean mIsPortrait;
 
-    /**
-     * A simple {@link android.widget.FrameLayout} that contains the preview.
-     */
     protected FrameLayout mPreviewContainer;
 
     protected CameraColorPickerPreview mCameraPreview;
 
     protected CameraAsyncTask mCameraAsyncTask;
 
-    /**
-     * The color selected by the user.
-     * <p/>
-     * The user "selects" a color by pointing a color with the camera.
-     */
     protected int mSelectedColor;
 
-    /**
-     * The last picked color.
-     * <p/>
-     * The user "picks" a color by clicking the preview.
-     */
     protected int mLastPickedColor;
 
-    /**
-     * A simple {@link android.view.View} used for showing the picked color.
-     */
     protected View mPickedColorPreview;
 
-    /**
-     * A simple {@link android.view.View} used for animating the color being picked.
-     */
     protected View mPickedColorPreviewAnimated;
 
-    /**
-     * An {@link android.animation.ObjectAnimator} used for animating the color being picked.
-     */
     protected ObjectAnimator mPickedColorProgressAnimator;
 
-    /**
-     * The delta for the translation on the x-axis of the mPickedColorPreviewAnimated.
-     */
     protected float mTranslationDeltaX;
-
-    /**
-     * The delta for the translation on the y-axis of the mPickedColorPreviewAnimated.
-     */
     protected float mTranslationDeltaY;
-
-    /**
-     * A simple {@link android.widget.TextView} used for showing a human readable representation of the picked color.
-     */
     protected TextView mColorPreviewText;
 
-    /**
-     * A simple {@link android.view.View} used for showing the selected color.
-     */
     protected View mPointerRing;
 
-    /**
-     * An icon representing the "save completed" state.
-     */
     protected View mSaveCompletedIcon;
 
-    /**
-     * The save button.
-     */
     protected View mSaveButton;
 
-    /**
-     * A float representing the progress of the "save completed" state.
-     */
     protected float mSaveCompletedProgress;
 
-    /**
-     * An {@link android.animation.ObjectAnimator} used for animating the "save completed" state.
-     */
     protected ObjectAnimator mSaveCompletedProgressAnimator;
 
-    /**
-     * A simple {@link android.widget.TextView} that confirms the user that the color has been saved successfully.
-     */
     protected TextView mConfirmSaveMessage;
 
-    /**
-     * An {@link android.view.animation.Interpolator} used for showing the mConfirmSaveMessage.
-     */
     protected Interpolator mConfirmSaveMessageInterpolator;
 
-    /**
-     * A {@link java.lang.Runnable} that hide the confirm save message.
-     * <p/>
-     * This runnable is posted with some delayed on mConfirmSaveMessage each time a color is successfully saved.
-     */
     protected Runnable mHideConfirmSaveMessage;
 
-    /**
-     * A simple boolean for keeping track of the device's camera flash state.
-     */
     protected boolean mIsFlashOn;
 
     @Override
@@ -289,8 +196,6 @@ public class ColorPickerActivity extends AppCompatActivity implements CameraColo
             setSaveCompleted(true);
         }
     }
-
-
     protected void initViews(final String dqr) {
         mIsPortrait = true;
         mPreviewContainer = (FrameLayout) findViewById(R.id.activity_color_picker_preview_container);
@@ -306,25 +211,20 @@ public class ColorPickerActivity extends AppCompatActivity implements CameraColo
         mHideConfirmSaveMessage = new Runnable() {
             @Override
             public void run() {
-                mConfirmSaveMessage.animate()
-                        .translationY(-mConfirmSaveMessage.getMeasuredHeight())
-                        .setDuration(DURATION_CONFIRM_SAVE_MESSAGE)
-                        .start();
+                mConfirmSaveMessage.animate().translationY(-mConfirmSaveMessage.getMeasuredHeight()).setDuration(DURATION_CONFIRM_SAVE_MESSAGE)                     .start();
             }
         };
         positionConfirmSaveMessage();
         mConfirmSaveMessageInterpolator = new DecelerateInterpolator();
-
         mLastPickedColor = ColorItems.getLastPickedColor(this);
         applyPreviewColor(mLastPickedColor);
         mSaveCompletedIcon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String postcol=mColorPreviewText.getText().toString();
-
+                mSaveCompletedIcon.setVisibility(View.GONE);
                 pcolor(dqr,postcol);
-
-            }
+                        }
         });
     }
 
@@ -365,13 +265,14 @@ public  void pcolor(final String dqr, final String postcol)
 
             } catch (JSONException e) {
                 e.printStackTrace();
+                mSaveCompletedIcon.setVisibility(View.VISIBLE);
             }
 
         }
     }, new Response.ErrorListener() {
         @Override
         public void onErrorResponse(VolleyError error) {
-
+            mSaveCompletedIcon.setVisibility(View.VISIBLE);
         }
     }){
         @Override
@@ -511,7 +412,7 @@ public  void pcolor(final String dqr, final String postcol)
 
     private class CameraAsyncTask extends AsyncTask<Void, Void, Camera> {
 
-        protected FrameLayout.LayoutParams mPreviewParams;
+        FrameLayout.LayoutParams mPreviewParams;
 
 
         @Override
@@ -520,28 +421,14 @@ public  void pcolor(final String dqr, final String postcol)
             if (camera == null) {
                 ColorPickerActivity.this.finish();
             } else {
-                //configure Camera parameters
-                Camera.Parameters cameraParameters = camera.getParameters();
-
-                //get optimal camera preview size according to the layout used to display it
+                   Camera.Parameters cameraParameters = camera.getParameters();
                 Camera.Size bestSize = Cameras.getBestPreviewSize(
-                        cameraParameters.getSupportedPreviewSizes()
-                        , mPreviewContainer.getWidth()
-                        , mPreviewContainer.getHeight()
-                        , mIsPortrait);
-                //set optimal camera preview
+                        cameraParameters.getSupportedPreviewSizes(), mPreviewContainer.getWidth(), mPreviewContainer.getHeight(), mIsPortrait);
                 cameraParameters.setPreviewSize(bestSize.width, bestSize.height);
                 camera.setParameters(cameraParameters);
-
-                //set camera orientation to match with current device orientation
                 Cameras.setCameraDisplayOrientation(ColorPickerActivity.this, camera);
-
-                //get proportional dimension for the layout used to display preview according to the preview size used
                 int[] adaptedDimension = Cameras.getProportionalDimension(
-                        bestSize
-                        , mPreviewContainer.getWidth(),mPreviewContainer.getHeight(), mIsPortrait);
-
-                //set up params for the layout used to display the preview
+                        bestSize , mPreviewContainer.getWidth(),mPreviewContainer.getHeight(), mIsPortrait);
                 mPreviewParams = new FrameLayout.LayoutParams(adaptedDimension[0], adaptedDimension[1]);
                 mPreviewParams.gravity = Gravity.CENTER;
             }
@@ -552,7 +439,6 @@ public  void pcolor(final String dqr, final String postcol)
         protected void onPostExecute(Camera camera) {
             super.onPostExecute(camera);
 
-            // Check if the task is cancelled before trying to use the camera.
             if (!isCancelled()) {
                 mCamera = camera;
                 if (mCamera == null) {
@@ -577,4 +463,5 @@ public  void pcolor(final String dqr, final String postcol)
             }
         }
     }
+
 }

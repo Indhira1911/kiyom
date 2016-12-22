@@ -12,9 +12,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.v7ench.kiyo.dbhandler.SQLiteHandler;
@@ -38,7 +38,7 @@ public class Biotestres extends AppCompatActivity {
     ListView biore;
     private SQLiteHandler db;
     private ProgressDialog dialog;
-
+ImageView gghk;
 
 
     @Override
@@ -53,6 +53,7 @@ public class Biotestres extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         biore=(ListView) findViewById(R.id.biores);
+        gghk=(ImageView) findViewById(R.id.imageView19);
         db = new SQLiteHandler(getApplicationContext());
         HashMap<String, String> user = db.getUserDetails();
         final String uid = user.get("uid");
@@ -139,9 +140,13 @@ public class Biotestres extends AppCompatActivity {
                         startActivity(intent);
                     }
                 });
-            } else {
-                Toast.makeText(getApplicationContext(), "Internet connection is too slow for process.Please wait", Toast.LENGTH_SHORT).show();
+
             }
+            if(biore.getCount()==0)
+            {
+gghk.setVisibility(View.VISIBLE);
+            }
+
         }
 
     }

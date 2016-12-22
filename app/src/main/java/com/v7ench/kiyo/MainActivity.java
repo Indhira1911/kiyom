@@ -25,6 +25,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RatingBar;
 import android.widget.TextView;
@@ -57,6 +58,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import static com.v7ench.kiyo.R.id.aac;
+
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -65,6 +68,7 @@ public class MainActivity extends AppCompatActivity
     int PERMISSION_ALL = 1;
     TextView sa,ua,ra;
     ListView mst;
+    ImageView noim;
     RatingBar rateme;
         private ProgressDialog dialog;
     @Override
@@ -149,13 +153,11 @@ rateme=(RatingBar) findViewById(R.id.rating_main);
            int isafe=Integer.parseInt(sa.getText().toString());
                     int iunsafe=Integer.parseInt(ua.getText().toString());
                     int toti=isafe+iunsafe;
-                    if (isafe==toti)
+                    if (toti==0)
+                    {ra.setText("0.0");             }
+                   else if (isafe==toti)
                     {
                         ra.setText("5.0");
-                    }
-                    else if (toti==0)
-                    {
-                        ra.setText("0.0");
                     }
                     else {
                         double prefinali=((double)isafe)/toti;
@@ -386,7 +388,8 @@ rateme=(RatingBar) findViewById(R.id.rating_main);
         @Override
         protected void onPostExecute(final List<Categorieslist> movieModelList) {
             super.onPostExecute(movieModelList);
-
+noim=(ImageView) findViewById(R.id.noima);
+            TextView tesaac=(TextView) findViewById(aac);
             if(movieModelList != null) {
                 MovieAdapter adapter = new MovieAdapter(getApplicationContext(), R.layout.row_tst, movieModelList);
                 mst.setAdapter(adapter);
@@ -402,9 +405,12 @@ rateme=(RatingBar) findViewById(R.id.rating_main);
                     }
                 });
             }
-            else {
-                Toast.makeText(getApplicationContext(), "Internet connection is too slow for process.Please wait", Toast.LENGTH_SHORT).show();
+            if (mst.getCount()==0)
+            {
+                noim.setVisibility(View.VISIBLE);
+                tesaac.setVisibility(View.GONE);
             }
+
         }
 
     }
@@ -448,7 +454,6 @@ rateme=(RatingBar) findViewById(R.id.rating_main);
                 holder.conten=(TextView) convertView.findViewById(R.id.bconte);
                 holder.tda=(TextView) convertView.findViewById(R.id.btdate);
                 holder.tti=(TextView) convertView.findViewById(R.id.ttime);
-
                 convertView.setTag(holder);
 
             }

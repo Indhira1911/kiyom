@@ -25,16 +25,11 @@
             android:background="@drawable/img_on"
             android:id="@+id/image_bio_view"
             />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="#fff"
-            android:textSize="20sp"
-            android:text="Start TST Test" />
+
     </LinearLayout>
 
     <Button
-    android:text="BI Test Summary"
+    android:text="TST Test Summary"
     android:textColor="#fff"
     android:paddingLeft="25dp"
     android:paddingRight="25dp"

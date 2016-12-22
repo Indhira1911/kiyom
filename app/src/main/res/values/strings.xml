@@ -18,12 +18,12 @@
     <string name="title_activity_fullscreen">TST Scan</string>
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
-    <string name="title_activity_tst_scan">TstScan</string>
-    <string name="title_activity_scan_attach">ScanAttach</string>
+    <string name="title_activity_tst_scan">Scan TST test strip</string>
+    <string name="title_activity_scan_attach">Tst Scan Data</string>
     <string name="activity_color_picker_confirm_save_message">Color saved</string>
     <string name="menu_color_picker_action_flash">Flash</string>
     <string name="title_activity_tst_scan_result">TST SCAN RESULT</string>
-    <string name="title_activity_bio_test_scan">BioTestScan</string>
+    <string name="title_activity_bio_test_scan">Scan BIO test strip</string>
     <string name="title_activity_biotest_result">BioTestResult</string>
     <string name="title_activity_tst_result">TST TEST</string>
     <string name="title_activity_biotestres">Bio Test Result</string>

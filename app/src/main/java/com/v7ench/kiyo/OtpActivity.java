@@ -22,7 +22,10 @@ import com.v7ench.kiyo.global.UrlReq;
 import java.util.HashMap;
 import java.util.Map;
 
-public class OtpActivity extends AppCompatActivity {
+import swarajsaaj.smscodereader.interfaces.OTPListener;
+import swarajsaaj.smscodereader.receivers.OtpReader;
+
+public class OtpActivity extends AppCompatActivity implements OTPListener {
     private SQLiteHandler db;
     private SessionManager session;
     EditText Eotpn;
@@ -64,7 +67,7 @@ public class OtpActivity extends AppCompatActivity {
             }
         });
 
-
+        OtpReader.bind(this,"KIYOST");
     }
    public void checkotp(final String smonum, final String sotpnum)
    {
@@ -77,6 +80,7 @@ public class OtpActivity extends AppCompatActivity {
                                dialog.dismiss();
                                Intent intent = new Intent(OtpActivity.this,MainActivity.class);
                                startActivity(intent);
+                               finish();
                            }
                            else
                            {
@@ -102,5 +106,16 @@ public class OtpActivity extends AppCompatActivity {
        };
        AppController.getInstance().addToRequestQueue(stringRequest);
    }
+    @Override
+    public void otpReceived(String smsText) {
 
+
+        String[] parts = smsText.split(":"); // escape .
+        String part1 = parts[0];
+        String part2 = parts[1];
+        String[] parts1=part2.split("\\.");
+        Sotpnum=parts1[0];
+        checkotp(Smonum,Sotpnum);
+
+    }
 }

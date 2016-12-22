@@ -37,7 +37,7 @@ TextView docname,conte,prcol,pocol,resulttst,scandqr;
         conte=(TextView) findViewById(R.id.content_textv);
         prcol=(TextView) findViewById(R.id.pretest_date);
         pocol=(TextView) findViewById(R.id.post_test_colorv);
-resulttst=(TextView) findViewById(R.id.test_result);
+        resulttst=(TextView) findViewById(R.id.test_result);
         scandqr=(TextView) findViewById(R.id.qr_scanned);
         db = new SQLiteHandler(getApplicationContext());
 

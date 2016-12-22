@@ -1,13 +1,11 @@
 package com.v7ench.kiyo;
 
-import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -29,8 +27,7 @@ import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ScanAttach extends AppCompatActivity implements
-        View.OnClickListener {
+public class ScanAttach extends AppCompatActivity  {
     private int mYear, mMonth, mDay,thour,tminu,tseco;
     EditText Edat,Econtent,Epack,Esterli,Eload;
     TextView Tdqr;
@@ -66,8 +63,8 @@ public class ScanAttach extends AppCompatActivity implements
         Epack=(EditText) findViewById(R.id.pack);
         Esterli=(EditText) findViewById(R.id.sterilizer);
         Eload=(EditText) findViewById(R.id.load);
-         dateselect=(ImageButton) findViewById(R.id.dateselectn);
-        dateselect.setOnClickListener(this);
+//         dateselect=(ImageButton) findViewById(R.id.dateselectn);
+//        dateselect.setOnClickListener(this);
         savescn=(ImageButton) findViewById(R.id.savescan);
         Tdqr=(TextView) findViewById(R.id.qrscani);
         Intent details=getIntent();
@@ -164,20 +161,20 @@ public void prescan(final String uid, final String scontent, final String spack,
     };
     AppController.getInstance().addToRequestQueue(stringRequest);
 }
-    @Override
-    public void onClick(View v) {
-
-             DatePickerDialog datePickerDialog = new DatePickerDialog(this,
-                new DatePickerDialog.OnDateSetListener() {
-
-                    @Override
-                    public void onDateSet(DatePicker view, int year,
-                                          int monthOfYear, int dayOfMonth) {
-
-                        Edat.setText(dayOfMonth + "/" + (monthOfYear + 1) + "/" + year);
-
-                    }
-                }, mYear, mMonth, mDay);
-        datePickerDialog.show();
-    }
+//    @Override
+//    public void onClick(View v) {
+//
+//             DatePickerDialog datePickerDialog = new DatePickerDialog(this,
+//                new DatePickerDialog.OnDateSetListener() {
+//
+//                    @Override
+//                    public void onDateSet(DatePicker view, int year,
+//                                          int monthOfYear, int dayOfMonth) {
+//
+//                        Edat.setText(dayOfMonth + "/" + (monthOfYear + 1) + "/" + year);
+//
+//                    }
+//                }, mYear, mMonth, mDay);
+//        datePickerDialog.show();
+//    }
 }

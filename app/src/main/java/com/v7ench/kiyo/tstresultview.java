@@ -32,7 +32,7 @@ precol=(TextView)findViewById(R.id.pretest_date);
         postcol=(TextView) findViewById(R.id.post_test_colorv);
         tstresu=(TextView) findViewById(R.id.test_resultv);
         qrsca=(TextView) findViewById(R.id.qr_scanned);
-        docname.setText("DR."+name);
+        docname.setText("Dr."+name);
         String strObj = getIntent().getStringExtra("subcat");
         try {
             JSONObject myJsonObj = null;

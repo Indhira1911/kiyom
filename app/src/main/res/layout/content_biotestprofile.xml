@@ -133,8 +133,7 @@ android:text="11:06 hrs"
             android:layout_alignParentStart="true" />
 
         <TextView
-            android:text="Dr.kumar vel "
-            android:layout_width="wrap_content"
+                   android:layout_width="wrap_content"
             android:textColor="#2d2d2d"
             android:textSize="20sp"
             android:layout_height="wrap_content"

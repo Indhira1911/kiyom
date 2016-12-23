@@ -81,7 +81,7 @@ uu.setText(uid);
         String uud= uu.getText().toString();
         String eday=eda.getText().toString();
 String etim=eti.getText().toString();
-        if (scanresult.contains("KI")) {
+        if (scanresult.contains("KIBI")) {
             scanima(scanresult,uud,eday,etim);
 
         }

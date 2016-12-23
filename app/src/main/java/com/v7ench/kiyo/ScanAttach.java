@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -45,6 +47,12 @@ public class ScanAttach extends AppCompatActivity  {
         dialog = new ProgressDialog(getApplicationContext());
         dialog.setIndeterminate(true);
         dialog.setCancelable(false);
+        toolbar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
         dialog.setMessage("Loading. Please wait...");
         db = new SQLiteHandler(getApplicationContext());
         HashMap<String, String> user = db.getUserDetails();
@@ -70,6 +78,8 @@ public class ScanAttach extends AppCompatActivity  {
         Intent details=getIntent();
             final String Sdqr=details.getStringExtra("sr");
         Tdqr.setText(Sdqr);
+        Esterli.setEnabled(false);
+        Edat.setEnabled(false);
         Ssterli=Sdqr.substring(2,4);
         if (Ssterli.equals("ST"))
         {
@@ -89,7 +99,7 @@ public class ScanAttach extends AppCompatActivity  {
 
             @Override
             public void onClick(View v) {
-
+                savescn.setVisibility(View.INVISIBLE);
                 Scontent=Econtent.getText().toString();
                 Spack=Epack.getText().toString();
                 Ssterli=Esterli.getText().toString();
@@ -99,11 +109,12 @@ public class ScanAttach extends AppCompatActivity  {
                 Stme=Integer.toString(thour)+":"+Integer.toString(tminu)+":"+Integer.toString(tseco);
 if (Scontent.isEmpty()&&Ssterli.isEmpty()&&Sdat.isEmpty())
 {
-
+    savescn.setVisibility(View.VISIBLE);
     Toast.makeText(getApplicationContext(),"Please fill all fields",Toast.LENGTH_SHORT).show();
 }
 else
 {
+    savescn.setVisibility(View.INVISIBLE);
     prescan(uid,Scontent,Spack,Ssterli,Sload,Sdat,Stype,Sdqr,Stme);
 }
             }
@@ -122,12 +133,13 @@ public void prescan(final String uid, final String scontent, final String spack,
                 if (!error)
                 {
                     dialog.dismiss();
-                    Toast.makeText(getApplicationContext(),"Pre test scan has been successfull",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(),"Pre test scan has been successful",Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(ScanAttach.this, MainActivity.class);
                     startActivity(intent);
                 }
                 else {
                     dialog.dismiss();
+                    savescn.setVisibility(View.VISIBLE);
                     String errorMsg = jsonObject.getString("error_msg");
                     Toast.makeText(getApplicationContext(),errorMsg, Toast.LENGTH_LONG).show();
                 }
@@ -141,6 +153,7 @@ public void prescan(final String uid, final String scontent, final String spack,
         @Override
         public void onErrorResponse(VolleyError error) {
             dialog.dismiss();
+            savescn.setVisibility(View.VISIBLE);
             Toast.makeText(getApplicationContext(),"Check Your Internet Connection", Toast.LENGTH_LONG).show();
         }
     }){
@@ -177,4 +190,23 @@ public void prescan(final String uid, final String scontent, final String spack,
 //                }, mYear, mMonth, mDay);
 //        datePickerDialog.show();
 //    }
+@Override
+public void onBackPressed() {
+    Intent intent=new Intent(ScanAttach.this,MainActivity.class);
+    startActivity(intent);
+    finish();
+    super.onBackPressed();
+}
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event)  {
+        if (Integer.parseInt(android.os.Build.VERSION.SDK) > 5
+                && keyCode == KeyEvent.KEYCODE_BACK
+                && event.getRepeatCount() == 0) {
+            Log.d("CDA", "onKeyDown Called");
+            onBackPressed();
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
+    }
 }

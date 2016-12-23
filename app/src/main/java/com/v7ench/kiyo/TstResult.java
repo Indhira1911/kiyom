@@ -7,6 +7,8 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -49,6 +51,12 @@ ImageView gghnj;
         dialog.setMessage("Loading. Please wait...");
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        toolbar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         tst=(ListView) findViewById(R.id.tst_list);
         gghnj=(ImageView) findViewById(R.id.dsa);
@@ -57,6 +65,7 @@ ImageView gghnj;
         final String uid = user.get("uid");
            String ur = "http://gettalentsapp.com/vignesh2514/kiyo/androadmin/tstrescheck.php?uid="+uid;
         new JSONTask().execute(ur);
+
     }
 
     public class JSONTask extends AsyncTask<String,String, List<Categorieslist> > {
@@ -94,6 +103,7 @@ ImageView gghnj;
                     JSONObject finalObject = parentArray.getJSONObject(i);
                     Categorieslist categorieslist = gson.fromJson(finalObject.toString(), Categorieslist.class);
                         movieModelList.add(categorieslist);
+                    cacheThis.writeObject(TstResult.this, "helloall.txt", categorieslist);
                 }
                 return movieModelList;
 
@@ -127,6 +137,7 @@ ImageView gghnj;
                 MovieAdapter adapter = new MovieAdapter(getApplicationContext(), R.layout.row_tst, movieModelList);
                 tst.setAdapter(adapter);
                 adapter.notifyDataSetChanged();
+
                 tst.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -138,9 +149,23 @@ ImageView gghnj;
                     }
                 });
             }
+/*
+            else if (movieModelList == null){
+                try {
+                    movieModelList.addAll((List<Categorieslist>) cacheThis.readObject(TstResult.this, "helloall.txt"));
+                    MovieAdapter adapter = new MovieAdapter(getApplicationContext(), R.layout.row_tst, movieModelList);
+                    tst.setAdapter(adapter);
+                    adapter.notifyDataSetChanged();
+                    Toast.makeText(getApplicationContext(),"I am here",Toast.LENGTH_SHORT).show();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                } catch (ClassNotFoundException e) {
+                    e.printStackTrace();
+                }
+            }*/
             if (tst.getCount()==0)
             {
-            gghnj.setVisibility(View.VISIBLE);
+                gghnj.setVisibility(View.VISIBLE);
             }
         }
 
@@ -211,5 +236,24 @@ ImageView gghnj;
 
     }
 
+    @Override
+    public void onBackPressed() {
+        Intent intent=new Intent(TstResult.this,MainActivity.class);
+        startActivity(intent);
+        finish();
+        super.onBackPressed();
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event)  {
+        if (Integer.parseInt(android.os.Build.VERSION.SDK) > 5
+                && keyCode == KeyEvent.KEYCODE_BACK
+                && event.getRepeatCount() == 0) {
+            Log.d("CDA", "onKeyDown Called");
+            onBackPressed();
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
+    }
 
 }

@@ -5,6 +5,9 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
+import android.view.KeyEvent;
+import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -33,6 +36,12 @@ TextView docname,conte,prcol,pocol,resulttst,scandqr;
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        toolbar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
         docname=(TextView) findViewById(R.id.biodocnamev);
         conte=(TextView) findViewById(R.id.content_textv);
         prcol=(TextView) findViewById(R.id.pretest_date);
@@ -56,7 +65,7 @@ TextView docname,conte,prcol,pocol,resulttst,scandqr;
         String precolor = details.getStringExtra("precolor");
         String postcol=details.getStringExtra("postcol");
         scandqr.setText(dqrres);
-        docname.setText("DR."+name);
+        docname.setText("Dr."+name);
         pocol.setText(postcol);
         conte.setText(content);
         strfc(uid,dqr,postcol);
@@ -126,8 +135,25 @@ TextView docname,conte,prcol,pocol,resulttst,scandqr;
         };
         AppController.getInstance().addToRequestQueue(stringRequest);
     }
+    @Override
+    public void onBackPressed() {
+        Intent intent=new Intent(TstScanResult.this,MainActivity.class);
+        startActivity(intent);
+        finish();
+        super.onBackPressed();
+    }
 
-
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event)  {
+        if (Integer.parseInt(android.os.Build.VERSION.SDK) > 5
+                && keyCode == KeyEvent.KEYCODE_BACK
+                && event.getRepeatCount() == 0) {
+            Log.d("CDA", "onKeyDown Called");
+            onBackPressed();
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
+    }
 
 
 

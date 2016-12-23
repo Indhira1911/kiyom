@@ -7,29 +7,14 @@ import android.hardware.Camera;
 import android.util.Log;
 import android.view.TextureView;
 
-/**
- * A simple {@link android.view.TextureView} used to render camera preview.
- */
 public class CameraColorPickerPreview extends TextureView implements TextureView.SurfaceTextureListener, Camera.PreviewCallback {
 
-    /**
-     * A tag for logging.
-     */
     private static final String TAG = CameraColorPickerPreview.class.getCanonicalName();
 
-    /**
-     * The size of the pointer (in PIXELS).
-     */
     protected static final int POINTER_RADIUS = 5;
 
-    /**
-     * The {@link android.hardware.Camera} used for getting a preview frame.
-     */
     protected Camera mCamera;
 
-    /**
-     * The {@link android.hardware.Camera.Size} of the preview.
-     */
     protected Camera.Size mPreviewSize;
 
     /**
@@ -137,17 +122,8 @@ public class CameraColorPickerPreview extends TextureView implements TextureView
         mOnColorSelectedListener = onColorSelectedListener;
     }
 
-
-    /**
-     * An interface for callback.
-     */
     public interface OnColorSelectedListener {
 
-        /**
-         * Called when a new color has just been selected.
-         *
-         * @param newColor the new color that has just been selected.
-         */
         void onColorSelected(int newColor);
     }
 

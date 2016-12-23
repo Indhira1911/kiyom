@@ -57,16 +57,16 @@
             android:id="@+id/activity_color_picker_color_preview_text"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-
             android:layout_toEndOf="@+id/activity_color_picker_color_preview"
             android:layout_toLeftOf="@+id/activity_color_picker_save_button"
             android:layout_toRightOf="@+id/activity_color_picker_color_preview"
             android:layout_toStartOf="@+id/activity_color_picker_save_button"
             android:gravity="center_vertical"
             android:padding="16dp"
+            android:visibility="invisible"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:textColor="@color/abc_primary_text_material_light"
-            tools:text="#FF4455" />
+            android:text="#f45f54" />
 
         <ImageButton
             android:id="@+id/activity_color_picker_save_button"

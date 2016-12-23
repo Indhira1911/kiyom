@@ -151,22 +151,11 @@ public class ColorItem implements Parcelable {
         return "#" + Integer.toHexString(value).substring(2);
     }
 
-    /**
-     * Make a human readable representation of the RGB value of a color.
-     *
-     * @param value the integer representation the color.
-     * @return a human readable representation of the RGB value.
-     */
+
     public static String makeRgbString(int value) {
         return "rgb(" + Color.red(value) + ", " + Color.green(value) + ", " + Color.blue(value) + ")";
     }
 
-    /**
-     * Make a human readable representation of the HSV value of a color.
-     *
-     * @param value the integer representation the color.
-     * @return a human readable representation of the HSV value.
-     */
     public static String makeHsvString(int value) {
         float[] hsv = new float[3];
         Color.colorToHSV(value, hsv);

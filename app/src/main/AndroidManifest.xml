@@ -192,6 +192,7 @@
         <activity
             android:name=".BiotestNew"
             android:label="@string/title_activity_biotest_new"
+            android:screenOrientation="portrait"
             android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme">
             <meta-data
@@ -201,6 +202,7 @@
         <activity
             android:name=".Tstresultsum"
             android:label="@string/title_activity_tstresultsum"
+            android:screenOrientation="portrait"
             android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme">
             <meta-data
@@ -210,6 +212,7 @@
         <activity
             android:name=".Biotestprofile"
             android:label="@string/title_activity_biotestprofile"
+            android:screenOrientation="portrait"
             android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme">
             <meta-data

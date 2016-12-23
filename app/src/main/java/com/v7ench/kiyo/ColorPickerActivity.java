@@ -14,6 +14,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Gravity;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -190,10 +191,12 @@ public class ColorPickerActivity extends AppCompatActivity implements CameraColo
     @Override
     public void onClick(View v) {
         if (v == mCameraPreview) {
+            mColorPreviewText.setVisibility(View.VISIBLE);
             animatePickedColor(mSelectedColor);
         } else if (v.getId() == R.id.activity_color_picker_save_button) {
             ColorItems.saveColorItem(this, new ColorItem(mLastPickedColor));
-            setSaveCompleted(true);
+            //ColorItems.deleteColorItem(this, new ColorItem(mLastPickedColor));
+
         }
     }
     protected void initViews(final String dqr) {
@@ -216,14 +219,20 @@ public class ColorPickerActivity extends AppCompatActivity implements CameraColo
         };
         positionConfirmSaveMessage();
         mConfirmSaveMessageInterpolator = new DecelerateInterpolator();
-        mLastPickedColor = ColorItems.getLastPickedColor(this);
+       mLastPickedColor = ColorItems.getLastPickedColor(this);
         applyPreviewColor(mLastPickedColor);
         mSaveCompletedIcon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 String postcol=mColorPreviewText.getText().toString();
-                mSaveCompletedIcon.setVisibility(View.GONE);
-                pcolor(dqr,postcol);
+                if (postcol==Integer.toString(mLastPickedColor)) {
+                    Toast.makeText(getApplicationContext(),"Tap on screen to get color",Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    mSaveCompletedIcon.setVisibility(View.GONE);
+                    pcolor(dqr, postcol);
+                }
                         }
         });
     }
@@ -463,5 +472,23 @@ public  void pcolor(final String dqr, final String postcol)
             }
         }
     }
+    @Override
+    public void onBackPressed() {
+        Intent intent=new Intent(ColorPickerActivity.this,MainActivity.class);
+        startActivity(intent);
+        finish();
+        super.onBackPressed();
+    }
 
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event)  {
+        if (Integer.parseInt(android.os.Build.VERSION.SDK) > 5
+                && keyCode == KeyEvent.KEYCODE_BACK
+                && event.getRepeatCount() == 0) {
+            Log.d("CDA", "onKeyDown Called");
+            onBackPressed();
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
+    }
 }

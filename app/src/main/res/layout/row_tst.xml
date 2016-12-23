@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:padding="6dp"
+    android:layout_marginBottom="5dp"
     android:id="@+id/norm_list">
     <TextView
         android:layout_width="wrap_content"
@@ -14,6 +15,7 @@
         android:textColor="#2d2d2d"
         android:textSize="15sp"
         android:text="Content"
+        android:paddingLeft="5dp"
         android:paddingBottom="2dp"
         android:layout_alignParentTop="true"
         android:layout_toRightOf="@+id/imageView17"
@@ -25,6 +27,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/ttime"
         android:padding="2dp"
+        android:paddingLeft="5dp"
         android:visibility="gone"
         android:layout_below="@+id/bconte"
         android:layout_alignBaseline="@+id/btdate"
@@ -38,6 +41,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/btdate"
         android:textSize="13sp"
+        android:paddingLeft="5dp"
         android:layout_alignBottom="@+id/imageView17"
         android:layout_alignLeft="@+id/bconte"
         android:layout_alignStart="@+id/bconte" />

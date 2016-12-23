@@ -158,7 +158,7 @@ bnkj=(LinearLayout) findViewById(R.id.gmg);
 cname.setText(cnamee);
         cadd.setText(address+" "+" "+ city+" Pincode:"+pincode );
         cnum.setText("Mobile No:"+phnum);
-        cemail.setText("Email id:"+emailid);
+        cemail.setText("Email Id:"+emailid);
     }
 
 }

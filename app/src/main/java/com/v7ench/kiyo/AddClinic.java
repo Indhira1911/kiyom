@@ -69,7 +69,7 @@ TextView cli,addre,ccit,cphnu,cemai,cpinc;
         StringRequest stringRequest = new StringRequest(Request.Method.POST, UrlReq.CLINICC, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                Intent intent= new Intent(AddClinic.this,MainActivity.class);
+                Intent intent= new Intent(AddClinic.this,ProfileActivity.class);
                 startActivity(intent);
                 finish();
             }

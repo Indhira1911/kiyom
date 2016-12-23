@@ -19,7 +19,6 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -206,6 +205,7 @@ rateme=(RatingBar) findViewById(R.id.rating_main);
 
     }
 
+/*
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -213,8 +213,9 @@ rateme=(RatingBar) findViewById(R.id.rating_main);
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
+*/
 
-    @Override
+   /* @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
@@ -229,7 +230,7 @@ rateme=(RatingBar) findViewById(R.id.rating_main);
         }
 
         return super.onOptionsItemSelected(item);
-    }
+    }*/
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
@@ -389,11 +390,16 @@ rateme=(RatingBar) findViewById(R.id.rating_main);
         protected void onPostExecute(final List<Categorieslist> movieModelList) {
             super.onPostExecute(movieModelList);
 noim=(ImageView) findViewById(R.id.noima);
+
             TextView tesaac=(TextView) findViewById(aac);
             if(movieModelList != null) {
+                tesaac.setVisibility(View.VISIBLE);
+                noim.setVisibility(View.GONE);
+                mst.setVisibility(View.VISIBLE);
                 MovieAdapter adapter = new MovieAdapter(getApplicationContext(), R.layout.row_tst, movieModelList);
                 mst.setAdapter(adapter);
                 adapter.notifyDataSetChanged();
+
                 mst.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {

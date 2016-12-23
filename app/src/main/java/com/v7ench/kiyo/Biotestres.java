@@ -40,7 +40,6 @@ public class Biotestres extends AppCompatActivity {
     private ProgressDialog dialog;
 ImageView gghk;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -134,9 +133,9 @@ ImageView gghk;
                 biore.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//                        Categorieslist categorieslist = movieModelList.get(position);
+                       Biolistnew categorieslist = movieModelList.get(position);
                         Intent intent = new Intent(Biotestres.this, BiotestResult.class);
-//                        intent.putExtra("id",Integer.toString( categorieslist.getId()));
+                     intent.putExtra("biolist", new Gson().toJson(categorieslist));
                         startActivity(intent);
                     }
                 });

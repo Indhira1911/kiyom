@@ -102,8 +102,8 @@ ImageView gghnj;
                 for(int i=0; i<parentArray.length(); i++) {
                     JSONObject finalObject = parentArray.getJSONObject(i);
                     Categorieslist categorieslist = gson.fromJson(finalObject.toString(), Categorieslist.class);
-                        movieModelList.add(categorieslist);
-                    cacheThis.writeObject(TstResult.this, "helloall.txt", categorieslist);
+                    movieModelList.add(categorieslist);
+
                 }
                 return movieModelList;
 

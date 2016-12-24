@@ -74,12 +74,14 @@
             android:layout_height="match_parent"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
+            android:visibility="invisible"
             android:background="?attr/selectableItemBackgroundBorderless"
             app:srcCompat="@drawable/ic_save" />
 
         <ImageView
             android:id="@+id/activity_color_picker_save_completed"
             android:layout_width="72dp"
+            android:visibility="invisible"
             android:layout_height="match_parent"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"

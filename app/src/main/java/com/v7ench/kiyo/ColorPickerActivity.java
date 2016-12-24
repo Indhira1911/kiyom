@@ -109,6 +109,7 @@ public class ColorPickerActivity extends AppCompatActivity implements CameraColo
         initSaveCompletedProgressAnimator();
         initViews(dqr);
         initTranslationDeltas();
+        Toast.makeText(getApplicationContext(),"Tap on Screen to get Color",Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -193,8 +194,10 @@ public class ColorPickerActivity extends AppCompatActivity implements CameraColo
         if (v == mCameraPreview) {
             mColorPreviewText.setVisibility(View.VISIBLE);
             animatePickedColor(mSelectedColor);
+            mSaveButton.setVisibility(View.VISIBLE);
         } else if (v.getId() == R.id.activity_color_picker_save_button) {
             ColorItems.saveColorItem(this, new ColorItem(mLastPickedColor));
+
             //ColorItems.deleteColorItem(this, new ColorItem(mLastPickedColor));
 
         }
@@ -221,19 +224,14 @@ public class ColorPickerActivity extends AppCompatActivity implements CameraColo
         mConfirmSaveMessageInterpolator = new DecelerateInterpolator();
        mLastPickedColor = ColorItems.getLastPickedColor(this);
         applyPreviewColor(mLastPickedColor);
-        mSaveCompletedIcon.setOnClickListener(new View.OnClickListener() {
+        mSaveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 String postcol=mColorPreviewText.getText().toString();
-                if (postcol==Integer.toString(mLastPickedColor)) {
-                    Toast.makeText(getApplicationContext(),"Tap on screen to get color",Toast.LENGTH_SHORT).show();
-                }
-                else {
-                    mSaveCompletedIcon.setVisibility(View.GONE);
+                          mSaveButton.setVisibility(View.GONE);
                     pcolor(dqr, postcol);
-                }
-                        }
+
+            }
         });
     }
 
@@ -388,7 +386,7 @@ public  void pcolor(final String dqr, final String postcol)
 
 
     protected void applyPreviewColor(int previewColor) {
-        setSaveCompleted(false);
+
         mPickedColorPreview.getBackground().setColorFilter(previewColor, PorterDuff.Mode.SRC_ATOP);
         mColorPreviewText.setText(ColorItem.makeHexString(previewColor));
     }

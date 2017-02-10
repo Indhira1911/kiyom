@@ -225,7 +225,7 @@ ImageView gghnj;
             Categorieslist categorieslist= movieModelList.get(position);
             holder.conten.setText(categorieslist.getContent());
             holder.tda.setText(categorieslist.getSdate());
-            holder.tti.setText("@"+categorieslist.getStme()+" hrs");
+            holder.tti.setText(categorieslist.getStme());
             return convertView;
 
         }

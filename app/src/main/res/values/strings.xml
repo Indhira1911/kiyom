@@ -46,5 +46,6 @@
     <string name="title_activity_strat_test_test">TST Test</string>
     <string name="title_activity_strart__bi_test">BI Test</string>
     <string name="title_activity_scan_history_all">Scan History</string>
+    <string name="title_activity_about__us">About Us</string>
 
 </resources>

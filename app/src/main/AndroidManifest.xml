@@ -224,8 +224,8 @@
         <activity
             android:name=".Clinic_new"
             android:label="@string/title_activity_clinic_new"
-            android:screenOrientation="portrait"
             android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -234,8 +234,8 @@
         <activity
             android:name=".Strat_test_test"
             android:label="@string/title_activity_strat_test_test"
-            android:screenOrientation="portrait"
             android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -244,9 +244,8 @@
         <activity
             android:name=".Strart_Bi_test"
             android:label="@string/title_activity_strart__bi_test"
-            android:screenOrientation="portrait"
-
             android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -255,8 +254,16 @@
         <activity
             android:name=".Scan_history_all"
             android:label="@string/title_activity_scan_history_all"
+            android:parentActivityName=".MainActivity"
             android:screenOrientation="portrait"
-
+            android:theme="@style/AppTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.v7ench.kiyo.MainActivity" />
+        </activity>
+        <activity
+            android:name=".About_Us"
+            android:label="@string/title_activity_about__us"
             android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme">
             <meta-data

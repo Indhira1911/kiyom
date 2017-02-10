@@ -257,10 +257,11 @@ else if (id == R.id.nav_profile) {
 //            Intent intent = new Intent(MainActivity.this, Settingsall.class);
 //            startActivity(intent);
 //        }
-//        else if (id == R.id.nav_feedback)
-//        {
-//
-//        }
+       else if (id == R.id.nav_question)
+       {
+           Intent intent = new Intent(MainActivity.this, About_Us.class);
+           startActivity(intent);
+        }
         else if (id==R.id.nav_logout)
         {
             logoutUser();

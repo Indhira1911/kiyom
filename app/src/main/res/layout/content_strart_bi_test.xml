@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/content_strart__bi_test"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.v7ench.kiyo.Strart_Bi_test"
+    tools:showIn="@layout/activity_strart_bi_test">
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="250dp"
+        app:srcCompat="@drawable/scan_rev_new"
+        android:id="@+id/imageView20"
+        android:layout_margin="40dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:id="@+id/angry_btn"
+        android:text="Start BI Test"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        android:padding="10dp"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        style="?android:selectableItemBackground"
+        android:textAllCaps="false"
+        android:background="@drawable/button_new_sample"
+        android:layout_marginTop="16dp"
+        android:layout_below="@+id/imageView20"
+        android:layout_centerHorizontal="true" />
+</RelativeLayout>

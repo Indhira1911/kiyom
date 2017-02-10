@@ -24,6 +24,20 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".SplashScreen"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".PagerActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
@@ -64,25 +78,13 @@
         <activity
             android:name=".OtpActivity"
             android:screenOrientation="portrait" />
-        <activity
-            android:name=".SplashActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/SplashTheme">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
         <receiver android:name="swarajsaaj.smscodereader.receivers.OtpReader">
             <intent-filter>
-                <action android:name="android.provider.Telephony.SMS_RECEIVED"/>
+                <action android:name="android.provider.Telephony.SMS_RECEIVED" />
             </intent-filter>
         </receiver>
-        <activity
-            android:name=".PagerActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
+
         <activity
             android:name=".scanneracti.TstScan"
             android:label="@string/title_activity_tst_scan"
@@ -192,8 +194,8 @@
         <activity
             android:name=".BiotestNew"
             android:label="@string/title_activity_biotest_new"
-            android:screenOrientation="portrait"
             android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -202,8 +204,8 @@
         <activity
             android:name=".Tstresultsum"
             android:label="@string/title_activity_tstresultsum"
-            android:screenOrientation="portrait"
             android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -212,7 +214,49 @@
         <activity
             android:name=".Biotestprofile"
             android:label="@string/title_activity_biotestprofile"
+            android:parentActivityName=".MainActivity"
             android:screenOrientation="portrait"
+            android:theme="@style/AppTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.v7ench.kiyo.MainActivity" />
+        </activity>
+        <activity
+            android:name=".Clinic_new"
+            android:label="@string/title_activity_clinic_new"
+            android:screenOrientation="portrait"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.v7ench.kiyo.MainActivity" />
+        </activity>
+        <activity
+            android:name=".Strat_test_test"
+            android:label="@string/title_activity_strat_test_test"
+            android:screenOrientation="portrait"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.v7ench.kiyo.MainActivity" />
+        </activity>
+        <activity
+            android:name=".Strart_Bi_test"
+            android:label="@string/title_activity_strart__bi_test"
+            android:screenOrientation="portrait"
+
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.v7ench.kiyo.MainActivity" />
+        </activity>
+        <activity
+            android:name=".Scan_history_all"
+            android:label="@string/title_activity_scan_history_all"
+            android:screenOrientation="portrait"
+
             android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme">
             <meta-data

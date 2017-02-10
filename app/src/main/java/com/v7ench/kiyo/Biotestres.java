@@ -38,8 +38,8 @@ public class Biotestres extends AppCompatActivity {
     ListView biore;
     private SQLiteHandler db;
     private ProgressDialog dialog;
-ImageView gghk;
-
+    ImageView gghnj;
+    TextView just_text;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,27 +52,24 @@ ImageView gghk;
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         biore=(ListView) findViewById(R.id.biores);
-        gghk=(ImageView) findViewById(R.id.imageView19);
+        just_text=(TextView) findViewById(R.id.textview_poting);
+        gghnj=(ImageView) findViewById(R.id.dsa);
         db = new SQLiteHandler(getApplicationContext());
         HashMap<String, String> user = db.getUserDetails();
         final String uid = user.get("uid");
         String ur = "http://gettalentsapp.com/vignesh2514/kiyo/androadmin/biores.php?uid="+uid;
         new JSONTask().execute(ur);
     }
-
     public class JSONTask extends AsyncTask<String,String, List<Biolistnew> > {
-
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
             dialog.show();
         }
-
         @Override
         protected List<Biolistnew> doInBackground(String... params) {
             HttpURLConnection connection = null;
             BufferedReader reader = null;
-
             try {
                 URL url = new URL(params[0]);
                 connection = (HttpURLConnection) url.openConnection();
@@ -84,9 +81,7 @@ ImageView gghk;
                 while ((line = reader.readLine()) != null){
                     buffer.append(line);
                 }
-
                 String finalJson = buffer.toString();
-
                 JSONObject parentObject = new JSONObject(finalJson);
                 JSONArray parentArray = parentObject.getJSONArray("result");
                 List<Biolistnew> movieModelList = new ArrayList<>();
@@ -95,11 +90,8 @@ ImageView gghk;
                     JSONObject finalObject = parentArray.getJSONObject(i);
                     Biolistnew categorieslist = gson.fromJson(finalObject.toString(), Biolistnew.class);
                     movieModelList.add(categorieslist);
-
-
                 }
-                return movieModelList;
-
+                                return movieModelList;
             } catch (MalformedURLException e) {
                 e.printStackTrace();
             } catch (IOException e) {
@@ -143,7 +135,8 @@ ImageView gghk;
             }
             if(biore.getCount()==0)
             {
-gghk.setVisibility(View.VISIBLE);
+                gghnj.setVisibility(View.VISIBLE);
+                just_text.setVisibility(View.VISIBLE);
             }
 
         }

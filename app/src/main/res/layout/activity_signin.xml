@@ -7,66 +7,108 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.v7ench.kiyo.SigninActivity">
-
-
-    <Button
-        android:text="Forgot password?"
-        android:layout_width="wrap_content"
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_marginTop="10dp"
+        android:scrollbars="none"
+        android:layout_height="wrap_content">
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="?attr/selectableItemBackground"
-        android:textColor="@color/colorPrimaryDark"
-        android:id="@+id/button"
-        android:textAllCaps="false"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        android:orientation="vertical"
 
-    <EditText
-        android:layout_width="wrap_content"
+        >
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="phone"
-        android:maxLength="10"
-        android:paddingRight="5dp"
-        android:paddingLeft="5dp"
-        android:layout_marginTop="15dp"
-        android:id="@+id/mobileno"
-        android:hint="Mobile Number"
-        android:fontFamily="sans-serif"
-        android:typeface="normal"
-        android:textSize="20sp"
+        android:padding="10dp"
+        android:layout_marginTop="22dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="15dp"
+        android:id="@+id/firstlin"
+        android:orientation="horizontal"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
-    <EditText
-        android:layout_width="wrap_content"
+        android:layout_alignParentStart="true">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            app:srcCompat="@drawable/ic_smartphone"
+            android:id="@+id/imageView31" />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="phone"
+            android:maxLength="10"
+            android:layout_gravity="center_vertical"
+            android:id="@+id/mobileno"
+            android:hint="Mobile Number"
+            android:fontFamily="sans-serif"
+            android:typeface="normal"
+            android:textSize="18sp"
+           />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:id="@+id/secondlin"
+        android:padding="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="15dp"
+        android:orientation="horizontal"
         android:layout_height="wrap_content"
-        android:inputType="textPassword"
-        android:ems="10"
-        android:paddingRight="5dp"
-        android:paddingLeft="5dp"
-        android:id="@+id/password"
-        android:hint="Password"
-        android:textSize="20sp"
-        android:typeface="normal"
-        android:fontFamily="sans-serif"
-        android:layout_below="@+id/mobileno"
+        android:layout_below="@+id/firstlin"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="24dp"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentStart="true">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            app:srcCompat="@drawable/ic_padlock"
+            android:id="@+id/imageView3" />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:ems="10"
+            android:id="@+id/password"
+            android:hint="Password"
+            android:textSize="18sp"
+            android:typeface="normal"
+            android:fontFamily=""
+ />
+    </LinearLayout>
+        <android.support.design.widget.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            app:fabSize="normal"
+            android:layout_marginTop="10dp"
+            app:srcCompat="@drawable/ic_checked"
+            android:id="@+id/siginsend"
+            app:elevation="8dp"
+            android:layout_gravity="center_horizontal"
+            android:background="@color/colorAccent"
 
-    <android.support.design.widget.FloatingActionButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:clickable="true"
-        app:fabSize="normal"
-       app:srcCompat="@drawable/ic_send_white_24px"
-        android:id="@+id/siginsend"
-        app:elevation="8dp"
-        android:layout_above="@+id/button"
-        android:layout_centerHorizontal="true" />
+            />
 
 
+        <Button
+            android:text="Forgot password?"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="?attr/selectableItemBackground"
+            android:textColor="@color/colorPrimaryDark"
+            android:id="@+id/button"
+            android:textAllCaps="false"
+            android:layout_gravity="center_horizontal"
+ />
+</LinearLayout>
+    </ScrollView>
 </RelativeLayout>

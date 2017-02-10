@@ -1,7 +1,7 @@
 package com.v7ench.kiyo;
 
 import android.animation.ArgbEvaluator;
-import android.graphics.Color;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.CoordinatorLayout;
@@ -11,45 +11,57 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageButton;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class PagerActivity extends AppCompatActivity {
+
+
     SectionsPagerAdapter mSectionsPagerAdapter;
+
     private ViewPager mViewPager;
-    ImageButton mNextBtn;
+    FrameLayout frameLayout;
+    Button mNextBtn;
     Button mSkipBtn, mFinishBtn;
+
     ImageView zero, one, two,three;
     ImageView[] indicators;
+
     int lastLeftValue = 0;
+
     CoordinatorLayout mCoordinator;
-   static final String TAG = "PagerActivity";
+
+
+    static final String TAG = "PagerActivity";
+
     int page = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             getWindow().getDecorView().setSystemUiVisibility(
                     View.SYSTEM_UI_FLAG_LAYOUT_STABLE
                             | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
+
         }
 
         setContentView(R.layout.activity_pager);
 
+
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
 
-        mNextBtn = (ImageButton) findViewById(R.id.intro_btn_next);
-        if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.LOLLIPOP)
-            mNextBtn.setImageDrawable(
-                    Utils.tintMyDrawable(ContextCompat.getDrawable(this, R.drawable.chevronright), Color.WHITE)
-            );
+        mNextBtn = (Button) findViewById(R.id.intro_btn_next);
+
 
         mSkipBtn = (Button) findViewById(R.id.intro_btn_skip);
         mFinishBtn = (Button) findViewById(R.id.intro_btn_finish);
@@ -61,18 +73,23 @@ public class PagerActivity extends AppCompatActivity {
 
         mCoordinator = (CoordinatorLayout) findViewById(R.id.main_content);
 
+frameLayout =(FrameLayout) findViewById(R.id.frameme);
         indicators = new ImageView[]{zero, one, two, three};
-        // Set up the ViewPager with the sections adapter.
+
         mViewPager = (ViewPager) findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
 
         mViewPager.setCurrentItem(page);
         updateIndicators(page);
 
-        final int color1 = ContextCompat.getColor(this, R.color.cyan);
-        final int color2 = ContextCompat.getColor(this, R.color.orange);
-        final int color3 = ContextCompat.getColor(this, R.color.green);
-        final int color4 = ContextCompat.getColor(this, R.color.slider4c);
+        final int color1 = ContextCompat.getColor(this, R.color.color1);
+        final int color2 = ContextCompat.getColor(this, R.color.color2);
+        final int color3 = ContextCompat.getColor(this, R.color.color3);
+        final int color4 = ContextCompat.getColor(this, R.color.color4);
+        final int color11 = ContextCompat.getColor(this, R.color.color11);
+        final int color22 = ContextCompat.getColor(this, R.color.color22);
+        final int color33 = ContextCompat.getColor(this, R.color.color33);
+        final int color44 = ContextCompat.getColor(this, R.color.color44);
         final int[] colorList = new int[]{color1, color2, color3, color4};
 
         final ArgbEvaluator evaluator = new ArgbEvaluator();
@@ -99,15 +116,22 @@ public class PagerActivity extends AppCompatActivity {
                 switch (position) {
                     case 0:
                         mViewPager.setBackgroundColor(color1);
+                        frameLayout.setBackgroundColor(color11);
                         break;
                     case 1:
                         mViewPager.setBackgroundColor(color2);
+                        frameLayout.setBackgroundColor(color22);
+
                         break;
                     case 2:
                         mViewPager.setBackgroundColor(color3);
+                        frameLayout.setBackgroundColor(color33);
+
                         break;
                     case 3:
                         mViewPager.setBackgroundColor(color4);
+                        frameLayout.setBackgroundColor(color44);
+
                         break;
                 }
 
@@ -160,28 +184,20 @@ public class PagerActivity extends AppCompatActivity {
         }
     }
 
-    /**
-     * A placeholder fragment containing a simple view.
-     */
     public static class PlaceholderFragment extends Fragment {
-        /**
-         * The fragment argument representing the section number for this
-         * fragment.
-         */
+
         private static final String ARG_SECTION_NUMBER = "section_number";
 
         ImageView img;
 
-        int[] bgs = new int[]{R.drawable.slider1, R.drawable.slider2, R.drawable.slider3, R.drawable.slider4};
-String[] headi=new String[]{"Welcome to KIYO","Result Accuracy Guaranteed","Specialized Lab Test","Join us to bring a CHANGE"};
-        String[] subheadi= new String[]{"Ensure your instruments are clean and get certified \n" +
-                "by the industry experts. Introducing KIYO Clinic. ","Scan Test Strips and get 99% result accuracy.\n" +
-                "Complete sterilization guaranteed.","Scan, test and send BI strips to get them \n" +
-                "tested at the lab by the specialists.","Be a part of KIYO Family and guarantee\n" +
+        int[] bgs = new int[]{R.drawable.rev1, R.drawable.rev2, R.drawable.rev3, R.drawable.rev4};
+        String[] sliden2 =new String[]{"Welcome to Alpha Safe","Result Accuracy Guaranteed","Specilized Lab Test","Join us to bring a CHANGE"};
+
+        String[] sliden =new String[]{"Ensure your instruments are clean and get certified\n" +
+                "by the industry experts. Introducing Alpha Safe Clinic.","Scan Test Strips and get 99% result accuracy.\n" +
+                "Complete sterilization guaranteed.","Scan, test and send BI strip to get them\n" +
+                "tested at the lab by the specialists.","Be a part of ALPHA SAFE Family and guarantee\n" +
                 "complete peace of mind to your patients."};
-
-
-        final String[] colrList = new String[]{"#02569c", "#e65100", "#4a148c", "#890e4f"};
         public PlaceholderFragment() {
         }
 
@@ -193,17 +209,17 @@ String[] headi=new String[]{"Welcome to KIYO","Result Accuracy Guaranteed","Spec
             fragment.setArguments(args);
             return fragment;
         }
+
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
-
             View rootView = inflater.inflate(R.layout.fragment_pager, container, false);
-            LinearLayout llt=(LinearLayout)rootView.findViewById(R.id.plio);
-            TextView textView = (TextView) rootView.findViewById(R.id.section_label);
-            TextView textView1=(TextView) rootView.findViewById(R.id.section_label2);
-            textView.setText(headi[getArguments().getInt(ARG_SECTION_NUMBER)-1]);
-textView1.setText(subheadi[getArguments().getInt(ARG_SECTION_NUMBER)-1]);
-llt.setBackgroundColor(Color.parseColor(colrList[getArguments().getInt(ARG_SECTION_NUMBER)-1]));
+            TextView textView = (TextView) rootView.findViewById(R.id.section_label2);
+            TextView textView2 = (TextView) rootView.findViewById(R.id.section_label1);
+            textView2.setText(sliden2[getArguments().getInt(ARG_SECTION_NUMBER) - 1]);
+
+            textView.setText(sliden[getArguments().getInt(ARG_SECTION_NUMBER) - 1]);
+
             img = (ImageView) rootView.findViewById(R.id.section_img);
             img.setBackgroundResource(bgs[getArguments().getInt(ARG_SECTION_NUMBER) - 1]);
 
@@ -214,10 +230,6 @@ llt.setBackgroundColor(Color.parseColor(colrList[getArguments().getInt(ARG_SECTI
 
     }
 
-    /**
-     * A {@link FragmentPagerAdapter} that returns a fragment corresponding to
-     * one of the sections/tabs/pages.
-     */
     public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
 
@@ -227,8 +239,7 @@ llt.setBackgroundColor(Color.parseColor(colrList[getArguments().getInt(ARG_SECTI
 
         @Override
         public Fragment getItem(int position) {
-            // getItem is called to instantiate the fragment for the given page.
-            // Return a PlaceholderFragment (defined as a static inner class below).
+
             return PlaceholderFragment.newInstance(position + 1);
 
         }
@@ -255,5 +266,25 @@ llt.setBackgroundColor(Color.parseColor(colrList[getArguments().getInt(ARG_SECTI
             return null;
         }
 
+    }
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event)  {
+        if (Integer.parseInt(Build.VERSION.SDK) > 5
+                && keyCode == KeyEvent.KEYCODE_BACK
+                && event.getRepeatCount() == 0) {
+            Log.d("CDA", "onKeyDown Called");
+            onBackPressed();
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
+    }
+
+    @Override
+    public void onBackPressed() {
+        Log.d("CDA", "onBackPressed Called");
+        Intent setIntent = new Intent(Intent.ACTION_MAIN);
+        setIntent.addCategory(Intent.CATEGORY_HOME);
+        setIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(setIntent);
     }
 }

@@ -41,6 +41,7 @@ ListView tst;
     private SQLiteHandler db;
     private ProgressDialog dialog;
 ImageView gghnj;
+    TextView just_text;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,6 +61,7 @@ ImageView gghnj;
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         tst=(ListView) findViewById(R.id.tst_list);
         gghnj=(ImageView) findViewById(R.id.dsa);
+        just_text=(TextView) findViewById(R.id.textview_poting);
         db = new SQLiteHandler(getApplicationContext());
        HashMap<String, String> user = db.getUserDetails();
         final String uid = user.get("uid");
@@ -166,6 +168,7 @@ ImageView gghnj;
             if (tst.getCount()==0)
             {
                 gghnj.setVisibility(View.VISIBLE);
+                just_text.setVisibility(View.VISIBLE);
             }
         }
 

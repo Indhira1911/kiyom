@@ -18,11 +18,22 @@
         android:layout_alignParentStart="true" />
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:visibility="gone"
-        android:background="@drawable/bio_history"
-        android:layout_centerVertical="true"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:id="@+id/dsa"
+        android:visibility="invisible"
+        app:srcCompat="@drawable/past_scan"
+        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:id="@+id/imageView19" />
+        android:layout_marginTop="30dp" />
+    <TextView
+        android:layout_below="@+id/dsa"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textview_poting"
+        android:gravity="center"
+        android:textColor="#2d2d2d"
+        android:visibility="invisible"
+        android:text="You have no past Scan History"
+        android:layout_marginTop="30dp" />
 </RelativeLayout>

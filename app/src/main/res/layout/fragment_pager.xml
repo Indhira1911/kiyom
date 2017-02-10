@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
+    android:padding="@dimen/activity_horizontal_margin"
     tools:context=".PagerActivity$PlaceholderFragment">
 
 
@@ -12,12 +12,13 @@
 
         <ImageView
             android:id="@+id/section_img"
-            android:layout_width="317dp"
-            android:layout_height="424dp"
-            android:layout_gravity="center"
-            android:adjustViewBounds="true"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:layout_marginTop="50dp"
 
-            android:background="@drawable/slider1"
+            android:layout_gravity="top|center"
+            android:adjustViewBounds="true"
+            android:background="@drawable/rev1"
             android:scaleType="fitCenter" />
 
 
@@ -26,34 +27,37 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="177dp"
         android:layout_gravity="bottom"
         android:gravity="center"
-        android:id="@+id/plio"
-        android:background="#02569c"
+        android:layout_marginTop="5dp"
         android:orientation="vertical"
         android:padding="@dimen/activity_horizontal_margin">
 
         <TextView
-            android:id="@+id/section_label"
+            android:id="@+id/section_label1"
             style="@style/TextAppearance.AppCompat.Headline"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textSize="22sp"
+            android:maxLines="1"
+            android:gravity="center"
+            android:layout_marginBottom="5dp"
             android:textColor="@android:color/white"
-            tools:text="Page One" />
+            tools:text="Page One"
+            android:textAlignment="center" />
 
         <TextView
-            style="@style/TextAppearance.AppCompat.Body1"
+            android:id="@+id/section_label2"
+            style="@style/TextAppearance.AppCompat.Headline"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/activity_horizontal_margin"
-            android:alpha="0.7"
-            android:id="@+id/section_label2"
+            android:textSize="16sp"
+            android:maxLines="2"
             android:gravity="center"
-            android:text="Add a long description here about your app's important feature."
-            android:textColor="@android:color/white" />
-
-
+            android:textColor="@android:color/white"
+            tools:text="Page One"
+            android:textAlignment="center" />
     </LinearLayout>
 
 </FrameLayout>

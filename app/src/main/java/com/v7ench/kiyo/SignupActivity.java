@@ -8,9 +8,9 @@ import android.support.design.widget.FloatingActionButton;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -37,18 +37,23 @@ EditText Ename,Emono,Eemail,Epass;
     FloatingActionButton signup;
     private SessionManager session;
     private SQLiteHandler db;
-    private RadioGroup radioSexGroup;
-    private RadioButton radioSexButton;
+    Spinner delarea;
     private ProgressDialog dialog;
     @Override
-    public View onCreateView(LayoutInflater inflater,                        @Nullable final ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater,@Nullable final ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.activity_signup, container, false);
         Ename=(EditText) v.findViewById(R.id.name);
         Eemail=(EditText) v.findViewById(email);
         Emono =(EditText) v.findViewById(R.id.mobilenumber);
         Epass =(EditText) v.findViewById(R.id.password);
+        delarea=(Spinner) v.findViewById(R.id.deliarea);
+
         signup =(FloatingActionButton) v.findViewById(R.id.signup);
-        radioSexGroup=(RadioGroup)v.findViewById(R.id.radiogroup);
+        final String[] list = getResources().getStringArray(R.array.darea);
+        final ArrayAdapter<String> adapter = new ArrayAdapter<String>(getContext(),
+                android.R.layout.simple_dropdown_item_1line, list);
+
+        delarea.setAdapter(adapter);
         session = new SessionManager(getActivity());
         dialog = new ProgressDialog(getActivity());
         dialog.setIndeterminate(true);
@@ -68,9 +73,8 @@ EditText Ename,Emono,Eemail,Epass;
         signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int selectedId=radioSexGroup.getCheckedRadioButtonId();
-                radioSexButton=(RadioButton) container.findViewById(selectedId);
-                Stype =radioSexButton.getText().toString();
+
+                Stype =delarea.getSelectedItem().toString();
                 Sname=Ename.getText().toString();
                 Semail=Eemail.getText().toString();
                 Smono=Emono.getText().toString();
@@ -120,17 +124,15 @@ EditText Ename,Emono,Eemail,Epass;
                             boolean error = jObj.getBoolean("error");
                             if (!error) {
                                 session.setLogin(true);
-                                // User successfully stored in MySQL
-                                // Now store the user in sqlite
-                                String uid = jObj.getString("uid");
+                                        String uid = jObj.getString("uid");
                                 JSONObject user = jObj.getJSONObject("user");
                                 String name = user.getString("name");
                                 String email = user.getString("email");
                                 String pnum =user.getString("pnum");
-                                String stype=user.getString("type");
+                                String whoty=user.getString("type");
                                // Inserting row in users table
 
-if (stype.matches("Doctor")) {
+
 
     dialog.dismiss();
     Toast.makeText(getContext(), "Otp has been sent to registered mobile number.!", Toast.LENGTH_LONG).show();
@@ -138,16 +140,10 @@ if (stype.matches("Doctor")) {
     // Launch login activity
     Intent intent = new Intent(getActivity(), OtpActivity.class);
     startActivity(intent);
-}
-                                else if (stype.matches("Pharma"))
-{
-    dialog.dismiss();
-    Toast.makeText(getContext(), "Otp has been sent to registered mobile number.!", Toast.LENGTH_LONG).show();
-    db.addUser(name, email, uid,pnum);
-    Intent intent = new Intent(getActivity(), OtpActivity.class);
-    startActivity(intent);
-}
-                            } else {
+
+
+                            }
+                            else {
 
                                 // Error occurred in registration. Get the error
                                 // message

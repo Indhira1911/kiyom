@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_content"
     android:layout_width="match_parent"
-    android:background="@color/cyan"
+    android:background="#675c94"
     android:layout_height="match_parent"
     tools:context=".PagerActivity">
-
-
     <android.support.v4.view.ViewPager
         android:id="@+id/container"
         android:layout_width="match_parent"
@@ -26,6 +24,8 @@
 
     <FrameLayout
         android:layout_width="match_parent"
+        android:background="#584c8c"
+        android:id="@+id/frameme"
         android:layout_height="?attr/actionBarSize"
         android:layout_gravity="bottom"
         android:paddingEnd="@dimen/activity_horizontal_margin"
@@ -40,7 +40,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="start|center"
-            android:text="Skip"
+            android:text="Previous"
             android:textColor="@android:color/white" />
 
         <LinearLayout
@@ -88,18 +88,19 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end|center"
-            android:text="Finish"
+            android:text="GET STARTED"
             android:textColor="@android:color/white"
             android:visibility="gone" />
 
-        <ImageButton
+        <Button
             android:id="@+id/intro_btn_next"
             style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end|center"
             android:padding="@dimen/activity_horizontal_margin"
-            app:srcCompat="@drawable/chevronright"
+            android:text="NEXT"
+            android:textColor="@android:color/white"
             android:tint="@android:color/white" />
 
 

@@ -94,6 +94,10 @@ public class ScanAttach extends AppCompatActivity  {
             Esterli.setText("RADIATION");
 
         }
+        else
+        {
+            Toast.makeText(getApplicationContext(),"Please get all",Toast.LENGTH_SHORT).show();
+        }
 
            savescn.setOnClickListener(new View.OnClickListener() {
 

@@ -6,30 +6,37 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
         tools:context="com.v7ench.kiyo.ResetActivity">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:scrollbars="none"
+        android:layout_height="wrap_content">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
 
-
+        >
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:background="@color/colorPrimary"
+        android:layout_height="250dp"
+        android:background="#26306f"
         android:layout_alignParentTop="true"
+        android:id="@+id/fpback"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:id="@+id/rpback">
+        android:layout_alignParentStart="true">
 
         <ImageView
             android:layout_width="150dp"
             android:layout_height="150dp"
-            app:srcCompat="@drawable/rp"
-            android:id="@+id/imageView5"
+            app:srcCompat="@drawable/new_pass"
             android:layout_centerVertical="true"
-            android:layout_centerHorizontal="true" />
+            android:layout_centerHorizontal="true"
+            android:id="@+id/imageView3" />
     </RelativeLayout>
-
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/rpback"
+        android:layout_below="@+id/fpback"
         android:layout_centerHorizontal="true"
         android:padding="10dp"
         android:id="@+id/rpbottom">
@@ -38,74 +45,109 @@
             android:text="Reset Password"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="#2d2d2d"
+          android:textColor="#000000"
+            android:textSize="20sp"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="27dp"
             android:id="@+id/textView2"
-            android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
-
+            />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:padding="10dp"
+            android:id="@+id/came"
+            android:layout_below="@+id/textView2"
+            android:layout_marginRight="15dp"
+            android:layout_marginLeft="15dp"
+            android:orientation="horizontal">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            app:srcCompat="@drawable/ic_key"/>
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:inputType="number"
             android:ems="12"
-            android:layout_below="@+id/textView2"
-            android:layout_marginTop="15dp"
+
             android:id="@+id/otp"
+            android:layout_gravity="center"
             android:hint="Confirmation Code"
             android:fontFamily="sans-serif"
             android:typeface="normal"
-            android:textSize="20sp"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true" />
-
+            android:textSize="18sp"
+            />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:padding="10dp"
+            android:id="@+id/optsn"
+            android:layout_below="@+id/came"
+            android:layout_marginRight="15dp"
+            android:layout_marginLeft="15dp"
+            android:orientation="horizontal">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            app:srcCompat="@drawable/ic_padlock"/>
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:inputType="textPassword"
             android:ems="12"
-            android:layout_below="@+id/otp"
-            android:layout_marginTop="24dp"
+android:layout_gravity="center"
             android:id="@+id/pass"
-            android:hint="Password"
+            android:hint="New Password"
             android:fontFamily="sans-serif"
             android:typeface="normal"
-            android:textSize="20sp"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true" />
-
+            android:textSize="18sp"
+         />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:padding="10dp"
+            android:id="@+id/confrp"
+            android:layout_below="@+id/optsn"
+            android:layout_marginRight="15dp"
+            android:layout_marginLeft="15dp"
+            android:orientation="horizontal">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            app:srcCompat="@drawable/ic_padlock"/>
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:inputType="textPassword"
             android:ems="12"
             android:id="@+id/confirmpass"
-            android:hint="Confirm Password"
+            android:hint="Confirm New Password"
             android:fontFamily="sans-serif"
             android:typeface="normal"
-            android:textSize="20sp"
-            android:layout_below="@+id/pass"
-            android:layout_alignLeft="@+id/pass"
-            android:layout_alignStart="@+id/pass"
-            android:layout_marginTop="24dp"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true" />
+            android:textSize="18sp"
 
+             />
+</LinearLayout>
         <android.support.design.widget.FloatingActionButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:clickable="true"
             app:fabSize="normal"
-            app:srcCompat="@drawable/ic_send_white_24px"
+            android:layout_below="@+id/confrp"
+            app:srcCompat="@drawable/ic_checked"
             android:id="@+id/passsend"
-            app:elevation="13dp"
-            android:layout_marginBottom="11dp"
+
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true" />
     </RelativeLayout>
-
+</LinearLayout>
+    </ScrollView>
 </RelativeLayout>

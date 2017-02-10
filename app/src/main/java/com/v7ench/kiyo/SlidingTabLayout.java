@@ -22,15 +22,7 @@ import android.widget.TextView;
 
 
 public class SlidingTabLayout extends HorizontalScrollView {
-    /**
-     * Allows complete control over the colors drawn in the tab layout. Set with
-     * {@link #setCustomTabColorizer(TabColorizer)}.
-     */
     public interface TabColorizer {
-        /**
-         * @return return the color of the indicator used when {@code position}
-         *         is selected.
-         */
         int getIndicatorColor(int position);
     }
 
@@ -66,12 +58,6 @@ public class SlidingTabLayout extends HorizontalScrollView {
         addView(mTabStrip, LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
     }
 
-    /**
-     * Set the custom {@link TabColorizer} to be used.
-     *
-     * If you only require simple custmisation then you can use
-     * {@link #setSelectedIndicatorColors(int...)} to achieve similar effects.
-     */
     public void setCustomTabColorizer(TabColorizer tabColorizer) {
         mTabStrip.setCustomTabColorizer(tabColorizer);
     }
@@ -80,45 +66,22 @@ public class SlidingTabLayout extends HorizontalScrollView {
         mDistributeEvenly = distributeEvenly;
     }
 
-    /**
-     * Sets the colors to be used for indicating the selected tab. These colors
-     * are treated as a circular array. Providing one color will mean that all
-     * tabs are indicated with the same color.
-     */
+
     public void setSelectedIndicatorColors(int... colors) {
         mTabStrip.setSelectedIndicatorColors(colors);
     }
 
-    /**
-     * Set the {@link ViewPager.OnPageChangeListener}. When using
-     * {@link SlidingTabLayout} you are required to set any
-     * {@link ViewPager.OnPageChangeListener} through this method. This is so
-     * that the layout can update it's scroll position correctly.
-     *
-     * @see ViewPager#setOnPageChangeListener(ViewPager.OnPageChangeListener)
-     */
+
     public void setOnPageChangeListener(ViewPager.OnPageChangeListener listener) {
         mViewPagerPageChangeListener = listener;
     }
 
-    /**
-     * Set the custom layout to be inflated for the tab views.
-     *
-     * @param layoutResId
-     *            Layout id to be inflated
-     * @param textViewId
-     *            id of the {@link TextView} in the inflated view
-     */
+
     public void setCustomTabView(int layoutResId, int textViewId) {
         mTabViewLayoutId = layoutResId;
         mTabViewTextViewId = textViewId;
     }
 
-    /**
-     * Sets the associated view pager. Note that the assumption here is that the
-     * pager content (number of tabs and tab titles) does not change after this
-     * call has been made.
-     */
     public void setViewPager(ViewPager viewPager) {
         mTabStrip.removeAllViews();
         mViewPager = viewPager;
@@ -128,10 +91,7 @@ public class SlidingTabLayout extends HorizontalScrollView {
         }
     }
 
-    /**
-     * Create a default view to be used for tabs. This is called if a custom tab
-     * view is not set via {@link #setCustomTabView(int, int)}.
-     */
+
     protected TextView createDefaultTabView(Context context) {
         TextView textView = new TextView(context);
         textView.setGravity(Gravity.CENTER);

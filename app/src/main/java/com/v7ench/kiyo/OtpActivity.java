@@ -7,6 +7,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -32,12 +33,14 @@ public class OtpActivity extends AppCompatActivity implements OTPListener {
     String Smonum,Sotpnum;
     FloatingActionButton otpreq;
     private ProgressDialog dialog;
+    TextView textViewotp;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_otp);
         db = new SQLiteHandler(getApplicationContext());
         // session manager
+        textViewotp=(TextView) findViewById(R.id.Otp_message);
 
         session = new SessionManager(getApplicationContext());
         // Fetching user details from sqlite
@@ -48,6 +51,7 @@ public class OtpActivity extends AppCompatActivity implements OTPListener {
         dialog.setCancelable(false);
         dialog.setMessage("Loading. Please wait...");
 
+        textViewotp.setText("Please type the verification code sent \n to +91 "+Smonum);
        Eotpn=(EditText) findViewById(R.id.otpnumber);
           otpreq =(FloatingActionButton) findViewById(R.id.otpsend);
                 otpreq.setOnClickListener(new View.OnClickListener() {

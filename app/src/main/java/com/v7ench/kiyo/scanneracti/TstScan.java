@@ -72,7 +72,7 @@ public class TstScan extends AppCompatActivity implements ZXingScannerView.Resul
 //        builder.setTitle("Scan Result");
 //        builder.setMessage(rawResult.getText());
         String scanresult=rawResult.getText();
-        if (scanresult.contains("KO")) {
+        if (scanresult.contains("KI")) {
             scanima(scanresult);
 
         }

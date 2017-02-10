@@ -1,24 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#1565C0</color>
-    <color name="colorPrimaryDark">#0D47A1</color>
+    <color name="colorPrimary">#36a2eb</color>
+    <color name="colorPrimaryDark">#287bb2</color>
     <color name="colorAccent">#1565C0</color>
+    <color name="color1">#675c94</color>
+    <color name="color2">#d16f2b</color>
+    <color name="color3">#6eaa2d</color>
+    <color name="color4">#4665c4</color>
+    <color name="color11">#584c8c</color>
+    <color name="color22">#b75d1e</color>
+    <color name="color33">#649c27</color>
+    <color name="color44">#3853a4</color>
+    <color name="indicator_unselected">#4D000000</color>
     <color name="half_black">#FAFAFA</color>
     <color name="white">#1565C0</color>
     <color name="white_pressed">#42A5F5</color>
     <color name="black_semi_transparent">#B2BBDEFB</color>
     <color name="black_trans80">#14000000</color>
-    <color name="cyan">#673bb7</color>
-    <color name="indicator_unselected">#4D000000</color>
-    <color name="green">#9c28b1</color>
-    <color name="orange">#FEC107</color>
-    <color name="slider4c">#EA1E63</color>
+
     <color name="activity_color_picker_pointer_ring">#FFFFFFFF</color>
 
     <color name="pointer_color">#80FFFFFF</color>
     <color name="black_overlay">#66000000</color>
-    <color name="aa1">#02569c</color>
-    <color name="aa2">#e65100</color>
-    <color name="aa3">#4a148c</color>
-    <color name="aa4">#890e4f</color>
+
 </resources>

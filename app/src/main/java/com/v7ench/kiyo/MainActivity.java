@@ -198,9 +198,9 @@ rateme=(RatingBar) findViewById(R.id.rating_main);
 /*
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
+    public boolean onCreateOptionsMenu(Menu menu_name_safe) {
+        // Inflate the menu_name_safe; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu_name_safe.main, menu_name_safe);
         return true;
     }
 */

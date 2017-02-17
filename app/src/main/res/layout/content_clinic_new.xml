@@ -12,6 +12,7 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="260dp"
+        android:visibility="gone"
         app:srcCompat="@drawable/add_clinic_new"
         android:layout_marginTop="18dp"
         android:id="@+id/imageView5"
@@ -24,9 +25,171 @@
         android:layout_height="wrap_content"
         android:text="You have not added any clinic yet"
         android:textColor="#2d2d2d"
+        android:visibility="gone"
         android:textAlignment="center"
         android:layout_below="@+id/imageView5"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:id="@+id/textView15" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="#26306f"
+        android:layout_alignParentTop="true"
+        android:id="@+id/fpback"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:srcCompat="@drawable/clinic_new_alpha"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/imageView3" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_below="@id/imageView3"
+            android:layout_height="wrap_content"
+            android:id="@+id/clinic_alpha_name"
+            android:text="ALPHA CLINIC"
+            android:textColor="#fff"
+            android:gravity="center"
+            />
+    </RelativeLayout>
+    <ScrollView
+        android:padding="10dp"
+
+        android:scrollbars="none"
+        android:id="@+id/clinic_alpha_scroll"
+        android:layout_width="match_parent"
+        android:layout_below="@+id/fpback"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true">
+    <LinearLayout
+        android:padding="10dp"
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+        <TextView
+            android:padding="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="18sp"
+            android:text="Clinic`s Name"/>
+        <TextView
+            android:padding="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#2d2d2d"
+            android:textSize="16sp"
+            android:id="@+id/clininame_alpha"
+            android:text="Alpha cinic"/>
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:padding="5dp"
+            android:background="#c0c0c0"/>
+        <TextView
+            android:padding="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="18sp"
+            android:text="Address"/>
+        <TextView
+            android:padding="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#2d2d2d"
+            android:textSize="16sp"
+            android:id="@+id/clic_add"
+            android:text="Clinic`s Address"/>
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:padding="5dp"
+            android:background="#c0c0c0"/>
+        <TextView
+            android:padding="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+              android:textColor="@color/colorPrimaryDark"
+            android:textSize="18sp"
+
+            android:text="City"/>
+        <TextView
+        android:padding="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#2d2d2d"
+        android:textSize="16sp"
+            android:id="@+id/city_alpa"
+        android:text="Chennai"/>
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:padding="5dp"
+            android:background="#c0c0c0"/>
+        <TextView
+            android:padding="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="18sp"
+            android:text="Pincode"/>
+        <TextView
+            android:padding="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#2d2d2d"
+            android:textSize="16sp"
+            android:id="@+id/pincode_alpa"
+            android:text="600042"/>
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:padding="5dp"
+            android:background="#c0c0c0"/>
+        <TextView
+            android:padding="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="18sp"
+            android:text="Mobile Number"/>
+        <TextView
+            android:padding="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#2d2d2d"
+            android:textSize="16sp"
+            android:id="@+id/monumber_alpa"
+            android:text="9176787847"/>
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:padding="5dp"
+            android:background="#c0c0c0"/>
+        <TextView
+            android:padding="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="18sp"
+            android:text="Email id"/>
+        <TextView
+            android:padding="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#2d2d2d"
+            android:textSize="16sp"
+            android:id="@+id/email_alpa"
+            android:text="alpha@gmail.com"/>
+    </LinearLayout>
+    </ScrollView>
 </RelativeLayout>

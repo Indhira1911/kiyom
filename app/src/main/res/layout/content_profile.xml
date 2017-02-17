@@ -5,64 +5,111 @@
     android:id="@+id/content_profile"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.v7ench.kiyo.ProfileActivity"
     tools:showIn="@layout/activity_profile">
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:id="@+id/tst_cont"
-        android:background="@color/colorAccent">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="20sp"
-            android:textColor="#fff"
-            android:id="@+id/mname"
-            android:layout_below="@+id/imageView7"
-            android:layout_centerHorizontal="true" />
+        android:layout_height="200dp"
+        android:background="#26306f"
+        android:layout_alignParentTop="true"
+        android:id="@+id/fpback"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
         <ImageView
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:src="@mipmap/ic_launcher"
-            android:id="@+id/imageView7"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true" />
+            app:srcCompat="@drawable/profile_alpha_safe"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/imageView3" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_below="@id/imageView3"
+            android:layout_height="wrap_content"
+            android:id="@+id/clinic_alpha_name"
+            android:text="Alpha Safe"
+            android:textColor="#fff"
+            android:gravity="center"
+            />
     </RelativeLayout>
+    <ScrollView
+        android:padding="10dp"
 
-    <include
-        android:layout_height="wrap_content"
+        android:scrollbars="none"
+        android:id="@+id/clinic_alpha_scroll"
         android:layout_width="match_parent"
-        layout="@layout/profileres"
-        android:id="@+id/aalid"
+        android:layout_below="@+id/fpback"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true">
+        <LinearLayout
+            android:padding="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+            <TextView
+                android:padding="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="18sp"
+                android:text="Name"/>
+            <TextView
+                android:padding="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#2d2d2d"
+                android:textSize="16sp"
+                android:id="@+id/clininame_alpha"
+                android:text="Alpha Safe"/>
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:padding="5dp"
+                android:background="#c0c0c0"/>
 
-        android:layout_marginBottom="4dp"
-        android:layout_below="@+id/tst_cont"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-    <include
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent"
-        layout="@layout/clincprof"
-        android:id="@+id/ccfr"
-             android:layout_below="@+id/aalid"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-    <Button
-        android:text="Add Clinic"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/addcli"
-        android:textColor="#fff"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp"
-        android:visibility="invisible"
-        android:textAllCaps="false"
-        android:background="@drawable/rounded_corner_button"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="16dp" />
+
+
+            <TextView
+                android:padding="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="18sp"
+                android:text="Email id"/>
+            <TextView
+                android:padding="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#2d2d2d"
+                android:textSize="16sp"
+                android:id="@+id/email_id_profile"
+                android:text="alpha@gmail.com"/>
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:padding="5dp"
+                android:background="#c0c0c0"/>
+            <TextView
+                android:padding="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="18sp"
+                android:text="Mobile Number"/>
+            <TextView
+                android:padding="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#2d2d2d"
+                android:textSize="16sp"
+                android:id="@+id/mobile_safe_alpha"
+                android:text="9176787847"/>
+        </LinearLayout>
+    </ScrollView>
 
 
 </RelativeLayout>

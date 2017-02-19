@@ -9,6 +9,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
@@ -32,7 +33,7 @@ public class Clinic_new extends AppCompatActivity {
     TextView clinicmen, cliniaddr, clinicity, clinicpinc, clinicmo, clinicemai, formtext, clic_name;
     ImageView imaen;
     ScrollView scrollView;
-
+RelativeLayout ffp;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,9 +59,10 @@ public class Clinic_new extends AppCompatActivity {
         clinicemai = (TextView) findViewById(R.id.email_alpa);
         imaen = (ImageView) findViewById(R.id.imageView5);
         formtext = (TextView) findViewById(R.id.textView15);
+        ffp=(RelativeLayout) findViewById(R.id.fpback);
         scrollView = (ScrollView) findViewById(R.id.clinic_alpha_scroll);
-        fab.setVisibility(View.INVISIBLE);
-
+        scrollView.setVisibility(View.INVISIBLE);
+ffp.setVisibility(View.INVISIBLE);
         SQLiteHandler db = new SQLiteHandler(getApplicationContext());
         HashMap<String, String> user = db.getUserDetails();
         String uid = user.get("uid");
@@ -76,6 +78,8 @@ public class Clinic_new extends AppCompatActivity {
                     JSONObject jObj = new JSONObject(response);
                     boolean error = jObj.getBoolean("error");
                     if (!error) {
+                        ffp.setVisibility(View.VISIBLE);
+                        scrollView.setVisibility(View.VISIBLE);
                         JSONObject user = jObj.getJSONObject("user");
                         String cnamee = user.getString("cname");
                         String address = user.getString("address");
@@ -91,6 +95,7 @@ public class Clinic_new extends AppCompatActivity {
                         imaen.setVisibility(View.VISIBLE);
                         formtext.setVisibility(View.VISIBLE);
                         fab.setVisibility(View.VISIBLE);
+
                     }
 
                 } catch (JSONException e) {

@@ -1,53 +1,102 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:padding="10dp"
-    android:id="@+id/norm_list">
-    <TextView
-        android:text="TextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/bttime"
-        android:padding="2dp"
-        android:visibility="gone"
-        android:layout_below="@+id/bconte"
-        android:layout_alignBaseline="@+id/btdate"
-        android:layout_alignBottom="@+id/btdate" />
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:orientation="horizontal"
+    android:padding="2dp"
+    android:weightSum="3"
+    android:layout_height="wrap_content">
 
-    <TextView
-        android:text="TextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/btdate"
-        android:padding="2dp"
-        android:textSize="13sp"
-        android:layout_below="@+id/bconte"
-        android:layout_toRightOf="@+id/imageView17"
-        android:layout_toEndOf="@+id/imageView17" />
 
     <ImageView
-        android:layout_width="45dp"
-        android:background="@drawable/b_test"
-        android:layout_height="45dp"
-         android:id="@+id/imageView17"
-        android:layout_centerVertical="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_weight="1"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center_vertical"
+        app:srcCompat="@drawable/notepad_alphasafe"
+        android:id="@+id/imageView17"
 
-    <TextView
+        />
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/bconte"
+        android:layout_weight="2"
+
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/bconte"
+            android:padding="3dp"
+            android:text="Content"
+            android:textStyle="normal|bold" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_height="wrap_content"
+            android:padding="4dp"
+
+            android:background="@drawable/textviewborder_new"
+            android:id="@+id/dt"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            >
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                app:srcCompat="@drawable/calendar_alphasafe"
+                android:padding="2dp"
+                android:layout_gravity="center_vertical"
+                android:id="@+id/imageView3" />
+
+            <TextView
+                android:text="11/12/2016"
+                android:textColor="#2d2d2d"
+                android:gravity="center"
+                android:padding="2dp"
+                android:layout_gravity="center_vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/btdate"
+                android:textSize="12sp" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="22dp"
+                android:padding="2dp"
+                android:layout_gravity="center_vertical"
+                app:srcCompat="@drawable/iv_line"
+                android:id="@+id/imageView6" />
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center_vertical"
+                app:srcCompat="@drawable/clock_alphasafe"
+                android:id="@+id/imageView8"
+                android:padding="2dp"
+                />
+
+            <TextView
+                android:text="17:20"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/ttime"
+                android:padding="2dp"
+                android:gravity="center"
+                android:layout_gravity="center_vertical"
+                android:textColor="#2d2d2d"
+                android:textSize="12sp" />
+        </LinearLayout>
+    </LinearLayout>
+    <ImageButton
+        android:layout_weight="1"
+        android:id="@+id/tstma"
+        android:layout_width="60dp"
         android:layout_gravity="center_vertical"
-        android:textColor="#2d2d2d"
-        android:textSize="15sp"
-        android:text="DDa"
-        android:paddingBottom="2dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignTop="@+id/imageView17"
-        android:layout_toRightOf="@+id/imageView17"
-        android:layout_toEndOf="@+id/imageView17" />
-
-
-</RelativeLayout>
+        android:layout_height="match_parent"
+        android:background="?attr/selectableItemBackground"
+        app:srcCompat="@drawable/ic_chevron_right_black_24dp"
+        />
+</LinearLayout>

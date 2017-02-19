@@ -108,6 +108,48 @@
                 android:textSize="16sp"
                 android:id="@+id/mobile_safe_alpha"
                 android:text="9176787847"/>
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:padding="5dp"
+                android:background="#c0c0c0"/>
+            <TextView
+                android:padding="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="18sp"
+                android:text="TST Test Taken"/>
+            <TextView
+                android:padding="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#2d2d2d"
+                android:textSize="16sp"
+                android:id="@+id/tst_taken_test"
+                android:text="00 Tests"
+                android:textStyle="normal|bold" />
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:padding="5dp"
+                android:background="#c0c0c0"/>
+            <TextView
+                android:padding="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="18sp"
+                android:text="BI Test Taken"/>
+            <TextView
+                android:padding="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#2d2d2d"
+                android:textSize="16sp"
+                android:textStyle="normal|bold"
+                android:id="@+id/bi_taken_test"
+                android:text="00 Tests"/>
         </LinearLayout>
     </ScrollView>
 

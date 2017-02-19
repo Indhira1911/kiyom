@@ -12,8 +12,8 @@ import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -140,16 +140,16 @@ ImageView gghnj;
                 tst.setAdapter(adapter);
                 adapter.notifyDataSetChanged();
 
-                tst.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                    @Override
-                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                        Categorieslist categorieslist = movieModelList.get(position);
-                        Intent intent = new Intent(TstResult.this, tstresultview.class);
-                        intent.putExtra("subcat", new Gson().toJson(categorieslist));
-                        startActivity(intent);
-
-                    }
-                });
+//                tst.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//                    @Override
+//                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//                        Categorieslist categorieslist = movieModelList.get(position);
+//                        Intent intent = new Intent(TstResult.this, tstresultview.class);
+//                        intent.putExtra("subcat", new Gson().toJson(categorieslist));
+//                        startActivity(intent);
+//
+//                    }
+//                });
             }
 /*
             else if (movieModelList == null){
@@ -213,7 +213,7 @@ ImageView gghnj;
                 holder.conten=(TextView) convertView.findViewById(R.id.bconte);
                 holder.tda=(TextView) convertView.findViewById(R.id.btdate);
                 holder.tti=(TextView) convertView.findViewById(R.id.ttime);
-
+holder.clicknest=(ImageButton) convertView.findViewById(R.id.tstma);
                 convertView.setTag(holder);
 
             }
@@ -226,12 +226,21 @@ ImageView gghnj;
             holder.conten.setText(categorieslist.getContent());
             holder.tda.setText(categorieslist.getSdate());
             holder.tti.setText(categorieslist.getStme());
+            holder.clicknest.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Categorieslist categorieslist = movieModelList.get(position);
+                    Intent intent = new Intent(TstResult.this, tstresultview.class);
+                    intent.putExtra("subcat", new Gson().toJson(categorieslist));
+                    startActivity(intent);
+                }
+            });
             return convertView;
-
         }
 
         class ViewHolder{
                private TextView conten,tda,tti;
+            private ImageButton clicknest;
 
 
         }

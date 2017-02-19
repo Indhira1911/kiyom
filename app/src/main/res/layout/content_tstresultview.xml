@@ -8,170 +8,189 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.v7ench.kiyo.tstresultview"
     tools:showIn="@layout/activity_tstresultview">
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="200dp"
         android:id="@+id/tst_cont"
-        android:background="@color/colorAccent">
-
+        android:gravity="center"
+        android:orientation="vertical"
+        android:background="#26306f">
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/test_alpha_safe_new"
+            android:id="@+id/imageView7"
+            />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="TST Test Report"
             android:textSize="20sp"
             android:textColor="#fff"
+            android:id="@+id/textViewabc4"
+            />
 
-            android:id="@+id/textView"
-            android:layout_below="@+id/imageView7"
-            android:layout_centerHorizontal="true" />
 
-        <ImageView
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:src="@drawable/ttev"
-            android:id="@+id/imageView7"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true" />
-
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:padding="10dp"
+    </LinearLayout>
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_below="@+id/tst_cont"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:padding="5dp"
         android:layout_width="match_parent"
         android:id="@+id/conte_tst"
-        android:layout_below="@+id/tst_cont"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:background="@drawable/letsdraw2"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true">
+        android:orientation="vertical"
+        android:background="@drawable/textviewborder_new"
+        >
+<LinearLayout
+    android:layout_width="match_parent"
+    android:orientation="horizontal"
+    android:gravity="center"
+    android:padding="5dp"
+    android:layout_height="match_parent">
+
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:padding="5dp"
+    android:gravity="center"
+    android:text="Primary Label"/>
 
         <TextView
-            android:text="PRE TEST COLOR"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/textView9"
-            android:layout_alignLeft="@+id/textView9"
-            android:layout_alignStart="@+id/textView9"
-            android:layout_marginTop="23dp"
-            android:id="@+id/textView10"
-            android:textSize="14sp" />
+            android:layout_height="match_parent"
+            android:padding="5dp"
+            android:gravity="center"
+            android:text="Description"/>
 
         <TextView
-            android:text="POST TEST COLOR"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/textView10"
-            android:layout_alignLeft="@+id/textView10"
-            android:layout_alignStart="@+id/textView10"
-            android:layout_marginTop="23dp"
-            android:id="@+id/textView11"
-            android:textSize="14sp" />
+            android:padding="5dp"
+            android:gravity="center"
+            android:layout_height="match_parent"
+            android:text="Primary Label"/>
 
-        <TextView
+</LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/colorPrimaryDark"/>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:orientation="horizontal"
+    android:gravity="center"
+android:padding="5dp"
+    android:layout_height="match_parent">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:padding="5dp"
+        android:gravity="center"
+        android:text="Pre Test Color"/>
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:padding="5dp"
+        android:id="@+id/precol_safe"
+        android:gravity="center"
+        android:text="#234343"/>
+
+    <RelativeLayout
+        android:layout_width="50dp"
+        android:padding="5dp"
+        android:id="@+id/pretest_safe"
+        android:gravity="center"
+        android:layout_height="match_parent"
+        />
+
+
+</LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:padding="5dp"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:padding="5dp"
+                android:gravity="center"
+                android:text="Post Test Color"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:padding="5dp"
+                android:id="@+id/post_col"
+                android:gravity="center"
+                android:text="#234343"/>
+
+            <RelativeLayout
+                android:layout_width="50dp"
+                android:padding="5dp"
+                android:id="@+id/postcolor_safe"
+                android:gravity="center"
+                android:layout_height="match_parent"
+               />
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:gravity="start"
+            android:padding="5dp"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:padding="5dp"
+                android:gravity="center"
+                android:text="Test Result"/>
+
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_gravity="center"
+                android:background="@drawable/scan_safe"
+                android:id="@+id/image_safe" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:padding="5dp"
+                android:id="@+id/safe_result"
+                android:gravity="center"
+                android:layout_height="match_parent"
+                android:text="Safe"/>
+
+
+        </LinearLayout>
+        <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_above="@+id/textView10"
-            android:layout_toRightOf="@+id/textView11"
-            android:layout_toEndOf="@+id/textView11"
-            android:layout_marginLeft="69dp"
-            android:layout_marginStart="69dp"
-            android:id="@+id/content_textv"
-            android:textSize="12sp"
-            android:textColor="#2d2d2d" />
-
-        <TextView
-
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_above="@+id/textView11"
-            android:layout_alignLeft="@+id/content_textv"
-            android:layout_alignStart="@+id/content_textv"
-            android:id="@+id/pretest_date"
-            android:textColor="#2d2d2d"
-            android:textSize="12sp" />
-
-        <TextView
-
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/textView11"
-            android:layout_alignLeft="@+id/pretest_date"
-            android:layout_alignStart="@+id/pretest_date"
-            android:id="@+id/post_test_colorv"
-            android:textSize="12sp"
-            android:textColor="#2d2d2d" />
-
-        <TextView
-            android:text="TEST RESULT"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/textView12"
-            android:textSize="14sp"
-            android:layout_marginTop="23dp"
-            android:layout_below="@+id/textView11"
-            android:layout_alignLeft="@+id/textView11"
-            android:layout_alignStart="@+id/textView11" />
-
-        <TextView
-
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/textView12"
-            android:layout_alignLeft="@+id/post_test_colorv"
-            android:textSize="12sp"
-            android:textColor="#2d2d2d"
-            android:layout_alignStart="@+id/post_test_colorv"
-            android:id="@+id/test_resultv"
-            android:textStyle="normal|bold" />
-
+            android:layout_height="match_parent"
+            android:padding="5dp"
+            android:gravity="start">
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:srcCompat="@drawable/normal_qr"
-            android:id="@+id/imageView16"
-            android:layout_below="@id/textView12"
-            android:layout_marginTop="23dp"
-            android:layout_alignLeft="@+id/textView12"
-            android:layout_alignStart="@+id/textView12" />
-
+            android:layout_gravity="center"
+            />
         <TextView
+            android:text="KISTAAAADD13112016"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/qr_scanned"
             android:textSize="14sp"
-            android:textColor="#2d2d2d"
-            android:layout_marginTop="12dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_alignTop="@+id/imageView16"
-            android:layout_toRightOf="@+id/imageView16"
-            android:layout_toEndOf="@+id/imageView16" />
+            android:layout_gravity="center"
+            android:textColor="#2d2d2d" />
 
-        <TextView
-            android:text="CONTENTS"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/textView9"
-            android:layout_marginTop="19dp"
-            android:layout_marginLeft="23dp"
-            android:layout_marginStart="23dp"
-            android:textSize="14sp"
-            android:layout_below="@+id/biodocnamev"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
-
-        <TextView
-            android:text="Dr.kumar vel "
-            android:layout_width="wrap_content"
-            android:textColor="#2d2d2d"
-            android:textSize="20sp"
-            android:layout_height="wrap_content"
-            android:id="@+id/biodocnamev"
-            android:layout_marginTop="14dp"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true" />
-
-    </RelativeLayout>
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>
 </RelativeLayout>

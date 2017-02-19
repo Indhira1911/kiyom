@@ -23,10 +23,12 @@ import org.json.JSONObject;
 
 import java.util.HashMap;
 
+import static com.v7ench.kiyo.R.id.bitest;
+
 public class ProfileActivity extends AppCompatActivity {
     ListView tsti;
 
-    TextView cname,cadd,cnum,cemail,proname;
+    TextView cname,cadd,cnum,cemail,proname,tsttest,bitestt;
 Button addclin;
 LinearLayout bnkj;
 
@@ -45,6 +47,8 @@ bnkj=(LinearLayout) findViewById(R.id.gmg);
         cname=(TextView) findViewById(R.id.clininame_alpha);
         cnum=(TextView) findViewById(R.id.mobile_safe_alpha);
         cemail=(TextView) findViewById(R.id.email_id_profile);
+        tsttest=(TextView) findViewById(R.id.tst_taken_test);
+        bitestt=(TextView) findViewById(R.id.bi_taken_test);
         HashMap<String, String> user = db.getUserDetails();
         String name = user.get("name");
         String uid=user.get("uid");
@@ -63,6 +67,7 @@ bnkj=(LinearLayout) findViewById(R.id.gmg);
 
     public void backme(String url)
     {
+
         StringRequest stringRequest=new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
@@ -74,7 +79,9 @@ bnkj=(LinearLayout) findViewById(R.id.gmg);
                     String totalsafe = user.getString("totalsafe");
                     String bitest = user.getString("bitest");
 
+                    tsttest.setText(totalsafe+" Tests");
 
+                    bitestt.setText(bitest+" Tests");
 
 
                 } catch (JSONException e) {

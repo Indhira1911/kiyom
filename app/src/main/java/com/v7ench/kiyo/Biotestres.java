@@ -10,8 +10,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -122,15 +122,7 @@ public class Biotestres extends AppCompatActivity {
                MovieAdapter adapter = new MovieAdapter(getApplicationContext(), R.layout.row_biores, movieModelList);
                 biore.setAdapter(adapter);
                 adapter.notifyDataSetChanged();
-                biore.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                    @Override
-                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                       Biolistnew categorieslist = movieModelList.get(position);
-                        Intent intent = new Intent(Biotestres.this, BiotestResult.class);
-                     intent.putExtra("biolist", new Gson().toJson(categorieslist));
-                        startActivity(intent);
-                    }
-                });
+
 
             }
             if(biore.getCount()==0)
@@ -181,7 +173,8 @@ public class Biotestres extends AppCompatActivity {
                 holder = new ViewHolder();
                 holder.conten=(TextView) convertView.findViewById(R.id.bconte);
                 holder.tda=(TextView) convertView.findViewById(R.id.btdate);
-                holder.tti=(TextView) convertView.findViewById(R.id.bttime);
+                holder.tti=(TextView) convertView.findViewById(R.id.ttime);
+                holder.clicknest=(ImageButton) convertView.findViewById(R.id.tstma);
 
                 convertView.setTag(holder);
 
@@ -194,14 +187,23 @@ public class Biotestres extends AppCompatActivity {
             Biolistnew categorieslist= movieModelList.get(position);
             holder.conten.setText(categorieslist.getBiodqr());
             holder.tda.setText(categorieslist.getSdate());
-            holder.tti.setText("@"+categorieslist.getStime()+"hrs");
+            holder.tti.setText(categorieslist.getStime());
+            holder.clicknest.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Biolistnew categorieslist = movieModelList.get(position);
+                    Intent intent = new Intent(Biotestres.this, BiotestResult.class);
+                    intent.putExtra("biolist", new Gson().toJson(categorieslist));
+                    startActivity(intent);
+                }
+            });
             return convertView;
 
         }
 
         class ViewHolder{
             private TextView conten,tda,tti;
-
+ImageButton clicknest;
 
         }
 

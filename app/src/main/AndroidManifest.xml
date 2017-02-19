@@ -202,16 +202,6 @@
                 android:value="com.v7ench.kiyo.MainActivity" />
         </activity>
         <activity
-            android:name=".Tstresultsum"
-            android:label="@string/title_activity_tstresultsum"
-            android:parentActivityName=".MainActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.v7ench.kiyo.MainActivity" />
-        </activity>
-        <activity
             android:name=".Biotestprofile"
             android:label="@string/title_activity_biotestprofile"
             android:parentActivityName=".MainActivity"

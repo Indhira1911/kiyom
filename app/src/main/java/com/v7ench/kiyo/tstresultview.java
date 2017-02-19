@@ -4,6 +4,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.v7ench.kiyo.dbhandler.SQLiteHandler;
@@ -11,11 +12,10 @@ import com.v7ench.kiyo.dbhandler.SQLiteHandler;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.HashMap;
-
 public class tstresultview extends AppCompatActivity {
-TextView cont,precol,postcol,tstresu,qrsca,docname;
+TextView precol,postcol,tstresu,qrsca,docname;
     private SQLiteHandler db;
+    RelativeLayout ab,bc;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,16 +23,13 @@ TextView cont,precol,postcol,tstresu,qrsca,docname;
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        db = new SQLiteHandler(getApplicationContext());
-        HashMap<String, String> user = db.getUserDetails();
-        final String name = user.get("name");
-        docname=(TextView) findViewById(R.id.biodocnamev);
-        cont=(TextView) findViewById(R.id.content_textv);
-precol=(TextView)findViewById(R.id.pretest_date);
-        postcol=(TextView) findViewById(R.id.post_test_colorv);
-        tstresu=(TextView) findViewById(R.id.test_resultv);
+
+precol=(TextView)findViewById(R.id.precol_safe);
+        postcol=(TextView) findViewById(R.id.post_col);
+        tstresu=(TextView) findViewById(R.id.safe_result);
         qrsca=(TextView) findViewById(R.id.qr_scanned);
-        docname.setText("Dr."+name);
+ab= (RelativeLayout) findViewById(R.id.pretest_safe);
+        bc=(RelativeLayout) findViewById(R.id.postcolor_safe);
         String strObj = getIntent().getStringExtra("subcat");
         try {
             JSONObject myJsonObj = null;
@@ -52,15 +49,16 @@ precol=(TextView)findViewById(R.id.pretest_date);
 
     public void addtextinview(String content, String precolr, String postcolr, String testresult,String qrs)
     {
-cont.setText(content);
+
         precol.setText(precolr);
-        if (!postcolr.isEmpty()) {
+        ab.setBackgroundColor(Color.parseColor(precolr));
+
             postcol.setText(postcolr);
             tstresu.setText(testresult);
-        }
-        else {
-            postcol.setText("Test pending");
-            tstresu.setText("Result Pending");
+        if (postcolr.contains("#"))
+        {
+            bc.setBackgroundColor(Color.parseColor(postcolr));
+
         }
 
         if (testresult.equals("SAFE"))

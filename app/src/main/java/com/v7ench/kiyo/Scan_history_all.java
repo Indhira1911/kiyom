@@ -25,6 +25,7 @@ public class Scan_history_all extends AppCompatActivity {
     TextView tst_total_result,tst_safe,tst_unsafe,bi_total_result;
     ImageButton Itst,Ibi;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,6 +34,7 @@ public class Scan_history_all extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         db = new SQLiteHandler(getApplicationContext());
+
         HashMap<String, String> user = db.getUserDetails();
         final String uid = user.get("uid");
        tst_total_result=(TextView) findViewById(R.id.testnum_tst);
@@ -41,11 +43,13 @@ public class Scan_history_all extends AppCompatActivity {
 bi_total_result=(TextView) findViewById(R.id.testnum_bi);
         Itst=(ImageButton) findViewById(R.id.tstma);
         Ibi=(ImageButton) findViewById(R.id.bima);
+
         String url="http://gettalentsapp.com/vignesh2514/kiyo/androadmin/fcmc.php?uid="+uid;
     backme(url);
         Itst.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 Intent myIntent = new Intent(Scan_history_all.this, TstResult.class);
                 startActivity(myIntent);
             }
@@ -60,6 +64,7 @@ bi_total_result=(TextView) findViewById(R.id.testnum_bi);
     }
     public void backme(String url)
     {
+
         StringRequest stringRequest=new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {

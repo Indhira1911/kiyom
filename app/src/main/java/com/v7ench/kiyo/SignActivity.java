@@ -4,9 +4,13 @@ package com.v7ench.kiyo;
 import android.Manifest;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
+import android.view.KeyEvent;
+import android.widget.Toast;
 
 import static com.v7ench.kiyo.MainActivity.hasPermissions;
 
@@ -46,7 +50,37 @@ public class SignActivity extends AppCompatActivity {
         tabs.setDistributeEvenly(true);
         tabs.setViewPager(pager);
     }
+    Boolean doubleBackToExitPressedOnce = false;
+    @Override
+    public void onBackPressed() {
+            if (doubleBackToExitPressedOnce) {
+                Intent startMain = new Intent(Intent.ACTION_MAIN);
+                startMain.addCategory(Intent.CATEGORY_HOME);
+                startMain.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(startMain);
+            }
+            this.doubleBackToExitPressedOnce = true;
+            Toast.makeText(this, "Please click BACK again to exit", Toast.LENGTH_SHORT).show();
+            new Handler().postDelayed(new Runnable() {
 
+                @Override
+                public void run() {
+                    doubleBackToExitPressedOnce=false;
+                }
+            }, 2000);
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event)  {
+        if (Integer.parseInt(android.os.Build.VERSION.SDK) > 5
+                && keyCode == KeyEvent.KEYCODE_BACK
+                && event.getRepeatCount() == 0) {
+            Log.d("CDA", "onKeyDown Called");
+            onBackPressed();
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
+    }
 
 
 

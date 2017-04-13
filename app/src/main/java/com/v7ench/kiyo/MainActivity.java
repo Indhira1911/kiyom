@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity
         ua=(TextView) findViewById(R.id.unsafe_num);
 ra=(TextView) findViewById(R.id.rate_txt);
         Itst=(ImageButton) findViewById(R.id.tstma);
-        Ibi=(ImageButton) findViewById(R.id.bima);
+       // Ibi=(ImageButton) findViewById(R.id.bima);
         db = new SQLiteHandler(getApplicationContext());
 rateme=(RatingBar) findViewById(R.id.rating_main);
         // session manager
@@ -63,8 +63,6 @@ rateme=(RatingBar) findViewById(R.id.rating_main);
         if (!session.isLoggedIn()) {
             logoutUser();
         }
-
-
         HashMap<String, String> user = db.getUserDetails();
         final String name = user.get("name");
         final String email = user.get("email");
@@ -83,13 +81,13 @@ rateme=(RatingBar) findViewById(R.id.rating_main);
                 MainActivity.this.startActivity(myIntent);
             }
         });
-        Ibi.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent myIntent = new Intent(MainActivity.this, BioTestScan.class);
-                MainActivity.this.startActivity(myIntent);
-            }
-        });
+//        Ibi.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent myIntent = new Intent(MainActivity.this, BioTestScan.class);
+//                MainActivity.this.startActivity(myIntent);
+//            }
+//        });
 //        final FloatingActionButton actionA = (FloatingActionButton) findViewById(R.id.action_a);
 //        actionA.setTitle("BIO Test");
 //        actionA.setOnClickListener(new View.OnClickListener() {
@@ -235,10 +233,10 @@ rateme=(RatingBar) findViewById(R.id.rating_main);
             Intent intent = new Intent(MainActivity.this, Strat_test_test.class);
             startActivity(intent);
         }
-        else if (id == R.id.nav_bitest) {
-            Intent intent = new Intent(MainActivity.this, Strart_Bi_test.class);
-            startActivity(intent);
-        }
+//        else if (id == R.id.nav_bitest) {
+//            Intent intent = new Intent(MainActivity.this, Strart_Bi_test.class);
+//            startActivity(intent);
+//        }
         else if (id == R.id.nav_scanhis) {
             Intent intent = new Intent(MainActivity.this, Scan_history_all.class);
             startActivity(intent);

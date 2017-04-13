@@ -161,6 +161,8 @@ frameLayout =(FrameLayout) findViewById(R.id.frameme);
             public void onClick(View v) {
 
                 finish();
+                Utils.saveSharedSetting(PagerActivity.this, SignActivity.PREF_USER_FIRST_TIME, "false");
+
             }
         });
 

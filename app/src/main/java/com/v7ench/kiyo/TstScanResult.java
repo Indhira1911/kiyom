@@ -42,7 +42,7 @@ TextView docname,conte,prcol,pocol,resulttst,scandqr;
                 onBackPressed();
             }
         });
-
+docname=(TextView) findViewById(R.id.biodocnamev);
         conte=(TextView) findViewById(R.id.content_textv);
         prcol=(TextView) findViewById(R.id.pretest_date);
         pocol=(TextView) findViewById(R.id.post_test_colorv);
@@ -50,7 +50,7 @@ TextView docname,conte,prcol,pocol,resulttst,scandqr;
         scandqr=(TextView) findViewById(R.id.qr_scanned);
         db = new SQLiteHandler(getApplicationContext());
         HashMap<String, String> user = db.getUserDetails();
-
+String name=user.get("name");
         final String uid=user.get("uid");
          Intent details=getIntent();
         String content = details.getStringExtra("content");
@@ -64,7 +64,7 @@ TextView docname,conte,prcol,pocol,resulttst,scandqr;
         String precolor = details.getStringExtra("precolor");
         String postcol=details.getStringExtra("postcol");
         scandqr.setText(dqrres);
-
+docname.setText("DR"+name);
         pocol.setText(postcol);
         conte.setText(content);
         strfc(uid,dqr,postcol);

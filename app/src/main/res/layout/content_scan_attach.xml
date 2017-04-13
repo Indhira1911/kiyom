@@ -8,20 +8,6 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.v7ench.kiyo.ScanAttach"
     tools:showIn="@layout/activity_scan_attach">
-
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:ems="12"
-        android:id="@+id/content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="29dp"
-        android:hint="Contents"
-        android:singleLine="true" />
-
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -29,7 +15,7 @@
         android:layout_alignTop="@+id/content"
         android:layout_toLeftOf="@+id/content"
         android:layout_toStartOf="@+id/content"
-                android:layout_marginRight="19dp"
+        android:layout_marginRight="19dp"
         android:layout_marginEnd="19dp"
         android:id="@+id/imageView9"
         android:layout_alignBottom="@+id/content" />
@@ -39,14 +25,29 @@
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:ems="12"
+        android:id="@+id/content"
+        android:layout_marginTop="29dp"
+        android:hint="Contents"
+        android:singleLine="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="12"
         android:layout_below="@+id/content"
-        android:layout_toRightOf="@+id/imageView9"
         android:layout_marginTop="20dp"
         android:id="@+id/pack"
         android:layout_alignRight="@+id/content"
         android:layout_alignEnd="@+id/content"
         android:hint="Pack/Batch"
-        android:singleLine="true" />
+        android:singleLine="true"
+        android:layout_toRightOf="@+id/imageView9"
+        android:layout_toEndOf="@+id/imageView9" />
 
     <ImageView
         android:layout_width="wrap_content"
@@ -66,15 +67,16 @@
         android:inputType="textPersonName"
         android:ems="12"
         android:layout_below="@+id/pack"
-        android:layout_alignLeft="@+id/pack"
-        android:layout_alignStart="@+id/pack"
         android:layout_marginTop="20dp"
         android:id="@+id/sterilizer"
         android:editable="false"
         android:layout_alignRight="@+id/pack"
         android:layout_alignEnd="@+id/pack"
         android:hint="Sterilizer"
-        android:singleLine="true" />
+        android:singleLine="true"
+        android:layout_toEndOf="@+id/imageView13"
+        android:layout_alignLeft="@+id/pack"
+        android:layout_alignStart="@+id/pack" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -82,14 +84,15 @@
         android:inputType="textPersonName"
         android:ems="12"
         android:layout_below="@+id/sterilizer"
-        android:layout_alignLeft="@+id/sterilizer"
-        android:layout_alignStart="@+id/sterilizer"
         android:layout_marginTop="20dp"
         android:id="@+id/load"
         android:hint="Load"
         android:layout_alignRight="@+id/sterilizer"
         android:layout_alignEnd="@+id/sterilizer"
-        android:singleLine="true" />
+        android:singleLine="true"
+        android:layout_toEndOf="@+id/imageView14"
+        android:layout_alignLeft="@+id/sterilizer"
+        android:layout_alignStart="@+id/sterilizer" />
 
     <ImageView
         android:layout_width="wrap_content"
@@ -117,15 +120,16 @@
         android:inputType="textPersonName"
         android:ems="12"
         android:layout_below="@+id/load"
-        android:layout_alignLeft="@+id/load"
-        android:layout_alignStart="@+id/load"
         android:layout_marginTop="20dp"
         android:id="@+id/Edate"
         android:hint="Date"
         android:editable="false"
         android:layout_alignRight="@+id/load"
         android:layout_alignEnd="@+id/load"
-        android:singleLine="true" />
+        android:singleLine="true"
+        android:layout_toEndOf="@+id/imageView15"
+        android:layout_alignLeft="@+id/load"
+        android:layout_alignStart="@+id/load" />
 
     <ImageView
         android:layout_width="wrap_content"
@@ -136,8 +140,6 @@
         android:layout_alignStart="@+id/imageView14"
         android:id="@+id/imageView15"
         android:layout_alignBottom="@+id/Edate" />
-
-
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"

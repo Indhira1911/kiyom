@@ -80,6 +80,7 @@ ffp.setVisibility(View.INVISIBLE);
                     if (!error) {
                         ffp.setVisibility(View.VISIBLE);
                         scrollView.setVisibility(View.VISIBLE);
+                        fab.setVisibility(View.INVISIBLE);
                         JSONObject user = jObj.getJSONObject("user");
                         String cnamee = user.getString("cname");
                         String address = user.getString("address");

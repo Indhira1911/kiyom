@@ -124,22 +124,22 @@ EditText Ename,Emono,Eemail,Epass;
                             boolean error = jObj.getBoolean("error");
                             if (!error) {
                                 session.setLogin(true);
-                                        String uid = jObj.getString("uid");
+                                String uid = jObj.getString("uid");
                                 JSONObject user = jObj.getJSONObject("user");
                                 String name = user.getString("name");
                                 String email = user.getString("email");
                                 String pnum =user.getString("pnum");
                                 String whoty=user.getString("type");
-                               // Inserting row in users table
+                                // Inserting row in users table
 
 
 
-    dialog.dismiss();
-    Toast.makeText(getContext(), "Otp has been sent to registered mobile number.!", Toast.LENGTH_LONG).show();
-    db.addUser(name, email, uid,pnum);
-    // Launch login activity
-    Intent intent = new Intent(getActivity(), OtpActivity.class);
-    startActivity(intent);
+                                dialog.dismiss();
+                                Toast.makeText(getContext(), "Otp has been sent to registered mobile number.!", Toast.LENGTH_LONG).show();
+                                db.addUser(name, email, uid,pnum);
+                                // Launch login activity
+                                Intent intent = new Intent(getActivity(), OtpActivity.class);
+                                startActivity(intent);
 
 
                             }

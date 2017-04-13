@@ -23,12 +23,16 @@
             android:layout_centerHorizontal="true"
             android:id="@+id/imageView3" />
     </RelativeLayout>
-
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_centerHorizontal="true"
+    android:layout_below="@+id/fpback">
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/fpback">
+        android:layout_height="wrap_content"
+
+        >
 
         <TextView
             android:text="We just need your registered Mobile Number \n to send you password reset code"
@@ -114,5 +118,5 @@
 
 
     </RelativeLayout>
-
+</ScrollView>
 </RelativeLayout>

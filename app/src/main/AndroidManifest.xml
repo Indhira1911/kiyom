@@ -42,6 +42,7 @@
             android:label="@string/app_name"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
+
         <activity
             android:name=".AddDoctor"
             android:label="@string/title_activity_add_doctor"
@@ -162,16 +163,6 @@
                 android:value="com.v7ench.kiyo.MainActivity" />
         </activity>
         <activity
-            android:name=".Settingsall"
-            android:label="@string/title_activity_settingsall"
-            android:parentActivityName=".MainActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.v7ench.kiyo.MainActivity" />
-        </activity>
-        <activity
             android:name=".tstresultview"
             android:label="@string/title_activity_tstresultview"
             android:parentActivityName=".TstResult"
@@ -254,6 +245,7 @@
         <activity
             android:name=".About_Us"
             android:label="@string/title_activity_about__us"
+            android:screenOrientation="portrait"
             android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme">
             <meta-data

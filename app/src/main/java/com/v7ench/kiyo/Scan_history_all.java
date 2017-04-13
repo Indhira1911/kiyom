@@ -40,9 +40,9 @@ public class Scan_history_all extends AppCompatActivity {
        tst_total_result=(TextView) findViewById(R.id.testnum_tst);
         tst_safe=(TextView) findViewById(R.id.testnum_tst_safe);
         tst_unsafe=(TextView) findViewById(R.id.testnum_tst_unsafe);
-bi_total_result=(TextView) findViewById(R.id.testnum_bi);
+//bi_total_result=(TextView) findViewById(R.id.testnum_bi);
         Itst=(ImageButton) findViewById(R.id.tstma);
-        Ibi=(ImageButton) findViewById(R.id.bima);
+      //  Ibi=(ImageButton) findViewById(R.id.bima);
 
         String url="http://gettalentsapp.com/vignesh2514/kiyo/androadmin/fcmc.php?uid="+uid;
     backme(url);
@@ -54,13 +54,13 @@ bi_total_result=(TextView) findViewById(R.id.testnum_bi);
                 startActivity(myIntent);
             }
         });
-        Ibi.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent myIntent = new Intent(Scan_history_all.this, Biotestres.class);
-                startActivity(myIntent);
-            }
-        });
+//        Ibi.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent myIntent = new Intent(Scan_history_all.this, Biotestres.class);
+//                startActivity(myIntent);
+//            }
+//        });
     }
     public void backme(String url)
     {
@@ -79,7 +79,7 @@ bi_total_result=(TextView) findViewById(R.id.testnum_bi);
                     tst_total_result.setText(totalsafe+" Tests");
                     tst_safe.setText(safe+" Safe");
                     tst_unsafe.setText(unsafe+" UnSafe");
-                    bi_total_result.setText(bitest+" Tests");
+                   // bi_total_result.setText(bitest+" Tests");
 
 
                 } catch (JSONException e) {

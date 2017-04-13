@@ -41,16 +41,13 @@ public class OtpActivity extends AppCompatActivity implements OTPListener {
         db = new SQLiteHandler(getApplicationContext());
         // session manager
         textViewotp=(TextView) findViewById(R.id.Otp_message);
-
         session = new SessionManager(getApplicationContext());
-        // Fetching user details from sqlite
         HashMap<String, String> user = db.getUserDetails();
         Smonum=user.get("pnum");
         dialog = new ProgressDialog(this);
         dialog.setIndeterminate(true);
         dialog.setCancelable(false);
         dialog.setMessage("Loading. Please wait...");
-
         textViewotp.setText("Please type the verification code sent \n to +91 "+Smonum);
        Eotpn=(EditText) findViewById(R.id.otpnumber);
           otpreq =(FloatingActionButton) findViewById(R.id.otpsend);
@@ -75,7 +72,6 @@ public class OtpActivity extends AppCompatActivity implements OTPListener {
     }
    public void checkotp(final String smonum, final String sotpnum)
    {
-
        StringRequest stringRequest =new StringRequest(Request.Method.POST, UrlReq.OTPCHECK,
                new Response.Listener<String>() {
                    @Override
@@ -112,8 +108,6 @@ public class OtpActivity extends AppCompatActivity implements OTPListener {
    }
     @Override
     public void otpReceived(String smsText) {
-
-
         String[] parts = smsText.split(":"); // escape .
         String part1 = parts[0];
         String part2 = parts[1];
@@ -122,4 +116,5 @@ public class OtpActivity extends AppCompatActivity implements OTPListener {
         checkotp(Smonum,Sotpnum);
 
     }
+
 }

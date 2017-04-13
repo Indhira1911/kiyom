@@ -107,9 +107,30 @@ android:fitsSystemWindows="true"
         <Spinner
         android:layout_width="match_parent"
         android:layout_height="35dp"
-
         style="@style/Widget.AppCompat.Spinner.Underlined"
         android:id="@+id/deliarea"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:padding="10dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginLeft="15dp"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                app:srcCompat="@drawable/ic_security"/>
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                style="@style/Widget.AppCompat.Spinner.Underlined"
+                android:id="@+id/allstate"/>
+
+
         </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"

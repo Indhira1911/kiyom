@@ -76,7 +76,7 @@
             android:layout_alignParentRight="true"
             android:visibility="invisible"
             android:background="?attr/selectableItemBackgroundBorderless"
-            app:srcCompat="@drawable/ic_save" />
+            app:srcCompat="@drawable/ic_save_black" />
 
         <ImageView
             android:id="@+id/activity_color_picker_save_completed"

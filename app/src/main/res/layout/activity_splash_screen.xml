@@ -28,8 +28,7 @@
         android:layout_below="@+id/imageView2"
         android:textSize="40sp"
         htext:animateType="typer"
-        htext:fontAsset="fonts/splashtext.ttf"
-
+        htext:fontAsset="fonts/geek.ttf"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 </RelativeLayout>

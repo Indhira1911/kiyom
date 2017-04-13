@@ -7,10 +7,10 @@
             android:id="@+id/nav_tsttest"
             android:icon="@drawable/ic_flasks_balck"
             android:title="TST Test" />
-        <item
-            android:id="@+id/nav_bitest"
-            android:icon="@drawable/ic_testtube_black"
-            android:title="BI Test" />
+        <!--<item-->
+            <!--android:id="@+id/nav_bitest"-->
+            <!--android:icon="@drawable/ic_testtube_black"-->
+            <!--android:title="BI Test" />-->
         <item
             android:id="@+id/nav_clinic"
             android:icon="@drawable/ic_hospital"

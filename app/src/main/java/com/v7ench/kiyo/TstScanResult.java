@@ -8,6 +8,7 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,6 +30,7 @@ import java.util.Map;
 public class TstScanResult extends AppCompatActivity {
 TextView docname,conte,prcol,pocol,resulttst,scandqr;
     private SQLiteHandler db;
+    ImageView imageView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,6 +49,7 @@ docname=(TextView) findViewById(R.id.biodocnamev);
         prcol=(TextView) findViewById(R.id.pretest_date);
         pocol=(TextView) findViewById(R.id.post_test_colorv);
         resulttst=(TextView) findViewById(R.id.test_result);
+        imageView=(ImageView) findViewById(R.id.imageView7);
         scandqr=(TextView) findViewById(R.id.qr_scanned);
         db = new SQLiteHandler(getApplicationContext());
         HashMap<String, String> user = db.getUserDetails();
@@ -64,13 +67,13 @@ String name=user.get("name");
         String precolor = details.getStringExtra("precolor");
         String postcol=details.getStringExtra("postcol");
         scandqr.setText(dqrres);
-docname.setText("DR"+name);
+docname.setText("Dr."+name);
         pocol.setText(postcol);
         conte.setText(content);
         strfc(uid,dqr,postcol);
 
     }
-    public void strfc(final String uid, final String dqr, final String postcol)
+    public void strfc(final String uid, final String dqr, final String Postcol)
     {
         final StringRequest stringRequest = new StringRequest(Request.Method.POST, UrlReq.PREPOTST, new Response.Listener<String>() {
             @Override
@@ -82,14 +85,17 @@ docname.setText("DR"+name);
                         JSONObject user = jObj.getJSONObject("user");
                         String pre_colr = user.getString("pre_colr");
                         String post_colr = user.getString("post_colr");
-                        if (postcol.equals(post_colr))
+                        if (Postcol.equals(post_colr))
                         {
                             resulttst.setText("SAFE");
+                            imageView.setBackgroundResource(R.drawable.safe_new);
                             resulttst.setTextColor(Color.parseColor("#00a13a"));
                         }
                         else
                         {
                             resulttst.setText("UNSAFE");
+                            imageView.setBackgroundResource(R.drawable.unsafe_new);
+
                             resulttst.setTextColor(Color.parseColor("#de2626"));
                         }
                         prcol.setText(pre_colr);

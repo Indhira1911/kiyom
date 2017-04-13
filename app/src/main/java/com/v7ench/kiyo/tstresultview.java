@@ -4,6 +4,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -16,6 +17,7 @@ public class tstresultview extends AppCompatActivity {
 TextView precol,postcol,tstresu,qrsca,docname;
     private SQLiteHandler db;
     RelativeLayout ab,bc;
+    ImageView imageView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,7 +25,7 @@ TextView precol,postcol,tstresu,qrsca,docname;
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
+imageView=(ImageView) findViewById(R.id.imageView7);
 precol=(TextView)findViewById(R.id.precol_safe);
         postcol=(TextView) findViewById(R.id.post_col);
         tstresu=(TextView) findViewById(R.id.safe_result);
@@ -47,27 +49,28 @@ ab= (RelativeLayout) findViewById(R.id.pretest_safe);
         }
     }
 
-    public void addtextinview(String content, String precolr, String postcolr, String testresult,String qrs)
+    public void addtextinview(String content, String precolr, String Postcolr, String testresult,String qrs)
     {
 
         precol.setText(precolr);
         ab.setBackgroundColor(Color.parseColor(precolr));
-
-            postcol.setText(postcolr);
+        imageView.setBackgroundResource(R.drawable.pending_safe);
+            postcol.setText(Postcolr);
             tstresu.setText(testresult);
-        if (postcolr.contains("#"))
+        if (Postcolr.contains("#"))
         {
-            bc.setBackgroundColor(Color.parseColor(postcolr));
+            bc.setBackgroundColor(Color.parseColor(Postcolr));
 
         }
 
-        if (testresult.equals("SAFE"))
+        if (testresult.equalsIgnoreCase("SAFE"))
         {
+            imageView.setBackgroundResource(R.drawable.safe_new);
             tstresu.setTextColor(Color.parseColor("#00a13a"));
         }
-        else if(testresult.equals("UNSAFE"))
+        else if(testresult.equalsIgnoreCase("UNSAFE"))
         {
-
+            imageView.setBackgroundResource(R.drawable.unsafe_new);
             tstresu.setTextColor(Color.parseColor("#de2626"));
         }
         qrsca.setText(qrs);

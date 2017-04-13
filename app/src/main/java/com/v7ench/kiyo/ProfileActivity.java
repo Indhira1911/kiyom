@@ -1,11 +1,8 @@
 package com.v7ench.kiyo;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -22,8 +19,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.HashMap;
-
-import static com.v7ench.kiyo.R.id.bitest;
 
 public class ProfileActivity extends AppCompatActivity {
     ListView tsti;
@@ -97,26 +92,26 @@ bnkj=(LinearLayout) findViewById(R.id.gmg);
         AppController.getInstance().addToRequestQueue(stringRequest);
 
     }
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_name_safe, menu);
-        return true;
-    }
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item)
-    {
-        switch (item.getItemId())
-        {
-            case R.id.edit_home_safe:
-                Intent intent = new Intent(ProfileActivity.this, MainActivity.class);
-                startActivity(intent);
-                finish();
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-    }
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//
+//        // Inflate the menu; this adds items to the action bar if it is present.
+//        getMenuInflater().inflate(R.menu.menu_name_safe, menu);
+//        return true;
+//    }
+//    @Override
+//    public boolean onOptionsItemSelected(MenuItem item)
+//    {
+//        switch (item.getItemId())
+//        {
+//            case R.id.edit_home_safe:
+//                Intent intent = new Intent(ProfileActivity.this, MainActivity.class);
+//                startActivity(intent);
+//                finish();
+//                return true;
+//            default:
+//                return super.onOptionsItemSelected(item);
+//        }
+//    }
 
 }

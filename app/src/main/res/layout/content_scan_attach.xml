@@ -12,13 +12,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/ic_file_document"
-        android:layout_alignTop="@+id/content"
-        android:layout_toLeftOf="@+id/content"
-        android:layout_toStartOf="@+id/content"
-        android:layout_marginRight="19dp"
-        android:layout_marginEnd="19dp"
         android:id="@+id/imageView9"
-        android:layout_alignBottom="@+id/content" />
+        android:layout_alignTop="@+id/content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="15dp"
+        android:layout_marginStart="15dp"
+        android:layout_above="@+id/pack" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -26,11 +26,13 @@
         android:inputType="textPersonName"
         android:ems="12"
         android:id="@+id/content"
-        android:layout_marginTop="29dp"
+
+        android:layout_marginTop="26dp"
         android:hint="Contents"
         android:singleLine="true"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_toRightOf="@+id/imageView9"
+        android:layout_toEndOf="@+id/imageView9" />
 
 
 
@@ -114,6 +116,15 @@
         android:id="@+id/imageView14"
         android:layout_alignTop="@+id/load" />
 
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_event_black_24dp"
+        android:layout_alignTop="@+id/Edate"
+        android:layout_alignLeft="@+id/imageView14"
+        android:layout_alignStart="@+id/imageView14"
+        android:id="@+id/imageView15"
+        android:layout_alignBottom="@+id/Edate" />
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -131,18 +142,10 @@
         android:layout_alignLeft="@+id/load"
         android:layout_alignStart="@+id/load" />
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/ic_event_black_24dp"
-        android:layout_alignTop="@+id/Edate"
-        android:layout_alignLeft="@+id/imageView14"
-        android:layout_alignStart="@+id/imageView14"
-        android:id="@+id/imageView15"
-        android:layout_alignBottom="@+id/Edate" />
+
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="70dp"
          android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:background="@color/colorPrimary"
@@ -152,15 +155,19 @@
 
         <TextView
             android:text="TextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:textColor="@color/half_black"
             android:id="@+id/qrscani"
+            android:textSize="14sp"
+            android:gravity="center|left"
             android:layout_marginLeft="27dp"
             android:layout_marginStart="27dp"
             android:layout_centerVertical="true"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+            android:layout_alignParentStart="true"
+            android:layout_toLeftOf="@+id/savescan"
+            android:layout_toStartOf="@+id/savescan" />
 
         <ImageButton
             android:layout_width="60dp"

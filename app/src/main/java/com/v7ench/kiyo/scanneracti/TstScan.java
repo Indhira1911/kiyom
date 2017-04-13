@@ -100,6 +100,7 @@ public class TstScan extends AppCompatActivity implements ZXingScannerView.Resul
                         JSONObject user = jObj.getJSONObject("user");
                         String dqr = user .getString("dqr");
                         Intent myIntent = new Intent(TstScan.this,ColorPickerActivity.class);
+                        Toast.makeText(getApplicationContext(),"Tap on Screen to get Color",Toast.LENGTH_SHORT).show();
                         myIntent.putExtra("dqr",dqr);
                         startActivity(myIntent);
                     }

@@ -33,11 +33,11 @@ import static com.v7ench.kiyo.R.id.email;
 
 public class SignupActivity extends android.support.v4.app.Fragment {
 EditText Ename,Emono,Eemail,Epass;
-    String Sname,Semail,Smono,Spass,Stype;
+    String Sname,Semail,Smono,Spass,Stype,Sstate;
     FloatingActionButton signup;
     private SessionManager session;
     private SQLiteHandler db;
-    Spinner delarea;
+    Spinner delarea,Sallatate;
     private ProgressDialog dialog;
     @Override
     public View onCreateView(LayoutInflater inflater,@Nullable final ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -47,13 +47,16 @@ EditText Ename,Emono,Eemail,Epass;
         Emono =(EditText) v.findViewById(R.id.mobilenumber);
         Epass =(EditText) v.findViewById(R.id.password);
         delarea=(Spinner) v.findViewById(R.id.deliarea);
-
+Sallatate=(Spinner) v.findViewById(R.id.allstate);
         signup =(FloatingActionButton) v.findViewById(R.id.signup);
         final String[] list = getResources().getStringArray(R.array.darea);
         final ArrayAdapter<String> adapter = new ArrayAdapter<String>(getContext(),
                 android.R.layout.simple_dropdown_item_1line, list);
-
+        final String[] list2 = getResources().getStringArray(R.array.state);
+        final ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(getContext(),
+                android.R.layout.simple_dropdown_item_1line, list2);
         delarea.setAdapter(adapter);
+        Sallatate.setAdapter(adapter2);
         session = new SessionManager(getActivity());
         dialog = new ProgressDialog(getActivity());
         dialog.setIndeterminate(true);
@@ -73,7 +76,7 @@ EditText Ename,Emono,Eemail,Epass;
         signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+Sstate=Sallatate.getSelectedItem().toString();
                 Stype =delarea.getSelectedItem().toString();
                 Sname=Ename.getText().toString();
                 Semail=Eemail.getText().toString();
@@ -99,7 +102,7 @@ EditText Ename,Emono,Eemail,Epass;
                 }
                 else {
                     dialog.show();
-                   signup(Sname,Semail,Smono,Spass,Stype);
+                   signup(Sname,Semail,Smono,Spass,Stype,Sstate);
 
                 }
             }
@@ -112,7 +115,7 @@ EditText Ename,Emono,Eemail,Epass;
 
 
     }
-    public  void signup(final String sname, final String semail, final String smono, final String spass,final String stype)
+    public  void signup(final String sname, final String semail, final String smono, final String spass,final String stype,final String sstate)
     {
         String tag_string_req = "req_register";
         StringRequest stringRequest =new StringRequest(Request.Method.POST, UrlReq.SIGNUP,
@@ -172,6 +175,7 @@ EditText Ename,Emono,Eemail,Epass;
                 params.put("pnum",smono);
                 params.put("password",spass);
                 params.put("type",stype);
+                params.put("sstate",sstate);
                 return params;
             }
         };

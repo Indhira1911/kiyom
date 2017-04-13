@@ -15,7 +15,7 @@ HTextView hTextView;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
         hTextView=(HTextView) findViewById(R.id.text2);
-        hTextView.animateText("Alpha Safe");
+        hTextView.animateText("AlphaSafe");
         new Handler().postDelayed(new Runnable(){
             @Override
             public void run() {
